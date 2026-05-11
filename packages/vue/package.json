@@ -1,0 +1,8 @@
+{
+  "name": "@talon-ui/vue",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Vue 3 components for the Talon Pilot design system (Phase 2 placeholder).",
+  "license": "MIT",
+  "type": "module"
+}
