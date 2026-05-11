@@ -21,6 +21,30 @@
 
 ---
 
+## Code-file convention (applies to every task that CREATES a code file)
+
+Every newly-created `.mjs` / `.cjs` / `.js` / `.ts` / `.tsx` / `.vue` / `.css` / `.scss` file MUST begin with the following header (exact bytes):
+
+```
+/*
+ * Copyright (c) 2026 Talon Contributors
+ * Author: dark.lijin@gmail.com
+ * Licensed under the MIT License.
+ */
+```
+
+Rules:
+
+- Place the header as the very first content. Any pre-existing file-level comment follows after one blank line.
+- For Vue SFCs, place the header inside `<script setup>` as its first line (Prettier collapses bare top-of-file block comments otherwise).
+- JSON / Markdown / HTML / YAML files do NOT receive the header.
+- Third-party content (`skills/shadcn-ui/**`) is untouched.
+- Tasks 14, 16, 18, 19, 20, 24, 27 all create code files — they MUST apply this header.
+
+The LICENSE file at repo root is the standard MIT License (Task 28).
+
+---
+
 ## Task 1: Initialise git repository
 
 **Files:**
@@ -2072,12 +2096,12 @@ git commit -m "test: add Vite + React smoke example consuming @talon-ui packages
 - Create: `README.md`
 - Create: `LICENSE`
 
-- [ ] **Step 1: Write `LICENSE` (MIT, current year, placeholder holder)**
+- [ ] **Step 1: Write `LICENSE` (MIT, current year)**
 
 ```text
 MIT License
 
-Copyright (c) 2026 Talon UI maintainers
+Copyright (c) 2026 Talon Contributors
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
