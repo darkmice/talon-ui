@@ -5,3 +5,4 @@
  */
 
 export { cn } from './primitives/cn.js';
+export * from './components/button/index.js';
