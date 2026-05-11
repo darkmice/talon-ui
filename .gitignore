@@ -1,0 +1,12 @@
+node_modules/
+dist/
+.tmp/
+.turbo/
+*.log
+.DS_Store
+coverage/
+.changeset/.cache
+apps/docs/dist/
+apps/docs/.astro/
+.vscode/*
+!.vscode/extensions.json
