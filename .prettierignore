@@ -1,0 +1,10 @@
+node_modules
+dist
+.turbo
+.tmp
+coverage
+pnpm-lock.yaml
+**/__baseline__
+apps/docs/dist
+apps/docs/.astro
+**/__snapshots__

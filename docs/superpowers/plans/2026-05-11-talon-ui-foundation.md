@@ -24,6 +24,7 @@
 ## Task 1: Initialise git repository
 
 **Files:**
+
 - Create: `.gitignore`
 - Create: `.gitattributes`
 - Create: `.editorconfig`
@@ -119,6 +120,7 @@ git add .
 Run: `git ls-files -s | grep '^120000' | head`
 
 Expected output (mode `120000` indicates symlink): at least
+
 ```
 120000 ... 0	.claude/skills
 120000 ... 0	.codex/skills
@@ -137,6 +139,7 @@ git commit -m "chore: snapshot existing skills and agent directories"
 ## Task 3: Root `package.json`
 
 **Files:**
+
 - Create: `package.json`
 
 - [ ] **Step 1: Write the file**
@@ -150,11 +153,7 @@ git commit -m "chore: snapshot existing skills and agent directories"
   "engines": {
     "node": ">=20"
   },
-  "workspaces": [
-    "packages/*",
-    "apps/*",
-    "examples/*"
-  ],
+  "workspaces": ["packages/*", "apps/*", "examples/*"],
   "scripts": {
     "build": "turbo run build",
     "dev": "turbo run dev --parallel",
@@ -195,6 +194,7 @@ git commit -m "chore: add root workspace package.json"
 ## Task 4: pnpm workspace configuration
 
 **Files:**
+
 - Create: `pnpm-workspace.yaml`
 - Create: `.npmrc`
 
@@ -229,6 +229,7 @@ git commit -m "chore: configure pnpm workspaces"
 ## Task 5: Turborepo configuration
 
 **Files:**
+
 - Create: `turbo.json`
 
 - [ ] **Step 1: Write `turbo.json`**
@@ -281,6 +282,7 @@ git commit -m "chore: add turborepo task graph"
 ## Task 6: Base TypeScript configuration
 
 **Files:**
+
 - Create: `tsconfig.base.json`
 
 - [ ] **Step 1: Write `tsconfig.base.json`**
@@ -323,6 +325,7 @@ git commit -m "chore: add shared TypeScript base config"
 ## Task 7: Lint + format configuration
 
 **Files:**
+
 - Create: `.prettierrc.json`
 - Create: `.prettierignore`
 - Create: `eslint.config.mjs`
@@ -378,7 +381,8 @@ export default tseslint.config(
       'no-restricted-syntax': [
         'error',
         {
-          selector: "Literal[value=/^#(?!DC2626|B91C1C|F59E0B|E6F8EC|FCE3E1|CDEFD8|F4C7C3)[0-9A-Fa-f]{6}$/]",
+          selector:
+            'Literal[value=/^#(?!DC2626|B91C1C|F59E0B|E6F8EC|FCE3E1|CDEFD8|F4C7C3)[0-9A-Fa-f]{6}$/]',
           message: 'Hard-coded hex outside the allowlist is forbidden. Use tokens instead.',
         },
       ],
@@ -418,6 +422,7 @@ git commit -m "chore: add eslint + prettier baseline"
 **Why:** `.agents/skills/` is currently a real directory containing `shadcn-ui/`, leftover from an earlier project-scope install. The contract from spec §1 requires `.agents/skills/` to be a symlink. We back up the contents, prove they can be restored via `skills-lock.json`, then remove the real directory.
 
 **Files:**
+
 - Delete (then recreate as symlink in Task 9): `.agents/skills/`
 
 - [ ] **Step 1: Confirm shadcn-ui is tracked in `skills-lock.json`**
@@ -456,6 +461,7 @@ git commit -m "chore: remove obsolete project-local .agents/skills (restored fro
 ## Task 9: Convert agent runtime directories to symlinks
 
 **Files:**
+
 - Create: `.agents/skills` (symlink)
 - Create: `.codex/.claude/skills` (symlink)
 
@@ -475,6 +481,7 @@ ln -s ../../skills .codex/.claude/skills
 - [ ] **Step 3: Verify both symlinks resolve to repo-root `skills/`**
 
 Run:
+
 ```bash
 readlink -f .agents/skills
 readlink -f .codex/.claude/skills
@@ -504,6 +511,7 @@ git commit -m "chore: symlink agent runtime skill dirs to repo-root skills/"
 ## Task 10: `scripts/verify-skill-symlinks.mjs`
 
 **Files:**
+
 - Create: `scripts/verify-skill-symlinks.mjs`
 - Create: `scripts/__tests__/verify-skill-symlinks.test.mjs`
 
@@ -628,6 +636,7 @@ git commit -m "feat(scripts): add verify-skill-symlinks with tests"
 ## Task 11: Create `packages/tokens` directory and move source files
 
 **Files:**
+
 - Create: `packages/tokens/src/` (4 files moved in)
 - Modify: `skills/talon-ui/assets/` (files removed; symlinks added in Task 12)
 
@@ -669,6 +678,7 @@ git commit -m "refactor(tokens): move token source-of-truth into packages/tokens
 ## Task 12: Reverse-symlink token files from skill assets
 
 **Files:**
+
 - Create: 4 symlinks under `skills/talon-ui/assets/`
 
 - [ ] **Step 1: Create the four symlinks (relative paths)**
@@ -717,6 +727,7 @@ git commit -m "feat(skill): reverse-symlink token assets to packages/tokens (sin
 **Why:** Per spec §3.2 step 2, before locking the migration we walk `design.md` §§2–4 and §6 anatomy and correct any drift in the moved files. The values that land in `packages/tokens/src/` after this pass become authoritative for the lifetime of the library.
 
 **Files:**
+
 - Possibly modify: `packages/tokens/src/tokens.css`
 - Possibly modify: `packages/tokens/src/tokens.json`
 - Possibly modify: `packages/tokens/src/tailwind.preset.js`
@@ -769,6 +780,7 @@ If `git diff` shows no changes (clean import), still commit a marker: `git commi
 ## Task 14: `scripts/verify-token-parity.mjs`
 
 **Files:**
+
 - Create: `scripts/verify-token-parity.mjs`
 - Create: `scripts/__tests__/verify-token-parity.test.mjs`
 
@@ -777,7 +789,11 @@ If `git diff` shows no changes (clean import), still commit a marker: `git commi
 ```js
 // scripts/__tests__/verify-token-parity.test.mjs
 import { test, expect } from 'vitest';
-import { extractTokensFromCss, extractTokensFromPreset, diffTokens } from '../verify-token-parity.mjs';
+import {
+  extractTokensFromCss,
+  extractTokensFromPreset,
+  diffTokens,
+} from '../verify-token-parity.mjs';
 
 const cssFixture = `
 :root {
@@ -830,7 +846,7 @@ import { readFileSync, existsSync } from 'node:fs';
 import { resolve } from 'node:path';
 
 const VAR_DECL = /--tp-[a-z0-9-]+\s*:\s*([^;]+);/g;
-const VAR_REF  = /var\((--tp-[a-z0-9-]+)\)/g;
+const VAR_REF = /var\((--tp-[a-z0-9-]+)\)/g;
 
 export function extractTokensFromCss(css) {
   const out = {};
@@ -865,19 +881,19 @@ export function extractTokensFromJson(jsonObj) {
 export function diffTokens(cssMap, refs) {
   const cssKeys = new Set(Object.keys(cssMap));
   const missing = [...refs].filter((k) => !cssKeys.has(k));
-  const unused  = [...cssKeys].filter((k) => !refs.has(k));
+  const unused = [...cssKeys].filter((k) => !refs.has(k));
   return { missing, unused };
 }
 
 export async function verifyTokenParity(rootDir) {
-  const cssPath    = resolve(rootDir, 'packages/tokens/src/tokens.css');
-  const jsonPath   = resolve(rootDir, 'packages/tokens/src/tokens.json');
+  const cssPath = resolve(rootDir, 'packages/tokens/src/tokens.css');
+  const jsonPath = resolve(rootDir, 'packages/tokens/src/tokens.json');
   const presetPath = resolve(rootDir, 'packages/tokens/src/tailwind.preset.js');
   for (const p of [cssPath, jsonPath, presetPath]) {
     if (!existsSync(p)) throw new Error(`missing: ${p}`);
   }
-  const css   = extractTokensFromCss(readFileSync(cssPath, 'utf8'));
-  const json  = extractTokensFromJson(JSON.parse(readFileSync(jsonPath, 'utf8')));
+  const css = extractTokensFromCss(readFileSync(cssPath, 'utf8'));
+  const json = extractTokensFromJson(JSON.parse(readFileSync(jsonPath, 'utf8')));
   const preset = extractTokensFromPreset((await import(presetPath)).default);
   const refs = new Set([...json, ...preset]);
   const { missing, unused } = diffTokens(css, refs);
@@ -885,7 +901,7 @@ export async function verifyTokenParity(rootDir) {
     throw new Error(
       'Token parity failed:\n' +
         (missing.length ? `  missing in CSS: ${missing.join(', ')}\n` : '') +
-        (unused.length  ? `  unused in CSS:  ${unused.join(', ')}\n`  : ''),
+        (unused.length ? `  unused in CSS:  ${unused.join(', ')}\n` : ''),
     );
   }
   return true;
@@ -894,7 +910,10 @@ export async function verifyTokenParity(rootDir) {
 if (import.meta.url === `file://${process.argv[1]}`) {
   verifyTokenParity(process.cwd())
     .then(() => console.log('token parity OK'))
-    .catch((e) => { console.error(e.message); process.exit(1); });
+    .catch((e) => {
+      console.error(e.message);
+      process.exit(1);
+    });
 }
 ```
 
@@ -922,6 +941,7 @@ git commit -m "feat(scripts): add verify-token-parity with tests"
 ## Task 15: `@talon-ui/tokens` package manifest
 
 **Files:**
+
 - Create: `packages/tokens/package.json`
 - Create: `packages/tokens/README.md`
 - Create: `packages/tokens/tsconfig.json`
@@ -1019,6 +1039,7 @@ git commit -m "feat(tokens): scaffold @talon-ui/tokens package"
 ## Task 16: Tokens build script
 
 **Files:**
+
 - Create: `packages/tokens/scripts/build.mjs`
 
 - [ ] **Step 1: Write the build script**
@@ -1030,27 +1051,26 @@ import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const here = dirname(fileURLToPath(import.meta.url));
-const pkg  = resolve(here, '..');
-const src  = resolve(pkg, 'src');
+const pkg = resolve(here, '..');
+const src = resolve(pkg, 'src');
 const dist = resolve(pkg, 'dist');
 
 if (existsSync(dist)) rmSync(dist, { recursive: true });
 mkdirSync(dist, { recursive: true });
 
-const files = [
-  'tokens.css',
-  'tokens.json',
-  'tailwind.v4.css',
-  'tailwind.preset.js',
-];
+const files = ['tokens.css', 'tokens.json', 'tailwind.v4.css', 'tailwind.preset.js'];
 for (const f of files) cpSync(resolve(src, f), resolve(dist, f));
 
 // Emit JS + d.ts shims for the JSON tokens
 const tokens = JSON.parse(readFileSync(resolve(src, 'tokens.json'), 'utf8'));
-writeFileSync(resolve(dist, 'index.js'),
-  `const tokens = ${JSON.stringify(tokens, null, 2)};\nexport const TalonTokens = tokens;\nexport default tokens;\n`);
-writeFileSync(resolve(dist, 'index.d.ts'),
-  `declare const tokens: ${typeof tokens === 'object' ? 'Record<string, unknown>' : 'unknown'};\nexport const TalonTokens: typeof tokens;\nexport default tokens;\n`);
+writeFileSync(
+  resolve(dist, 'index.js'),
+  `const tokens = ${JSON.stringify(tokens, null, 2)};\nexport const TalonTokens = tokens;\nexport default tokens;\n`,
+);
+writeFileSync(
+  resolve(dist, 'index.d.ts'),
+  `declare const tokens: ${typeof tokens === 'object' ? 'Record<string, unknown>' : 'unknown'};\nexport const TalonTokens: typeof tokens;\nexport default tokens;\n`,
+);
 
 console.log('@talon-ui/tokens built:', files.concat(['index.js', 'index.d.ts']).join(', '));
 ```
@@ -1083,6 +1103,7 @@ git commit -m "feat(tokens): add build script (copy + JS shim)"
 ## Task 17: `@talon-ui/react` package skeleton
 
 **Files:**
+
 - Create: `packages/react/package.json`
 - Create: `packages/react/tsconfig.json`
 - Create: `packages/react/README.md`
@@ -1180,7 +1201,7 @@ export { cn } from './primitives/cn.js';
 
 - [ ] **Step 5: Write `README.md`**
 
-```markdown
+````markdown
 # @talon-ui/react
 
 React components for the Talon Pilot design system.
@@ -1190,13 +1211,17 @@ React components for the Talon Pilot design system.
 ```bash
 pnpm add @talon-ui/react @talon-ui/tokens
 ```
+````
 
 ## Use (Tailwind project)
 
 ```ts
 // tailwind.config.ts
 import preset from '@talon-ui/tokens/preset';
-export default { presets: [preset], content: ['./src/**/*.{ts,tsx}', './node_modules/@talon-ui/react/dist/**/*.js'] };
+export default {
+  presets: [preset],
+  content: ['./src/**/*.{ts,tsx}', './node_modules/@talon-ui/react/dist/**/*.js'],
+};
 ```
 
 Then `import '@talon-ui/tokens/css'` once in your app entry.
@@ -1208,13 +1233,14 @@ import '@talon-ui/react/styles.css';
 ```
 
 Toggle dark mode by setting `<html data-theme="dark">` or `<html class="dark">`.
-```
+
+````
 
 - [ ] **Step 6: Install workspace deps**
 
 ```bash
 pnpm install
-```
+````
 
 Expected: pnpm wires `@talon-ui/tokens` as a workspace link inside `@talon-ui/react`.
 
@@ -1230,6 +1256,7 @@ git commit -m "feat(react): scaffold @talon-ui/react package"
 ## Task 18: `cn` helper with TDD
 
 **Files:**
+
 - Create: `packages/react/src/primitives/cn.ts`
 - Create: `packages/react/src/primitives/cn.test.ts`
 
@@ -1324,6 +1351,7 @@ git commit -m "feat(react): add cn() primitive with tests"
 ## Task 19: tsup config for `@talon-ui/react`
 
 **Files:**
+
 - Create: `packages/react/tsup.config.ts`
 
 - [ ] **Step 1: Write tsup config**
@@ -1372,6 +1400,7 @@ git commit -m "feat(react): add tsup config (ESM + CJS + dts)"
 ## Task 20: Tailwind CSS build script
 
 **Files:**
+
 - Create: `packages/react/scripts/build-css.mjs`
 - Create: `packages/react/tailwind.config.cjs`
 
@@ -1397,10 +1426,10 @@ import { existsSync, statSync, readFileSync, writeFileSync, mkdirSync } from 'no
 import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-const here  = dirname(fileURLToPath(import.meta.url));
-const pkg   = resolve(here, '..');
+const here = dirname(fileURLToPath(import.meta.url));
+const pkg = resolve(here, '..');
 const input = resolve(pkg, 'src/styles/react.css');
-const out   = resolve(pkg, 'dist/styles.css');
+const out = resolve(pkg, 'dist/styles.css');
 
 if (!existsSync(dirname(out))) mkdirSync(dirname(out), { recursive: true });
 
@@ -1408,15 +1437,23 @@ if (!existsSync(dirname(out))) mkdirSync(dirname(out), { recursive: true });
 const tokensCss = readFileSync(resolve(pkg, '../tokens/src/tokens.css'), 'utf8');
 const tmp = resolve(pkg, '.tmp/react.entry.css');
 mkdirSync(dirname(tmp), { recursive: true });
-writeFileSync(tmp, `${tokensCss}\n${readFileSync(input, 'utf8').replace(/@import .*tokens\/css.*;?/, '')}\n`);
+writeFileSync(
+  tmp,
+  `${tokensCss}\n${readFileSync(input, 'utf8').replace(/@import .*tokens\/css.*;?/, '')}\n`,
+);
 
 const cmd = [
   'tailwindcss',
-  '-c', resolve(pkg, 'tailwind.config.cjs'),
-  '-i', tmp,
-  '-o', out,
+  '-c',
+  resolve(pkg, 'tailwind.config.cjs'),
+  '-i',
+  tmp,
+  '-o',
+  out,
   process.env.NODE_ENV === 'production' ? '--minify' : '',
-].filter(Boolean).join(' ');
+]
+  .filter(Boolean)
+  .join(' ');
 
 execSync(`pnpm exec ${cmd}`, { stdio: 'inherit', cwd: pkg });
 
@@ -1453,6 +1490,7 @@ git commit -m "feat(react): add Tailwind CSS build pipeline (dist/styles.css)"
 ## Task 21: `@talon-ui/vue` Phase-2 placeholder
 
 **Files:**
+
 - Create: `packages/vue/package.json`
 - Create: `packages/vue/README.md`
 
@@ -1489,6 +1527,7 @@ git commit -m "chore: reserve packages/vue workspace slot (private placeholder)"
 ## Task 22: Changesets initialisation
 
 **Files:**
+
 - Modified: `.changeset/config.json`
 
 - [ ] **Step 1: Initialise**
@@ -1537,14 +1576,15 @@ git commit -m "chore: configure changesets for monorepo release"
 ## Task 23: First changeset — initial alpha versions
 
 **Files:**
+
 - Create: `.changeset/initial-alpha.md`
 
 - [ ] **Step 1: Write the changeset**
 
 ```md
 ---
-"@talon-ui/tokens": minor
-"@talon-ui/react": minor
+'@talon-ui/tokens': minor
+'@talon-ui/react': minor
 ---
 
 Initial alpha bring-up: tokens package owns design-token source-of-truth (reverse-symlinked into skills/talon-ui/assets/), React package ships an empty barrel + `cn` helper, dual-track styling (Tailwind preset + precompiled CSS) infrastructure landed.
@@ -1570,6 +1610,7 @@ git commit -m "chore: changeset for initial 0.1.0 bring-up"
 ## Task 24: `scripts/preflight.mjs`
 
 **Files:**
+
 - Create: `scripts/preflight.mjs`
 - Create: `scripts/__tests__/preflight.test.mjs`
 
@@ -1646,7 +1687,7 @@ import { join, resolve } from 'node:path';
 import { execSync } from 'node:child_process';
 
 const REQUIRED_FILES = {
-  '@talon-ui/react':  ['index.js', 'index.cjs', 'index.d.ts', 'styles.css'],
+  '@talon-ui/react': ['index.js', 'index.cjs', 'index.d.ts', 'styles.css'],
   '@talon-ui/tokens': ['index.js', 'index.d.ts', 'tokens.css', 'tokens.json'],
 };
 const STYLES_CSS_MIN_BYTES = 1024;
@@ -1734,6 +1775,7 @@ git commit -m "feat(scripts): add preflight publish audit"
 ## Task 25: GitHub Actions CI workflow
 
 **Files:**
+
 - Create: `.github/workflows/ci.yml`
 
 - [ ] **Step 1: Write `.github/workflows/ci.yml`**
@@ -1786,6 +1828,7 @@ git commit -m "ci: add CI workflow (lint, test, build, preflight)"
 ## Task 26: GitHub Actions release workflow
 
 **Files:**
+
 - Create: `.github/workflows/release.yml`
 
 - [ ] **Step 1: Write `.github/workflows/release.yml`**
@@ -1826,8 +1869,8 @@ jobs:
         with:
           publish: pnpm release
           version: pnpm version-packages
-          commit: "chore: release"
-          title: "chore: release"
+          commit: 'chore: release'
+          title: 'chore: release'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
@@ -1845,6 +1888,7 @@ git commit -m "ci: add release workflow (changesets-driven publish)"
 ## Task 27: Minimal Vite + React example
 
 **Files:**
+
 - Create: `examples/vite-react/package.json`
 - Create: `examples/vite-react/vite.config.ts`
 - Create: `examples/vite-react/tsconfig.json`
@@ -1917,11 +1961,7 @@ import preset from '@talon-ui/tokens/preset';
 
 export default {
   presets: [preset],
-  content: [
-    './index.html',
-    './src/**/*.{ts,tsx}',
-    '../../packages/react/dist/**/*.js',
-  ],
+  content: ['./index.html', './src/**/*.{ts,tsx}', '../../packages/react/dist/**/*.js'],
   darkMode: ['class', '[data-theme="dark"]'],
 } satisfies Config;
 ```
@@ -2028,6 +2068,7 @@ git commit -m "test: add Vite + React smoke example consuming @talon-ui packages
 ## Task 28: Root README
 
 **Files:**
+
 - Create: `README.md`
 - Create: `LICENSE`
 
@@ -2059,18 +2100,18 @@ SOFTWARE.
 
 - [ ] **Step 2: Write `README.md`**
 
-```markdown
+````markdown
 # Talon UI
 
 React (Phase 1) component library and design tokens for the Talon Pilot design system.
 
 ## Packages
 
-| Package | Purpose | Status |
-|---|---|---|
-| `@talon-ui/tokens` | Design tokens (CSS vars + JSON + Tailwind preset) | 0.x alpha |
-| `@talon-ui/react`  | React components | 0.x alpha (Block 1 in progress) |
-| `@talon-ui/vue`    | Vue components | Phase 2 placeholder |
+| Package            | Purpose                                           | Status                          |
+| ------------------ | ------------------------------------------------- | ------------------------------- |
+| `@talon-ui/tokens` | Design tokens (CSS vars + JSON + Tailwind preset) | 0.x alpha                       |
+| `@talon-ui/react`  | React components                                  | 0.x alpha (Block 1 in progress) |
+| `@talon-ui/vue`    | Vue components                                    | Phase 2 placeholder             |
 
 ## Develop
 
@@ -2080,6 +2121,7 @@ pnpm build       # all packages
 pnpm test        # all tests
 pnpm preflight   # publish audit (run before release)
 ```
+````
 
 ## Source of truth
 
@@ -2101,14 +2143,15 @@ MIT.
 - [ ] Replace `OWNER/talon-ui` in `.changeset/config.json` with the real GitHub `owner/repo`.
 - [ ] Reserve the `@talon-ui` npm scope.
 - [ ] Add `NPM_TOKEN` secret to the GitHub repository.
-```
+
+````
 
 - [ ] **Step 3: Commit**
 
 ```bash
 git add README.md LICENSE
 git commit -m "docs: add root README and MIT LICENSE"
-```
+````
 
 ---
 
@@ -2234,33 +2277,34 @@ Expected: `preflight OK`.
 
 **1. Spec coverage check:**
 
-| Spec section | Plan task(s) |
-|---|---|
-| §1 monorepo layout | Tasks 3, 4, 5, 6 |
-| §1 skill-symlink contract | Tasks 8, 9, 10 |
-| §2.1 `@talon-ui/tokens` package shape | Tasks 11, 12, 15, 16 |
-| §2.2 `@talon-ui/react` package shape | Tasks 17, 18, 19, 20 |
-| §2.3 `@talon-ui/vue` placeholder | Task 21 |
-| §2.4 dual-track styling | Tasks 17, 20 (Tailwind preset path + precompiled CSS) |
-| §3.1–3.2 token migration | Tasks 11, 12, 13 |
-| §3.3 hard-pin colour rule | Task 7 (ESLint `no-restricted-syntax`) |
-| §4 component internals | Out of scope for Foundation; Block 1 plan |
-| §5.1 Turborepo graph | Task 5 |
-| §5.2 tsup choice | Task 19 |
-| §5.3 Tailwind compile to styles.css | Task 20 |
-| §5.4 `exports`, `sideEffects` | Tasks 17, 24 |
-| §5.5 CI / release workflows | Tasks 25, 26 |
-| §6 docs site | Out of scope for Foundation; separate plan |
-| §7 testing strategy | Foundation lays Vitest baseline (Tasks 10, 14, 18, 24); component-level testing in Block plans |
-| §8.1 Changesets tooling | Tasks 22, 23 |
-| §8.3 0.1.0 cadence | Tasks 23, 30 |
-| §8.11 preflight | Task 24 |
+| Spec section                          | Plan task(s)                                                                                   |
+| ------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| §1 monorepo layout                    | Tasks 3, 4, 5, 6                                                                               |
+| §1 skill-symlink contract             | Tasks 8, 9, 10                                                                                 |
+| §2.1 `@talon-ui/tokens` package shape | Tasks 11, 12, 15, 16                                                                           |
+| §2.2 `@talon-ui/react` package shape  | Tasks 17, 18, 19, 20                                                                           |
+| §2.3 `@talon-ui/vue` placeholder      | Task 21                                                                                        |
+| §2.4 dual-track styling               | Tasks 17, 20 (Tailwind preset path + precompiled CSS)                                          |
+| §3.1–3.2 token migration              | Tasks 11, 12, 13                                                                               |
+| §3.3 hard-pin colour rule             | Task 7 (ESLint `no-restricted-syntax`)                                                         |
+| §4 component internals                | Out of scope for Foundation; Block 1 plan                                                      |
+| §5.1 Turborepo graph                  | Task 5                                                                                         |
+| §5.2 tsup choice                      | Task 19                                                                                        |
+| §5.3 Tailwind compile to styles.css   | Task 20                                                                                        |
+| §5.4 `exports`, `sideEffects`         | Tasks 17, 24                                                                                   |
+| §5.5 CI / release workflows           | Tasks 25, 26                                                                                   |
+| §6 docs site                          | Out of scope for Foundation; separate plan                                                     |
+| §7 testing strategy                   | Foundation lays Vitest baseline (Tasks 10, 14, 18, 24); component-level testing in Block plans |
+| §8.1 Changesets tooling               | Tasks 22, 23                                                                                   |
+| §8.3 0.1.0 cadence                    | Tasks 23, 30                                                                                   |
+| §8.11 preflight                       | Task 24                                                                                        |
 
 No spec section that belongs to Foundation is unaddressed. Open items in spec §9 are intentionally deferred to later plans.
 
 **2. Placeholder scan:** No "TBD", "TODO", "fill in later" inside any task — the only TODOs are the three documented external-dependency items in `README.md` Task 28 Step 2 (GitHub owner, npm scope, NPM_TOKEN), which cannot be resolved inside this repo.
 
 **3. Type / name consistency:**
+
 - `cn` exported from `packages/react/src/primitives/cn.ts`, consumed in `examples/vite-react/src/App.tsx` ✓
 - Script function names (`verifySkillSymlinks`, `verifyTokenParity`, `auditPackage`) match between implementation and test files ✓
 - `@talon-ui/tokens` subpath exports (`/css`, `/json`, `/tailwind-v4`, `/preset`) match between the package's `exports` (Task 15) and consumer references (Tasks 17, 20, 27) ✓

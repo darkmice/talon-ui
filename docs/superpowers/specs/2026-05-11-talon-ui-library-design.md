@@ -1,10 +1,10 @@
 # @talon-ui Component Library — Design Spec
 
-| Field | Value |
-|---|---|
-| Date | 2026-05-11 |
-| Status | Draft → pending user review |
-| Repo root | `/Users/dark/WebstormProjects/talon-ui/` |
+| Field                   | Value                                               |
+| ----------------------- | --------------------------------------------------- |
+| Date                    | 2026-05-11                                          |
+| Status                  | Draft → pending user review                         |
+| Repo root               | `/Users/dark/WebstormProjects/talon-ui/`            |
 | Source skills consulted | `talon-ui` (project-vendored), `shadcn-ui` (global) |
 
 ## 0. Scope and Goals
@@ -16,6 +16,7 @@ Build `@talon-ui`, an npm-published React component library that operationalises
 **Out of scope for Phase 1:** `@talon-ui/vue` (scaffold a placeholder package only; ship in Phase 2).
 
 **Success criteria:**
+
 - All 45 components shippable from npm under `@talon-ui` scope.
 - Consumers can adopt via either Tailwind preset or one-line precompiled CSS import.
 - Token edits propagate to skill assets (and therefore to every connected agent runtime) without manual sync.
@@ -52,6 +53,7 @@ Build `@talon-ui`, an npm-published React component library that operationalises
 ```
 
 **Skill-directory contract** (written into root README, enforced in CI):
+
 - `skills/` is the only writable skill source directory in the repo.
 - Every agent runtime directory (`.claude/`, `.codex/`, `.agents/`, `.codex/.claude/`, future Cursor/Cline/etc.) MUST reference `skills/` only via symlink.
 - New agent runtimes are added by `<dir>/skills → ../skills` (or correct relative path).
@@ -75,6 +77,7 @@ packages/tokens/
 ```
 
 `package.json#exports`:
+
 - `@talon-ui/tokens` → `tokens.json` + TypeScript types
 - `@talon-ui/tokens/css` → `tokens.css`
 - `@talon-ui/tokens/tailwind-v4` → `tailwind.v4.css`
@@ -110,6 +113,7 @@ packages/react/
 ```
 
 `package.json#exports`:
+
 - `@talon-ui/react` → component JS + types
 - `@talon-ui/react/styles.css` → pre-compiled stylesheet (tokens inlined)
 - `@talon-ui/react/package.json` → for tooling
@@ -126,11 +130,11 @@ packages/react/
 
 ### 2.4 Dual-track styling contract
 
-| Consumer | Setup | Variable source | Style source |
-|---|---|---|---|
-| Tailwind v4 project | `@import "@talon-ui/tokens/tailwind-v4";` and add `node_modules/@talon-ui/react/dist/**` to content scan | tokens.css (imported by tailwind.v4.css) | consumer's Tailwind compile |
-| Tailwind v3 project | `presets: [require('@talon-ui/tokens/preset')]` + `import '@talon-ui/tokens/css'` | tokens.css | consumer's Tailwind compile |
-| Non-Tailwind project | `import '@talon-ui/react/styles.css'` | inlined at top of styles.css | precompiled by us |
+| Consumer             | Setup                                                                                                    | Variable source                          | Style source                |
+| -------------------- | -------------------------------------------------------------------------------------------------------- | ---------------------------------------- | --------------------------- |
+| Tailwind v4 project  | `@import "@talon-ui/tokens/tailwind-v4";` and add `node_modules/@talon-ui/react/dist/**` to content scan | tokens.css (imported by tailwind.v4.css) | consumer's Tailwind compile |
+| Tailwind v3 project  | `presets: [require('@talon-ui/tokens/preset')]` + `import '@talon-ui/tokens/css'`                        | tokens.css                               | consumer's Tailwind compile |
+| Non-Tailwind project | `import '@talon-ui/react/styles.css'`                                                                    | inlined at top of styles.css             | precompiled by us           |
 
 ---
 
@@ -217,10 +221,10 @@ export const buttonVariants = cva(
   {
     variants: {
       variant: {
-        primary:   'bg-primary-500 text-text-on-primary hover:bg-primary-600 active:bg-primary-700',
+        primary: 'bg-primary-500 text-text-on-primary hover:bg-primary-600 active:bg-primary-700',
         secondary: 'bg-bg-surface text-text-primary border border-border hover:bg-bg-subtle',
-        ghost:     'bg-transparent text-text-primary hover:bg-bg-subtle',
-        danger:    'bg-[#DC2626] text-white hover:bg-[#B91C1C]',
+        ghost: 'bg-transparent text-text-primary hover:bg-bg-subtle',
+        danger: 'bg-[#DC2626] text-white hover:bg-[#B91C1C]',
       },
       size: {
         sm: 'h-control-sm px-tp-3 text-caption',
@@ -240,26 +244,26 @@ We wrap rather than re-export Radix. Consumers receive `<Modal>`, `<Menu>`, `<Ta
 
 Per-component peerDeps (declared individually to keep tree-shaken trees small):
 
-| Component | Radix dep |
-|---|---|
-| Button | `@radix-ui/react-slot` |
-| Checkbox | `@radix-ui/react-checkbox` |
-| Radio | `@radix-ui/react-radio-group` |
-| Switch | `@radix-ui/react-switch` |
-| Slider | `@radix-ui/react-slider` |
-| Avatar | `@radix-ui/react-avatar` |
-| Progress | `@radix-ui/react-progress` |
-| Tabs | `@radix-ui/react-tabs` |
-| Modal | `@radix-ui/react-dialog` |
-| Drawer | `@radix-ui/react-dialog` (controlled `side="right"`) |
-| Popover, Popconfirm, DatePicker, TimePicker | `@radix-ui/react-popover` |
-| Menu (Dropdown) | `@radix-ui/react-dropdown-menu` |
-| Tooltip | `@radix-ui/react-tooltip` |
-| Toast | `@radix-ui/react-toast` |
-| Collapse | `@radix-ui/react-accordion` |
-| Combobox / AutoComplete | `cmdk` (Radix has no combobox primitive) |
-| Form | `react-hook-form` (peer) |
-| DatePicker | `react-day-picker` (peer) |
+| Component                                   | Radix dep                                            |
+| ------------------------------------------- | ---------------------------------------------------- |
+| Button                                      | `@radix-ui/react-slot`                               |
+| Checkbox                                    | `@radix-ui/react-checkbox`                           |
+| Radio                                       | `@radix-ui/react-radio-group`                        |
+| Switch                                      | `@radix-ui/react-switch`                             |
+| Slider                                      | `@radix-ui/react-slider`                             |
+| Avatar                                      | `@radix-ui/react-avatar`                             |
+| Progress                                    | `@radix-ui/react-progress`                           |
+| Tabs                                        | `@radix-ui/react-tabs`                               |
+| Modal                                       | `@radix-ui/react-dialog`                             |
+| Drawer                                      | `@radix-ui/react-dialog` (controlled `side="right"`) |
+| Popover, Popconfirm, DatePicker, TimePicker | `@radix-ui/react-popover`                            |
+| Menu (Dropdown)                             | `@radix-ui/react-dropdown-menu`                      |
+| Tooltip                                     | `@radix-ui/react-tooltip`                            |
+| Toast                                       | `@radix-ui/react-toast`                              |
+| Collapse                                    | `@radix-ui/react-accordion`                          |
+| Combobox / AutoComplete                     | `cmdk` (Radix has no combobox primitive)             |
+| Form                                        | `react-hook-form` (peer)                             |
+| DatePicker                                  | `react-day-picker` (peer)                            |
 
 ### 4.4 Phase 1 component set (45) — sprint blocks
 
@@ -277,12 +281,12 @@ KanbanCard · Progress (linear + circular) · Skeleton · Spin · Empty · Resul
 
 ### 4.5 Risk register (carried into implementation plan)
 
-| Risk | Mitigation |
-|---|---|
-| Form abstraction shape ripples through every entry component | Land Form public API in Block 2 week 1; freeze before any other Block 2 component begins. |
-| DatePicker / TimePicker / Upload each ≈ 1–2 wk of single-component effort | If Block 2 slips, push Upload to Block 4 (it has no API dependency on other entries). |
-| Combobox lacks a Radix primitive; depends on cmdk | Wrap cmdk so its public surface conforms to our naming; treat cmdk as a transitive that may be swapped later. |
-| Token reconciliation pass uncovers material drift from skill copy | Treat as design fixes inside `packages/tokens/src/`; never edit the skill copy. |
+| Risk                                                                      | Mitigation                                                                                                    |
+| ------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
+| Form abstraction shape ripples through every entry component              | Land Form public API in Block 2 week 1; freeze before any other Block 2 component begins.                     |
+| DatePicker / TimePicker / Upload each ≈ 1–2 wk of single-component effort | If Block 2 slips, push Upload to Block 4 (it has no API dependency on other entries).                         |
+| Combobox lacks a Radix primitive; depends on cmdk                         | Wrap cmdk so its public surface conforms to our naming; treat cmdk as a transitive that may be swapped later. |
+| Token reconciliation pass uncovers material drift from skill copy         | Treat as design fixes inside `packages/tokens/src/`; never edit the skill copy.                               |
 
 ---
 
@@ -309,10 +313,13 @@ Phase 1 chose tsup for setup minimalism (esbuild speed, ESM+CJS+dts in one confi
 ### 5.3 Tailwind compile to `styles.css`
 
 `packages/react/scripts/build-css.mjs`:
+
 1. Read `packages/tokens/src/tokens.css` verbatim.
 2. Write a temporary entry to `.tmp/react.entry.css`:
    ```css
-   @layer tokens { /* tokens.css contents inlined */ }
+   @layer tokens {
+     /* tokens.css contents inlined */
+   }
    @tailwind base;
    @tailwind components;
    @tailwind utilities;
@@ -337,19 +344,20 @@ A `TAILWIND_VERSION` env var (default `v3`) switches preset vs `@theme inline` m
     ".": {
       "types": "./dist/index.d.ts",
       "import": "./dist/index.js",
-      "require": "./dist/index.cjs"
+      "require": "./dist/index.cjs",
     },
     "./styles.css": "./dist/styles.css",
-    "./package.json": "./package.json"
+    "./package.json": "./package.json",
   },
   "sideEffects": ["**/*.css"],
-  "files": ["dist", "README.md"]
+  "files": ["dist", "README.md"],
 }
 ```
 
 ### 5.5 CI / Release workflows (GitHub Actions)
 
 `ci.yml` (every PR):
+
 - setup-node + pnpm
 - `pnpm install --frozen-lockfile`
 - `pnpm turbo run lint test build`
@@ -358,6 +366,7 @@ A `TAILWIND_VERSION` env var (default `v3`) switches preset vs `@theme inline` m
 - `pnpm changeset status --since=origin/main` (refuses PRs that change package source without an attached changeset)
 
 `release.yml` (push to main):
+
 - `changesets/action@v1` opens or maintains the Version PR
 - merging Version PR triggers `pnpm changeset publish` with `NPM_TOKEN`
 
@@ -406,13 +415,13 @@ Each `components/<name>.mdx` has a fixed shape (when to use → basic → varian
 
 ### 6.4 Documentation production cost
 
-| Artefact | Source | Per-component cost |
-|---|---|---|
-| Anatomy prose | design.md include | 0 (referenced) |
-| Props table | react-docgen-typescript | 0 (generated) |
-| Demo sources (basic, variants, sizes) | hand-written `.tsx` | 30–60 min |
-| Visual regression baseline | Playwright auto-capture | 0 (CI) |
-| Patterns pages | hand-written | 6–10 h total (4–6 pages) |
+| Artefact                              | Source                  | Per-component cost       |
+| ------------------------------------- | ----------------------- | ------------------------ |
+| Anatomy prose                         | design.md include       | 0 (referenced)           |
+| Props table                           | react-docgen-typescript | 0 (generated)            |
+| Demo sources (basic, variants, sizes) | hand-written `.tsx`     | 30–60 min                |
+| Visual regression baseline            | Playwright auto-capture | 0 (CI)                   |
+| Patterns pages                        | hand-written            | 6–10 h total (4–6 pages) |
 
 Total docs writing budget: ≈ 1 working week for the 45 component pages.
 
@@ -430,24 +439,24 @@ Cloudflare Pages or Vercel; main-branch push → preview, release → production
 
 ### 7.1 Pyramid
 
-| Layer | Tool | Run on |
-|---|---|---|
-| Unit | Vitest | every PR, 100% on `primitives/` |
-| Component / integration | Vitest + React Testing Library + `@axe-core/react` | every PR |
-| Visual regression | Playwright screenshot against docs demo pages | every PR |
-| End-to-end integration | `examples/*` apps booted via Playwright | weekly + pre-release |
+| Layer                   | Tool                                               | Run on                          |
+| ----------------------- | -------------------------------------------------- | ------------------------------- |
+| Unit                    | Vitest                                             | every PR, 100% on `primitives/` |
+| Component / integration | Vitest + React Testing Library + `@axe-core/react` | every PR                        |
+| Visual regression       | Playwright screenshot against docs demo pages      | every PR                        |
+| End-to-end integration  | `examples/*` apps booted via Playwright            | weekly + pre-release            |
 
 ### 7.2 Per-component required matrix
 
-| Test | Concern | Tool |
-|---|---|---|
-| Rendering | default variant, prop pass-through, forwardRef target | RTL |
-| Variants | every `variant × size` snapshot | Vitest inline snapshot |
-| Behaviour | click / keyboard / hover / focus / disabled / loading | RTL + user-event |
-| Controlled | controlled + uncontrolled + onChange | RTL |
-| A11y | axe 0 violations, role, label, ARIA | @axe-core/react |
-| Theme | light + dark screenshots | Playwright |
-| Anatomy | DOM structure matches design.md §6.x | Vitest (`*.anatomy.test.ts`) |
+| Test       | Concern                                               | Tool                         |
+| ---------- | ----------------------------------------------------- | ---------------------------- |
+| Rendering  | default variant, prop pass-through, forwardRef target | RTL                          |
+| Variants   | every `variant × size` snapshot                       | Vitest inline snapshot       |
+| Behaviour  | click / keyboard / hover / focus / disabled / loading | RTL + user-event             |
+| Controlled | controlled + uncontrolled + onChange                  | RTL                          |
+| A11y       | axe 0 violations, role, label, ARIA                   | @axe-core/react              |
+| Theme      | light + dark screenshots                              | Playwright                   |
+| Anatomy    | DOM structure matches design.md §6.x                  | Vitest (`*.anatomy.test.ts`) |
 
 ### 7.3 Anatomy lock
 
@@ -470,11 +479,11 @@ Cloudflare Pages or Vercel; main-branch push → preview, release → production
 
 ### 7.7 Coverage gates
 
-| Path | Line | Branch |
-|---|---|---|
-| `src/primitives/` | 100% | 100% |
-| `src/components/*` (Blocks 1–3) | ≥ 85% | ≥ 80% |
-| `src/components/*` (Block 4 business rows) | ≥ 70% | ≥ 65% |
+| Path                                       | Line  | Branch |
+| ------------------------------------------ | ----- | ------ |
+| `src/primitives/`                          | 100%  | 100%   |
+| `src/components/*` (Blocks 1–3)            | ≥ 85% | ≥ 80%  |
+| `src/components/*` (Block 4 business rows) | ≥ 70% | ≥ 65%  |
 
 ---
 
@@ -486,13 +495,14 @@ Cloudflare Pages or Vercel; main-branch push → preview, release → production
 
 ### 8.2 Versioning rules
 
-| Change | Bump |
-|---|---|
-| anatomy bug fix, internal refactor, a11y patch | patch |
-| new component, new prop, additive token | minor |
+| Change                                                                          | Bump  |
+| ------------------------------------------------------------------------------- | ----- |
+| anatomy bug fix, internal refactor, a11y patch                                  | patch |
+| new component, new prop, additive token                                         | minor |
 | prop removed or default changed, anatomy change, token value changed or removed | major |
 
 Special rules:
+
 - Adding a token = minor; changing a token value = major; removing = major.
 - During 0.x: breaking changes go in minor but are tagged `BREAKING` in CHANGELOG. Strict semver from 1.0.
 
@@ -506,6 +516,7 @@ Special rules:
 ### 8.4 1.0.0 gate
 
 All four must hold:
+
 1. 45 components complete and documented.
 2. At least one internal production project on `@talon-ui` for ≥ 4 weeks with zero P0 bugs.
 3. Docs site live; token parity / anatomy / a11y / visual tests green for ≥ 2 weeks.
@@ -522,11 +533,11 @@ All four must hold:
 
 ### 8.6 Publish matrix (Phase 1)
 
-| Package | Published? | npm tag |
-|---|---|---|
-| `@talon-ui/tokens` | yes (0.x+) | `latest` |
-| `@talon-ui/react` | yes (0.x+) | `latest` |
-| `@talon-ui/vue` | no (`private: true`) | – |
+| Package            | Published?           | npm tag  |
+| ------------------ | -------------------- | -------- |
+| `@talon-ui/tokens` | yes (0.x+)           | `latest` |
+| `@talon-ui/react`  | yes (0.x+)           | `latest` |
+| `@talon-ui/vue`    | no (`private: true`) | –        |
 
 ### 8.7 npm scope & permissions
 
@@ -536,11 +547,11 @@ All four must hold:
 
 ### 8.8 Pre-release channels
 
-| Tag | Trigger | Use |
-|---|---|---|
-| `next` | main push → `pnpm changeset version --snapshot next && publish --tag next` | internal docs / integration previews |
-| `canary` | feature-branch label `canary` | personal validation |
-| `latest` | Version PR merge | public stable |
+| Tag      | Trigger                                                                    | Use                                  |
+| -------- | -------------------------------------------------------------------------- | ------------------------------------ |
+| `next`   | main push → `pnpm changeset version --snapshot next && publish --tag next` | internal docs / integration previews |
+| `canary` | feature-branch label `canary`                                              | personal validation                  |
+| `latest` | Version PR merge                                                           | public stable                        |
 
 ### 8.9 Breaking change communication
 
@@ -555,6 +566,7 @@ MIT for all published packages. Each `package.json` declares the license; root `
 ### 8.11 Pre-publish safety
 
 `scripts/preflight.mjs` runs in `prepublishOnly` and aborts publish unless:
+
 1. `dist/` exists and is non-empty.
 2. `dist/index.{js,cjs,d.ts}` present.
 3. `dist/styles.css` present and ≥ 1 KB.

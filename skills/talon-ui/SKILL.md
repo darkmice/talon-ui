@@ -11,17 +11,17 @@ You are reconstructing UI in **React** or **Vue** with **Tailwind CSS (v3 or v4)
 
 Read in this order. Stop as soon as you have enough to answer.
 
-| File | When to open |
-| --- | --- |
-| `references/design.md` | Always. It is the prose spec — color rules, typography rules, component anatomy, six status states, motion grammar, "do/don't" lists. |
-| `references/ui-kit.html` | Whenever the user names a component (button / tag / modal / kanban card / composer / diff block / persona card …). The HTML is the visual source of truth — open it to verify spacing, radius, anatomy. |
-| `assets/tokens.css` | When you need an exact value (color hex, spacing px, shadow, radius). |
-| `assets/tailwind.v3.config.js` | Only if the project uses Tailwind v3. |
-| `assets/tailwind.v4.css` | Only if the project uses Tailwind v4 (default). |
-| `assets/tokens.json` | If the user asks for Style Dictionary / Figma Tokens / native platform export. |
-| `examples/` | Mini reference implementations — read the one that matches the requested framework before writing your own. |
+| File                           | When to open                                                                                                                                                                                            |
+| ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `references/design.md`         | Always. It is the prose spec — color rules, typography rules, component anatomy, six status states, motion grammar, "do/don't" lists.                                                                   |
+| `references/ui-kit.html`       | Whenever the user names a component (button / tag / modal / kanban card / composer / diff block / persona card …). The HTML is the visual source of truth — open it to verify spacing, radius, anatomy. |
+| `assets/tokens.css`            | When you need an exact value (color hex, spacing px, shadow, radius).                                                                                                                                   |
+| `assets/tailwind.v3.config.js` | Only if the project uses Tailwind v3.                                                                                                                                                                   |
+| `assets/tailwind.v4.css`       | Only if the project uses Tailwind v4 (default).                                                                                                                                                         |
+| `assets/tokens.json`           | If the user asks for Style Dictionary / Figma Tokens / native platform export.                                                                                                                          |
+| `examples/`                    | Mini reference implementations — read the one that matches the requested framework before writing your own.                                                                                             |
 
-> The four files in `assets/` together form the **runtime contract**. If a project already has them, *do not regenerate* — only consume them.
+> The four files in `assets/` together form the **runtime contract**. If a project already has them, _do not regenerate_ — only consume them.
 
 ## 2. Decision flow
 
@@ -44,11 +44,13 @@ Rule of thumb: **size & radius → component token**, **color → semantic token
 ## 2.2 Dark mode
 
 Theme is switched via either:
+
 - `<html data-theme="dark">` / `<html data-theme="light">` (explicit), or
 - `<html class="dark">` (Tailwind convention — both v3 config and v4 `@custom-variant` are wired), or
 - system `prefers-color-scheme: dark` when no attribute is set.
 
 Authoring rules for dark-mode safety:
+
 - Use `bg-bg-surface` / `text-text-primary` / `border-border` etc. — they auto-flip.
 - Never hard-code `#fff` / `#000` / `bg-white` / `text-black`. The only allowed hard-pins are danger red and amber star (theme-stable).
 - Shadows differ in dark — they're already swapped via `--tp-shadow-*`; just use `shadow-card / shadow-pop / shadow-modal`.
@@ -58,10 +60,10 @@ Authoring rules for dark-mode safety:
 
 - **All colors come from tokens.** Use Tailwind utility classes that resolve to `var(--tp-*)`:
   - Surfaces: `bg-bg-app / bg-bg-surface / bg-bg-subtle / bg-bg-inverse`
-  - Text:     `text-text-primary / text-text-secondary / text-text-tertiary`
-  - Brand:    `bg-primary-500 / hover:bg-primary-600 / text-primary-600`
-  - Border:   `border-border / border-border-strong`
-  - Status:   `tp-tag tp-status-{progress|pending|done|blocked|idle|info}`
+  - Text: `text-text-primary / text-text-secondary / text-text-tertiary`
+  - Brand: `bg-primary-500 / hover:bg-primary-600 / text-primary-600`
+  - Border: `border-border / border-border-strong`
+  - Status: `tp-tag tp-status-{progress|pending|done|blocked|idle|info}`
   - Accent (avatar only): `bg-accent-{violet|orange|green|amber|cyan|pink}-soft text-accent-…-ink`
   - Hard-pinned exceptions allowed: danger red `#DC2626 / #B91C1C`, star amber `#F59E0B`, diff bg `#E6F8EC / #FCE3E1`. Nothing else.
 - **No bare px values.** Spacing: `p-tp-{1..20}` / `gap-tp-3`. Radius: `rounded-{sm|md|lg|xl|pill}`. Shadow: `shadow-{card|pop|focus}`. Control height: `h-control-{sm|md|lg}`.

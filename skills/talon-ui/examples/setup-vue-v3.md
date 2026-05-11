@@ -12,14 +12,16 @@ Replace `tailwind.config.js` with a copy of `skills/talon-pilot-ui/assets/tailwi
 (adjust `content` globs to point at `./src/**/*.{vue,ts,tsx}`).
 
 **`src/style.css`**
+
 ```css
-@import "../../skills/talon-pilot-ui/assets/tokens.css";
+@import '../../skills/talon-pilot-ui/assets/tokens.css';
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 ```
 
 **`src/main.ts`**
+
 ```ts
 import './style.css';
 ```

@@ -23,11 +23,19 @@
     "skills:verify": "node scripts/verify-skill-symlinks.mjs",
     "skills:install": "skills experimental_install",
     "tokens:verify": "node scripts/verify-token-parity.mjs",
-    "preflight": "node scripts/preflight.mjs"
+    "preflight": "node scripts/preflight.mjs",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
   },
   "devDependencies": {
     "@changesets/cli": "^2.27.0",
+    "@eslint/js": "^10.0.1",
+    "eslint": "^10.3.0",
+    "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-react-hooks": "^7.1.1",
+    "prettier": "^3.8.3",
     "turbo": "^2.1.0",
-    "typescript": "^5.5.0"
+    "typescript": "^5.5.0",
+    "typescript-eslint": "^8.59.2"
   }
 }

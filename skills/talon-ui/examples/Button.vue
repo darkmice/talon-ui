@@ -12,14 +12,14 @@ const props = withDefaults(
     loading?: boolean;
     disabled?: boolean;
   }>(),
-  { variant: 'primary', size: 'md' }
+  { variant: 'primary', size: 'md' },
 );
 
 const variantCls: Record<Variant, string> = {
-  primary:   'bg-primary-500 hover:bg-primary-600 active:bg-primary-700 text-text-on-primary',
+  primary: 'bg-primary-500 hover:bg-primary-600 active:bg-primary-700 text-text-on-primary',
   secondary: 'bg-bg-surface border border-border-strong hover:bg-bg-subtle text-text-primary',
-  ghost:     'bg-transparent hover:bg-bg-subtle text-text-secondary hover:text-text-primary',
-  danger:    'bg-[#DC2626] hover:bg-[#B91C1C] text-white',
+  ghost: 'bg-transparent hover:bg-bg-subtle text-text-secondary hover:text-text-primary',
+  danger: 'bg-[#DC2626] hover:bg-[#B91C1C] text-white',
 };
 
 const sizeCls: Record<Size, string> = {
