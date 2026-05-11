@@ -96,6 +96,7 @@ module.exports = {
         h2: ['20px', { lineHeight: '28px', fontWeight: '600' }],
         h3: ['16px', { lineHeight: '24px', fontWeight: '600' }],
         body: ['14px', { lineHeight: '22px' }],
+        'body-strong': ['14px', { lineHeight: '22px', fontWeight: '500' }],
         caption: ['12px', { lineHeight: '18px' }],
         'mono-sm': ['12px', { lineHeight: '18px', fontWeight: '500' }],
       },
@@ -126,9 +127,9 @@ module.exports = {
         focus: 'var(--tp-shadow-focus)',
       },
       height: {
-        'control-sm': 'var(--tp-control-sm)',
-        'control-md': 'var(--tp-control-md)',
-        'control-lg': 'var(--tp-control-lg)',
+        'control-sm': 'var(--tp-control-h-sm)',
+        'control-md': 'var(--tp-control-h-md)',
+        'control-lg': 'var(--tp-control-h-lg)',
       },
       transitionTimingFunction: {
         tp: 'cubic-bezier(.2,.8,.2,1)',

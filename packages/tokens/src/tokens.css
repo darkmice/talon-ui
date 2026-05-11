@@ -108,6 +108,8 @@
   --tp-lh-h3: 24px;
   --tp-fs-body: 14px;
   --tp-lh-body: 22px;
+  --tp-fs-body-strong: 14px;
+  --tp-lh-body-strong: 22px;
   --tp-fs-caption: 12px;
   --tp-lh-caption: 18px;
   --tp-fs-mono-sm: 12px;
@@ -134,10 +136,9 @@
   /* radius scale (统一来源；组件必须从下面消费) */
   --tp-radius-xs: 4px;
   --tp-radius-sm: 6px;
-  --tp-radius-md: 8px;
-  --tp-radius-lg: 12px;
-  --tp-radius-xl: 16px;
-  --tp-radius-2xl: 20px;
+  --tp-radius-md: 10px;
+  --tp-radius-lg: 14px;
+  --tp-radius-xl: 20px;
   --tp-radius-pill: 999px;
 
   /* control 高度统一三档；所有可点击控件必须落在此处 */
@@ -214,7 +215,7 @@
   --tp-shadow-card: 0 1px 2px rgba(15, 23, 42, 0.04), 0 1px 0 rgba(15, 23, 42, 0.02);
   --tp-shadow-pop: 0 12px 32px -12px rgba(15, 23, 42, 0.18);
   --tp-shadow-modal: 0 24px 64px -16px rgba(15, 23, 42, 0.28);
-  --tp-shadow-focus: 0 0 0 3px rgba(79, 96, 255, 0.22);
+  --tp-shadow-focus: 0 0 0 3px rgba(79, 96, 255, 0.18);
 
   /* code surface */
   --tp-code-bg: var(--tp-gray-100);
@@ -361,7 +362,7 @@
   --tp-btn-lh-md: 1;
   --tp-btn-lh-lg: 1;
   --tp-btn-fw: var(--tp-fw-medium);
-  --tp-btn-radius: var(--tp-radius-md); /* 全档统一 8 */
+  --tp-btn-radius: var(--tp-radius-md); /* 全档统一 10 */
   --tp-btn-radius-sm: var(--tp-radius-sm); /* sm 档 6 */
   --tp-btn-radius-pill: var(--tp-radius-pill);
   --tp-btn-icon-size-sm: 14px; /* 图标在按钮内的视觉尺寸 */
@@ -466,7 +467,7 @@
   --tp-switch-thumb: 16px;
 
   /* Avatar */
-  --tp-avatar-sm: 24px;
+  --tp-avatar-sm: 28px;
   --tp-avatar-md: 32px;
   --tp-avatar-lg: 40px;
   --tp-avatar-xl: 56px;
