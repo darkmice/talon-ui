@@ -1,0 +1,33 @@
+{
+  "name": "talon-ui-workspace",
+  "version": "0.0.0",
+  "private": true,
+  "packageManager": "pnpm@9.12.0",
+  "engines": {
+    "node": ">=20"
+  },
+  "workspaces": [
+    "packages/*",
+    "apps/*",
+    "examples/*"
+  ],
+  "scripts": {
+    "build": "turbo run build",
+    "dev": "turbo run dev --parallel",
+    "test": "turbo run test",
+    "lint": "turbo run lint",
+    "typecheck": "turbo run typecheck",
+    "changeset": "changeset",
+    "version-packages": "changeset version && pnpm install --lockfile-only",
+    "release": "pnpm build && changeset publish",
+    "skills:verify": "node scripts/verify-skill-symlinks.mjs",
+    "skills:install": "skills experimental_install",
+    "tokens:verify": "node scripts/verify-token-parity.mjs",
+    "preflight": "node scripts/preflight.mjs"
+  },
+  "devDependencies": {
+    "@changesets/cli": "^2.27.0",
+    "turbo": "^2.1.0",
+    "typescript": "^5.5.0"
+  }
+}
