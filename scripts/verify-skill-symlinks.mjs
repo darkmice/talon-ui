@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2026 Talon Contributors
+ * Author: dark.lijin@gmail.com
+ * Licensed under the Talon Community Dual License Agreement.
+ */
+
 import { lstatSync, existsSync } from 'node:fs';
 import { join, resolve } from 'node:path';
 

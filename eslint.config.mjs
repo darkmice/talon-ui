@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2026 Talon Contributors
+ * Author: dark.lijin@gmail.com
+ * Licensed under the Talon Community Dual License Agreement.
+ */
+
 // Flat config — minimal Phase-1 baseline; component-specific rules added later.
 import js from '@eslint/js';
 import tseslint from 'typescript-eslint';

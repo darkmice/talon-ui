@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2026 Talon Contributors
+ * Author: dark.lijin@gmail.com
+ * Licensed under the Talon Community Dual License Agreement.
+ */
+
 /**
  * Talon Pilot · Tailwind CSS v3 配置
  * 用法：

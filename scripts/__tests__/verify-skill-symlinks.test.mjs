@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2026 Talon Contributors
+ * Author: dark.lijin@gmail.com
+ * Licensed under the Talon Community Dual License Agreement.
+ */
+
 import { test, expect } from 'vitest';
 import { verifySkillSymlinks } from '../verify-skill-symlinks.mjs';
 import { mkdtempSync, mkdirSync, symlinkSync, writeFileSync, rmSync } from 'node:fs';

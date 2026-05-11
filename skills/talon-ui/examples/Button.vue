@@ -1,4 +1,10 @@
 <script setup lang="ts">
+/*
+ * Copyright (c) 2026 Talon Contributors
+ * Author: dark.lijin@gmail.com
+ * Licensed under the Talon Community Dual License Agreement.
+ */
+
 import { computed } from 'vue';
 import { Loader2 } from 'lucide-vue-next';
 

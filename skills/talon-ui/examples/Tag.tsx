@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2026 Talon Contributors
+ * Author: dark.lijin@gmail.com
+ * Licensed under the Talon Community Dual License Agreement.
+ */
+
 import * as React from 'react';
 
 type Tone = 'progress' | 'pending' | 'done' | 'blocked' | 'idle' | 'info';
