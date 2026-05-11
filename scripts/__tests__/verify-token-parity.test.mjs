@@ -87,7 +87,7 @@ const makeRepo = ({ css, json, preset }) => {
   mkdirSync(dir, { recursive: true });
   writeFileSync(join(dir, 'tokens.css'), css);
   writeFileSync(join(dir, 'tokens.json'), JSON.stringify(json));
-  writeFileSync(join(dir, 'tailwind.preset.js'), `export default ${JSON.stringify(preset)};`);
+  writeFileSync(join(dir, 'tailwind.preset.cjs'), `module.exports = ${JSON.stringify(preset)};`);
   return root;
 };
 

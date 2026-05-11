@@ -1,1 +1,1 @@
-../../../packages/tokens/src/tailwind.preset.js
+../../../packages/tokens/src/tailwind.preset.cjs

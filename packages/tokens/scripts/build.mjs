@@ -16,7 +16,7 @@ const dist = resolve(pkg, 'dist');
 if (existsSync(dist)) rmSync(dist, { recursive: true });
 mkdirSync(dist, { recursive: true });
 
-const files = ['tokens.css', 'tokens.json', 'tailwind.v4.css', 'tailwind.preset.js'];
+const files = ['tokens.css', 'tokens.json', 'tailwind.v4.css', 'tailwind.preset.cjs'];
 for (const f of files) cpSync(resolve(src, f), resolve(dist, f));
 
 // Emit JS + d.ts shims for the JSON tokens

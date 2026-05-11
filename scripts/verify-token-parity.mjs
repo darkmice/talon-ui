@@ -55,7 +55,7 @@ export function diffTokens(cssMap, refs) {
 export async function verifyTokenParity(rootDir) {
   const cssPath = resolve(rootDir, 'packages/tokens/src/tokens.css');
   const jsonPath = resolve(rootDir, 'packages/tokens/src/tokens.json');
-  const presetPath = resolve(rootDir, 'packages/tokens/src/tailwind.preset.js');
+  const presetPath = resolve(rootDir, 'packages/tokens/src/tailwind.preset.cjs');
   for (const p of [cssPath, jsonPath, presetPath]) {
     if (!existsSync(p)) throw new Error(`missing: ${p}`);
   }

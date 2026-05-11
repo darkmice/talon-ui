@@ -34,6 +34,11 @@ export default tseslint.config(
     },
   },
   {
+    // .cjs files are always CommonJS regardless of package "type"
+    files: ['**/*.cjs'],
+    languageOptions: { ecmaVersion: 2022, sourceType: 'commonjs' },
+  },
+  {
     ignores: ['**/dist/**', '**/.turbo/**', '**/coverage/**', '**/.astro/**'],
   },
 );
