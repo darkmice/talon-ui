@@ -22,7 +22,8 @@
     "build": "node ./scripts/build.mjs",
     "test": "vitest run",
     "typecheck": "tsc --noEmit",
-    "lint": "eslint src"
+    "lint": "eslint src",
+    "prepublishOnly": "node ../../scripts/preflight.mjs"
   },
   "devDependencies": {
     "vitest": "^4.1.6",
