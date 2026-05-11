@@ -1,0 +1,193 @@
+/* =========================================================
+ * Talon Pilot · Tailwind CSS v4 配置（@theme inline）
+ * - 消费 tokens.css 的三层结构（primitive / semantic / component）
+ * - 支持暗黑：tokens.css 自带 prefers-color-scheme 与 [data-theme]
+ * - 默认在 .dark 上额外别名（兼容 Tailwind darkMode:'class' 习惯）
+ * =========================================================
+ *
+ * 用法：
+ *   @import "tailwindcss";
+ *   @import "./tokens/tailwind.v4.css";
+ *
+ *   <html data-theme="dark"> 或 <html class="dark"> 都可
+ */
+
+@import "./tokens.css";
+
+/* 让 .dark 类等价于 [data-theme="dark"] —— 把 dark 变体接到 token 切换 */
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *, .dark, .dark *));
+
+.dark {
+  color-scheme: dark;
+  --tp-bg-app:#0B1220; --tp-bg-surface:#131A2A; --tp-bg-surface-2:#18213A;
+  --tp-bg-subtle:#1B2438; --tp-bg-inverse:#F1F3F7; --tp-bg-overlay:rgba(0,0,0,.55);
+  --tp-border-subtle:#1F2A40; --tp-border-default:#25324B; --tp-border-strong:#2F3D5C;
+  --tp-border-focus:var(--tp-primary-400);
+  --tp-text-primary:#E6E9F2; --tp-text-secondary:#A2ADC2; --tp-text-tertiary:#6B7790;
+  --tp-text-disabled:#4A5570; --tp-text-on-primary:#FFFFFF; --tp-text-link:var(--tp-primary-300);
+  --tp-status-progress-fg:#A8B5FF; --tp-status-progress-bg:rgba(79,96,255,.16);
+  --tp-status-pending-fg:#F4C57B;  --tp-status-pending-bg:rgba(244,167,73,.14);
+  --tp-status-done-fg:#6CD89F;     --tp-status-done-bg:rgba(60,200,130,.14);
+  --tp-status-blocked-fg:#F09B96;  --tp-status-blocked-bg:rgba(232,138,133,.14);
+  --tp-status-idle-fg:#A4AEC2;     --tp-status-idle-bg:rgba(255,255,255,.06);
+  --tp-status-info-fg:#9CC2FF;     --tp-status-info-bg:rgba(79,140,255,.14);
+  --tp-interactive-primary:var(--tp-primary-500);
+  --tp-interactive-primary-hover:var(--tp-primary-400);
+  --tp-interactive-primary-active:var(--tp-primary-300);
+  --tp-interactive-bg-hover:rgba(255,255,255,.06);
+  --tp-interactive-bg-active:rgba(255,255,255,.10);
+  --tp-interactive-bg-selected:rgba(79,96,255,.18);
+  --tp-interactive-fg-selected:var(--tp-primary-200);
+  --tp-shadow-card:0 1px 0 rgba(0,0,0,.4), 0 1px 2px rgba(0,0,0,.32);
+  --tp-shadow-pop:0 16px 40px -12px rgba(0,0,0,.6);
+  --tp-shadow-modal:0 32px 80px -16px rgba(0,0,0,.7);
+  --tp-shadow-focus:0 0 0 3px rgba(129,140,248,.32);
+  --tp-code-bg:#0F1626; --tp-code-fg:#E6E9F2;
+  --tp-diff-add-bg:#102A1A; --tp-diff-add-fg:#5BC892;
+  --tp-diff-del-bg:#2B1311; --tp-diff-del-fg:#E88A85;
+}
+
+@theme inline {
+  /* ----- Colors (semantic) ----- */
+  --color-bg-app:        var(--tp-bg-app);
+  --color-bg-surface:    var(--tp-bg-surface);
+  --color-bg-surface-2:  var(--tp-bg-surface-2);
+  --color-bg-subtle:     var(--tp-bg-subtle);
+  --color-bg-inverse:    var(--tp-bg-inverse);
+  --color-bg-overlay:    var(--tp-bg-overlay);
+
+  --color-border-subtle:  var(--tp-border-subtle);
+  --color-border:         var(--tp-border-default);
+  --color-border-strong:  var(--tp-border-strong);
+  --color-border-focus:   var(--tp-border-focus);
+
+  --color-text-primary:    var(--tp-text-primary);
+  --color-text-secondary:  var(--tp-text-secondary);
+  --color-text-tertiary:   var(--tp-text-tertiary);
+  --color-text-disabled:   var(--tp-text-disabled);
+  --color-text-on-primary: var(--tp-text-on-primary);
+  --color-text-link:       var(--tp-text-link);
+
+  --color-primary-50:  var(--tp-primary-50);
+  --color-primary-100: var(--tp-primary-100);
+  --color-primary-200: var(--tp-primary-200);
+  --color-primary-300: var(--tp-primary-300);
+  --color-primary-400: var(--tp-primary-400);
+  --color-primary-500: var(--tp-primary-500);
+  --color-primary-600: var(--tp-primary-600);
+  --color-primary-700: var(--tp-primary-700);
+  --color-primary-800: var(--tp-primary-800);
+  --color-primary-900: var(--tp-primary-900);
+  --color-primary:     var(--tp-primary-500);
+
+  --color-status-progress-fg: var(--tp-status-progress-fg);
+  --color-status-progress-bg: var(--tp-status-progress-bg);
+  --color-status-pending-fg:  var(--tp-status-pending-fg);
+  --color-status-pending-bg:  var(--tp-status-pending-bg);
+  --color-status-done-fg:     var(--tp-status-done-fg);
+  --color-status-done-bg:     var(--tp-status-done-bg);
+  --color-status-blocked-fg:  var(--tp-status-blocked-fg);
+  --color-status-blocked-bg:  var(--tp-status-blocked-bg);
+  --color-status-idle-fg:     var(--tp-status-idle-fg);
+  --color-status-idle-bg:     var(--tp-status-idle-bg);
+  --color-status-info-fg:     var(--tp-status-info-fg);
+  --color-status-info-bg:     var(--tp-status-info-bg);
+
+  --color-accent-violet:      var(--tp-accent-violet);
+  --color-accent-violet-soft: var(--tp-accent-violet-soft);
+  --color-accent-violet-ink:  var(--tp-accent-violet-ink);
+  --color-accent-orange:      var(--tp-accent-orange);
+  --color-accent-orange-soft: var(--tp-accent-orange-soft);
+  --color-accent-orange-ink:  var(--tp-accent-orange-ink);
+  --color-accent-green:       var(--tp-accent-green);
+  --color-accent-green-soft:  var(--tp-accent-green-soft);
+  --color-accent-green-ink:   var(--tp-accent-green-ink);
+  --color-accent-amber:       var(--tp-accent-amber);
+  --color-accent-amber-soft:  var(--tp-accent-amber-soft);
+  --color-accent-amber-ink:   var(--tp-accent-amber-ink);
+  --color-accent-cyan:        var(--tp-accent-cyan);
+  --color-accent-cyan-soft:   var(--tp-accent-cyan-soft);
+  --color-accent-cyan-ink:    var(--tp-accent-cyan-ink);
+  --color-accent-pink:        var(--tp-accent-pink);
+  --color-accent-pink-soft:   var(--tp-accent-pink-soft);
+  --color-accent-pink-ink:    var(--tp-accent-pink-ink);
+
+  --color-danger:       var(--tp-danger-500);
+  --color-danger-hover: var(--tp-danger-600);
+
+  /* ----- Type ----- */
+  --font-sans: var(--tp-font-sans);
+  --font-mono: var(--tp-font-mono);
+
+  --text-display: 32px; --text-display--line-height:40px; --text-display--font-weight:600; --text-display--letter-spacing:-0.02em;
+  --text-h1:      24px; --text-h1--line-height:32px;      --text-h1--font-weight:600;      --text-h1--letter-spacing:-0.01em;
+  --text-h2:      20px; --text-h2--line-height:28px;      --text-h2--font-weight:600;
+  --text-h3:      16px; --text-h3--line-height:24px;      --text-h3--font-weight:600;
+  --text-body:    14px; --text-body--line-height:22px;
+  --text-caption: 12px; --text-caption--line-height:18px;
+  --text-mono-sm: 12px; --text-mono-sm--line-height:18px; --text-mono-sm--font-weight:500;
+
+  /* ----- Spacing ----- */
+  --spacing-tp-0:0px; --spacing-tp-1:4px; --spacing-tp-2:8px; --spacing-tp-3:12px;
+  --spacing-tp-4:16px; --spacing-tp-5:20px; --spacing-tp-6:24px; --spacing-tp-8:32px;
+  --spacing-tp-10:40px; --spacing-tp-14:56px; --spacing-tp-20:80px;
+
+  /* ----- Radius ----- */
+  --radius-xs:   var(--tp-radius-xs);
+  --radius-sm:   var(--tp-radius-sm);
+  --radius-md:   var(--tp-radius-md);
+  --radius-lg:   var(--tp-radius-lg);
+  --radius-xl:   var(--tp-radius-xl);
+  --radius-2xl:  var(--tp-radius-2xl);
+  --radius-pill: var(--tp-radius-pill);
+
+  /* ----- Shadow ----- */
+  --shadow-card:  var(--tp-shadow-card);
+  --shadow-pop:   var(--tp-shadow-pop);
+  --shadow-modal: var(--tp-shadow-modal);
+  --shadow-focus: var(--tp-shadow-focus);
+
+  /* ----- Control heights ----- */
+  --height-control-sm: var(--tp-control-h-sm);
+  --height-control-md: var(--tp-control-h-md);
+  --height-control-lg: var(--tp-control-h-lg);
+
+  /* ----- Motion / Z ----- */
+  --ease-tp: var(--tp-ease);
+  --duration-fast: var(--tp-duration-fast);
+  --duration-mid:  var(--tp-duration-mid);
+  --duration-slow: var(--tp-duration-slow);
+
+  --z-dropdown: var(--tp-z-dropdown);
+  --z-sticky:   var(--tp-z-sticky);
+  --z-overlay:  var(--tp-z-overlay);
+  --z-modal:    var(--tp-z-modal);
+  --z-toast:    var(--tp-z-toast);
+}
+
+/* ----- Component utilities (锁线高/状态对) ----- */
+@layer components {
+  .tp-focus-ring     { outline:none; box-shadow: var(--tp-shadow-focus); }
+  .tp-nums           { font-variant-numeric: tabular-nums; font-family: var(--tp-font-mono); }
+  .tp-tag            { display:inline-flex;align-items:center;gap:var(--tp-tag-gap);height:var(--tp-tag-h);padding:0 var(--tp-tag-px);border-radius:var(--tp-tag-radius);font-size:var(--tp-tag-fs);font-weight:var(--tp-tag-fw);line-height:1; }
+  .tp-status-progress{ background:var(--tp-status-progress-bg);color:var(--tp-status-progress-fg); }
+  .tp-status-pending { background:var(--tp-status-pending-bg); color:var(--tp-status-pending-fg); }
+  .tp-status-done    { background:var(--tp-status-done-bg);    color:var(--tp-status-done-fg); }
+  .tp-status-blocked { background:var(--tp-status-blocked-bg); color:var(--tp-status-blocked-fg); }
+  .tp-status-idle    { background:var(--tp-status-idle-bg);    color:var(--tp-status-idle-fg); }
+  .tp-status-info    { background:var(--tp-status-info-bg);    color:var(--tp-status-info-fg); }
+
+  /* Pagination primitives — Tailwind 用户可直接 @apply pg-item / pg-item--active */
+  .pg-item{
+    display:inline-flex;align-items:center;justify-content:center;
+    height:var(--tp-pagination-item-size);min-width:var(--tp-pagination-item-min-w);
+    padding:0 8px;border-radius:var(--tp-pagination-item-radius);
+    font-size:var(--tp-pagination-fs);font-weight:var(--tp-pagination-fw);
+    color:var(--tp-text-secondary);background:transparent;border:1px solid transparent;
+    font-variant-numeric:tabular-nums;font-family:var(--tp-font-mono);line-height:1;
+    transition:background var(--tp-duration-fast) var(--tp-ease),color var(--tp-duration-fast) var(--tp-ease);
+  }
+  .pg-item:hover{ background:var(--tp-interactive-bg-hover); color:var(--tp-text-primary); }
+  .pg-item--active{ background:var(--tp-primary-500); color:#fff; }
+  .pg-item--active:hover{ background:var(--tp-primary-600); }
+}
