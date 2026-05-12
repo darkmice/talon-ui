@@ -230,8 +230,8 @@ ul.top-level a:hover {
   color: var(--tp-text-primary);
 }
 ul.top-level a[aria-current='page'] {
-  background: var(--tp-primary-50);
-  color: var(--tp-primary-700);
+  background: var(--tp-interactive-bg-selected);
+  color: var(--tp-interactive-fg-selected);
   font-weight: var(--tp-fw-medium);
 }
 

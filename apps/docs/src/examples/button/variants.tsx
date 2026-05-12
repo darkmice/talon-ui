@@ -8,7 +8,7 @@ import { Button } from '@talon-ui/react';
 
 export default function Demo() {
   return (
-    <div className="flex flex-wrap gap-tp-3">
+    <div className="flex flex-wrap items-center gap-tp-3">
       <Button variant="primary">Primary</Button>
       <Button variant="secondary">Secondary</Button>
       <Button variant="ghost">Ghost</Button>

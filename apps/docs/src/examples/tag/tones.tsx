@@ -10,7 +10,7 @@ const tones = ['neutral', 'progress', 'pending', 'done', 'blocked', 'idle', 'inf
 
 export default function Demo() {
   return (
-    <div className="flex flex-wrap gap-tp-2">
+    <div className="flex flex-wrap items-center gap-tp-2">
       {tones.map((t) => (
         <Tag key={t} tone={t} dot={t !== 'neutral'}>
           {t}

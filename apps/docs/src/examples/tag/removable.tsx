@@ -10,7 +10,7 @@ import { Tag } from '@talon-ui/react';
 export default function Demo() {
   const [tags, setTags] = useState(['react', 'typescript', 'tailwind', 'astro']);
   return (
-    <div className="flex flex-wrap gap-tp-2">
+    <div className="flex flex-wrap items-center gap-tp-2">
       {tags.map((t) => (
         <Tag key={t} removable onRemove={() => setTags(tags.filter((x) => x !== t))}>
           {t}
