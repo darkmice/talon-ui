@@ -95,12 +95,6 @@
 /* Tabular numerals everywhere by default for consistency */
 .sl-markdown-content table { font-variant-numeric: tabular-nums; }
 
-/* Sidebar item — Talon-style active state */
-.sidebar-pane a[aria-current='page'] {
-  background: var(--tp-primary-50);
-  color: var(--tp-primary-700);
-  border-radius: var(--tp-radius-sm);
-}
 
 /* Top-bar brand mark — pop with primary-600, semibold */
 .site-title,
@@ -156,55 +150,94 @@ summary::marker {
   list-style: none;
 }
 
-/* Sidebar group label — Starlight uses <details><summary> for collapsible groups.
-   Tone it down to the Talon hierarchy and replace the disclosure with our own chevron. */
-.sidebar-pane details > summary {
+/* ============================================================
+ * Starlight 0.30 sidebar — real DOM uses .top-level / .group-label / .caret
+ * ============================================================ */
+
+/* Hide every browser-native <summary> disclosure marker;
+   Starlight handles disclosure via its own .caret SVG. */
+nav.sidebar-content summary,
+ul.top-level summary {
+  list-style: none;
+}
+nav.sidebar-content summary::-webkit-details-marker,
+ul.top-level summary::-webkit-details-marker {
+  display: none;
+}
+
+/* Group <summary> row: label on the left, caret on the right */
+ul.top-level details > summary {
   display: flex;
   align-items: center;
-  gap: var(--tp-space-2);
-  font-weight: var(--tp-fw-semibold);
-  font-size: var(--tp-fs-caption);
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  color: var(--tp-text-tertiary);
+  justify-content: space-between;
   cursor: pointer;
-  padding: var(--tp-space-2) 0;
+  padding: var(--tp-space-2) var(--tp-space-2);
+  color: var(--tp-text-tertiary);
   user-select: none;
 }
 
-.sidebar-pane details > summary::before {
-  content: '';
-  width: 0;
-  height: 0;
-  border-left: 4px solid currentColor;
-  border-top: 3px solid transparent;
-  border-bottom: 3px solid transparent;
-  transition: transform 150ms cubic-bezier(.2,.8,.2,1);
+/* The group label container — kill Starlight's center alignment */
+ul.top-level .group-label,
+ul.top-level .group-label .large {
+  flex: 1;
+  text-align: left;
+  font-size: var(--tp-fs-caption);
+  font-weight: var(--tp-fw-semibold);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--tp-text-tertiary);
 }
 
-.sidebar-pane details[open] > summary::before {
+/* Right-side caret SVG: indigo on hover, rotates when [open] */
+ul.top-level details > summary .caret {
+  width: 14px;
+  height: 14px;
+  color: var(--tp-text-tertiary);
+  transition: transform 150ms cubic-bezier(.2,.8,.2,1), color 120ms;
+  transform: rotate(0deg);
+}
+ul.top-level details[open] > summary .caret {
   transform: rotate(90deg);
 }
-
-/* Sidebar items: tighter, Talon-spec hover/active */
-.sidebar-pane a {
-  font-size: var(--tp-fs-body);
-  line-height: calc(var(--tp-lh-body) / var(--tp-fs-body));
-  padding: var(--tp-space-1) var(--tp-space-2);
-  border-radius: var(--tp-radius-sm);
-  color: var(--tp-text-secondary);
-  transition: background 120ms cubic-bezier(.2,.8,.2,1), color 120ms;
-}
-
-.sidebar-pane a:hover {
-  background: var(--tp-bg-subtle);
+ul.top-level details > summary:hover .caret {
   color: var(--tp-text-primary);
 }
 
-.sidebar-pane a[aria-current='page'] {
+/* Nested item list — tight, with left hairline */
+ul.top-level details > ul {
+  margin-top: var(--tp-space-1);
+  padding-left: var(--tp-space-3);
+  margin-left: var(--tp-space-3);
+  border-left: 1px solid var(--tp-border-subtle);
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+/* Sidebar item link */
+ul.top-level a {
+  display: block;
+  font-size: var(--tp-fs-body);
+  line-height: 1.4;
+  padding: 6px var(--tp-space-2);
+  border-radius: var(--tp-radius-sm);
+  color: var(--tp-text-secondary);
+  text-decoration: none;
+  transition: background 120ms cubic-bezier(.2,.8,.2,1), color 120ms;
+}
+ul.top-level a:hover {
+  background: var(--tp-bg-subtle);
+  color: var(--tp-text-primary);
+}
+ul.top-level a[aria-current='page'] {
   background: var(--tp-primary-50);
   color: var(--tp-primary-700);
   font-weight: var(--tp-fw-medium);
+}
+
+/* Mobile menu (Starlight uses a different wrapper) — same intent */
+mobile-starlight-toc nav .group-label {
+  text-align: left;
 }
 
 /* Theme selector (top-right) — Starlight's <select> wrapper.
