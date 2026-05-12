@@ -1,0 +1,77 @@
+---
+title: Select
+description: Dropdown selector built on Radix Select with composition API.
+sidebar:
+  order: 18
+---
+
+import ComponentPreview from '@/components/ComponentPreview.astro';
+import Basic from '@/examples/select/basic.tsx';
+import Grouped from '@/examples/select/grouped.tsx';
+import FormDemo from '@/examples/select/form.tsx';
+
+`Select` is a Radix-backed dropdown with composition primitives. Use `SelectTrigger` + `SelectValue` for the closed state and `SelectContent` + `SelectItem` for the panel.
+
+## Basic
+
+<ComponentPreview src="examples/select/basic.tsx" title="Simple list" height="120px">
+  <Basic client:load />
+</ComponentPreview>
+
+## Grouped with danger item
+
+<ComponentPreview src="examples/select/grouped.tsx" title="Groups, separator, danger" height="160px">
+  <Grouped client:load />
+</ComponentPreview>
+
+## Inside a Form
+
+<ComponentPreview src="examples/select/form.tsx" title="With validation" height="220px">
+  <FormDemo client:load />
+</ComponentPreview>
+
+## Anatomy
+
+```
+<Select>
+  <SelectTrigger size="md">
+    <SelectValue placeholder="..." />
+  </SelectTrigger>
+  <SelectContent>
+    <SelectGroup>
+      <SelectLabel>Section</SelectLabel>
+      <SelectItem value="x">Label</SelectItem>
+    </SelectGroup>
+    <SelectSeparator />
+    <SelectItem value="d" tone="danger">Destructive</SelectItem>
+  </SelectContent>
+</Select>
+```
+
+## Props (highlights)
+
+### Select (Radix Root)
+| Prop | Type | Description |
+|---|---|---|
+| `value` | `string` | Controlled value. |
+| `defaultValue` | `string` | Uncontrolled initial value. |
+| `onValueChange` | `(value: string) => void` | Change handler. |
+| `disabled` | `boolean` | Disables the trigger. |
+
+### SelectTrigger
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `size` | `'sm' \| 'md' \| 'lg'` | `'md'` | Mirrors Input heights. |
+| `tone` | `'default' \| 'invalid'` | `'default'` | Border treatment. |
+
+### SelectItem
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `value` | `string` | required | Item key. |
+| `tone` | `'default' \| 'danger'` | `'default'` | Text colour. |
+| `disabled` | `boolean` | `false` | Non-selectable. |
+
+## Don't
+
+- Don't put more than ~20 options inline. Use `Combobox` for searchable lists.
+- Don't mix Select with `<label>` wrapping — the trigger already exposes accessible name via `SelectValue`.
