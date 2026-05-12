@@ -41,7 +41,8 @@ export default defineConfig({
   resolve: {
     docDirs: ['docs'],
     atomDirs: [
-      { type: 'component', dir: resolve(monorepoRoot, 'packages/react/src/components') },
+      // dumi does path.join(api.cwd, dir) internally, so dir must be relative to apps/docs
+      { type: 'component', dir: '../../packages/react/src/components' },
     ],
     codeBlockMode: 'active',
   },
