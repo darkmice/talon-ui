@@ -35,3 +35,4 @@ export * from './components/popconfirm/index.js';
 export * from './components/menu/index.js';
 export * from './components/modal/index.js';
 export * from './components/drawer/index.js';
+export * from './components/banner/index.js';

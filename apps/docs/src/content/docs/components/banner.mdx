@@ -1,0 +1,47 @@
+---
+title: Banner
+description: Inline status callout with tone, optional action, and optional dismiss.
+sidebar:
+  order: 31
+---
+
+import ComponentPreview from '@/components/ComponentPreview.astro';
+import Basic from '@/examples/banner/basic.tsx';
+import Tones from '@/examples/banner/tones.tsx';
+import Action from '@/examples/banner/action.tsx';
+
+`Banner` is the inline status callout — pinned in flow rather than floating like `Toast`. Use it for page-level state messages.
+
+## Basic
+
+<ComponentPreview src="examples/banner/basic.tsx" title="Default info" height="100px">
+  <Basic client:load />
+</ComponentPreview>
+
+## Tones
+
+<ComponentPreview src="examples/banner/tones.tsx" title="Four tones" height="280px">
+  <Tones client:load />
+</ComponentPreview>
+
+## With action and dismiss
+
+<ComponentPreview src="examples/banner/action.tsx" title="Action + dismiss" height="140px">
+  <Action client:load />
+</ComponentPreview>
+
+## Props
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `tone` | `'info' \| 'success' \| 'warning' \| 'error'` | `'info'` | Background tone + left-bar colour + default icon. |
+| `title` | `ReactNode` | — | Bold headline. |
+| `children` | `ReactNode` | — | Body text. |
+| `icon` | `ReactNode` | tone default | Override the default tone icon. |
+| `action` | `ReactNode` | — | Right-aligned action element (typically a `Button`). |
+| `onDismiss` | `() => void` | — | When set, render the X dismiss button. |
+
+## Don't
+
+- Don't use `Banner` for transient confirmations (use `Toast`).
+- Don't stack more than 2 Banners — collapse them into a single composite or convert to a notification list.
