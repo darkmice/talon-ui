@@ -1,0 +1,91 @@
+---
+title: Typography
+description: Title, Text, Paragraph, and Link components mapped to Talon Pilot's type scale.
+sidebar:
+  order: 10
+---
+
+import ComponentPreview from '@/components/ComponentPreview.astro';
+import Headings from '@/examples/typography/headings.tsx';
+import Body from '@/examples/typography/body.tsx';
+import LinkDemo from '@/examples/typography/link.tsx';
+
+Four lightweight wrappers around the Talon Pilot type tokens — semantic by default, customisable via `tone` and `asChild`.
+
+## Headings
+
+<ComponentPreview src="examples/typography/headings.tsx" title="Title levels" height="280px">
+  <Headings client:load />
+</ComponentPreview>
+
+| Level | Token | Element |
+|---|---|---|
+| `display` | `text-display` (32/40) | `<h1>` |
+| `1` (default) | `text-h1` (24/32) | `<h1>` |
+| `2` | `text-h2` (20/28) | `<h2>` |
+| `3` | `text-h3` (16/24) | `<h3>` |
+
+All titles render at weight 600.
+
+## Body
+
+<ComponentPreview src="examples/typography/body.tsx" title="Body variants" height="220px">
+  <Body client:load />
+</ComponentPreview>
+
+| Text variant | Token | Notes |
+|---|---|---|
+| `body` (default) | `text-body` (14/22/400) | Default reading text. |
+| `body-strong` | `text-body-strong` (14/22/500) | Emphasised inline labels. |
+| `caption` | `text-caption` (12/18/400) | Timestamps, secondary metadata. |
+| `mono-sm` | `text-mono-sm` (12/18/500) | Node IDs, paths, log lines. Pairs with `nums` for tabular numerals. |
+
+`Paragraph` is the block-level companion of `Text`. It accepts `tone` and a `spacing` prop (`tight | normal | loose | none`).
+
+## Links
+
+<ComponentPreview src="examples/typography/link.tsx" title="Inline links" height="120px">
+  <LinkDemo client:load />
+</ComponentPreview>
+
+`Link` uses Talon primary-600 by default and underlines on hover. Pass `tone="muted"` for inline references that shouldn't pull attention.
+
+## Props
+
+### Title
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `level` | `'display' \| 1 \| 2 \| 3` | `1` | Heading level. `display` still renders `<h1>` but with the display type scale. |
+| `tone` | `'primary' \| 'secondary' \| 'tertiary' \| 'inverse'` | `'primary'` | Text colour token. |
+| `asChild` | `boolean` | `false` | Render through the child element. |
+
+### Text
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `variant` | `'body' \| 'body-strong' \| 'caption' \| 'mono-sm'` | `'body'` | Type scale. |
+| `tone` | `'primary' \| 'secondary' \| 'tertiary' \| 'inverse'` | `'primary'` | Text colour token. |
+| `nums` | `boolean` | `false` | Apply `tp-nums` (tabular numerals). |
+| `asChild` | `boolean` | `false` | Render through the child. |
+
+### Paragraph
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `tone` | `'primary' \| 'secondary' \| 'tertiary'` | `'primary'` | Text colour token. |
+| `spacing` | `'tight' \| 'normal' \| 'loose' \| 'none'` | `'normal'` | Bottom margin. |
+
+### Link
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `tone` | `'primary' \| 'muted'` | `'primary'` | Colour scheme. |
+| `asChild` | `boolean` | `false` | Render through the child (e.g. a router `<Link>`). |
+
+All native `<a>` attributes are accepted.
+
+## Don't
+
+- Don't use `<Title>` levels out of order in the document outline. Use the visual `level` prop with the matching semantic level.
+- Don't override the type tokens with raw `text-[14px]` utilities. Always go through the prop.

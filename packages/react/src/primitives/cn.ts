@@ -22,8 +22,8 @@ const twMerge = extendTailwindMerge<'tp-text-color' | 'tp-font-size'>({
     classGroups: {
       // `text-text-*` tokens are semantic text colours — separate from font-size.
       'tp-text-color': [{ 'text-text': [''] as string[] }],
-      // Talon typography scale tokens (text-body, text-caption, …)
-      'tp-font-size': [{ text: ['body', 'caption', 'label', 'heading', 'display'] }],
+      // Talon typography scale tokens (text-body, text-caption, text-h1…h3, text-display, …)
+      'tp-font-size': [{ text: ['body', 'body-strong', 'caption', 'label', 'heading', 'display', 'h1', 'h2', 'h3', 'mono-sm'] }],
     },
     conflictingClassGroups: {
       'tp-text-color': ['tp-text-color'],
