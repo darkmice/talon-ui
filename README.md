@@ -89,6 +89,8 @@ pnpm dev          # watch mode, all packages in parallel
 pnpm test         # run all tests
 pnpm build        # production build, all packages
 pnpm preflight    # publish audit — run before any release
+pnpm docs:dev     # start dumi docs dev server
+pnpm docs:build   # build dumi docs site to dist-docs/
 pnpm test:visual  # visual regression against built docs site (Playwright, 0.1% threshold)
 ```
 
