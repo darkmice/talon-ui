@@ -5,6 +5,9 @@ This is the aggregated changelog. Per-package detail lives at:
 - `packages/react/CHANGELOG.md`
 - `packages/tokens/CHANGELOG.md`
 
+## 2026-05-12 · scaffold — Visual regression
+- Visual regression scaffold added (Playwright + per-page screenshots, 0.1% pixel diff threshold). Run `pnpm test:visual` locally; `pnpm test:visual:update` regenerates baselines.
+
 ## 2026-05-12 · 0.5.0-alpha — Block 4 + Phase 1 complete
 - @talon-ui/react@0.5.0 — Data display & misc feedback: Skeleton, Spin, Empty, Result, Statistic, Progress (linear + circular), Descriptions, Collapse, KanbanCard, BusinessRows (FileRefRow / RoleRow / RuntimeRow / RiskRow).
 - **Milestone:** 45/45 components shipped. Ant-Design-parity target met.

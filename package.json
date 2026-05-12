@@ -25,12 +25,15 @@
     "tokens:verify": "node scripts/verify-token-parity.mjs",
     "preflight": "node scripts/preflight.mjs",
     "format": "prettier --write .",
-    "format:check": "prettier --check ."
+    "format:check": "prettier --check .",
+    "test:visual": "node scripts/run-visual.mjs",
+    "test:visual:update": "node scripts/run-visual.mjs --update"
   },
   "devDependencies": {
     "@changesets/changelog-github": "^0.7.0",
     "@changesets/cli": "^2.27.0",
     "@eslint/js": "^10.0.1",
+    "@playwright/test": "^1.60.0",
     "eslint": "^10.3.0",
     "eslint-plugin-react": "^7.37.5",
     "eslint-plugin-react-hooks": "^7.1.1",

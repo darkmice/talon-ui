@@ -11,3 +11,7 @@ apps/docs/.astro/
 .idea/
 .vscode/*
 !.vscode/extensions.json
+
+# Playwright artefacts
+tests/visual/.results
+tests/visual/.report

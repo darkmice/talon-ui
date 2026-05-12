@@ -2,7 +2,7 @@
 
 React component library and design tokens for the Talon Pilot design system.
 
-![commits](https://img.shields.io/badge/commits-96-blue)
+![commits](https://img.shields.io/badge/commits-98-blue)
 ![tag](https://img.shields.io/badge/tag-0.5.0--alpha-orange)
 ![license](https://img.shields.io/badge/license-MIT-green)
 
@@ -89,6 +89,7 @@ pnpm dev          # watch mode, all packages in parallel
 pnpm test         # run all tests
 pnpm build        # production build, all packages
 pnpm preflight    # publish audit — run before any release
+pnpm test:visual  # visual regression against built docs site (Playwright, 0.1% threshold)
 ```
 
 ## Source of truth
