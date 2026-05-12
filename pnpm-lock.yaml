@@ -92,6 +92,13 @@ importers:
       typescript:
         specifier: ^5.5.0
         version: 5.9.3
+    devDependencies:
+      react-docgen-typescript:
+        specifier: ^2.4.0
+        version: 2.4.0(typescript@5.9.3)
+      tinyglobby:
+        specifier: ^0.2.16
+        version: 0.2.16
 
   examples/vite-react:
     dependencies:
@@ -4364,6 +4371,11 @@ packages:
     engines: {node: '>=18'}
     peerDependencies:
       react: '>=16.8.0'
+
+  react-docgen-typescript@2.4.0:
+    resolution: {integrity: sha512-ZtAp5XTO5HRzQctjPU0ybY0RRCQO19X/8fxn3w7y2VVTUbGHDKULPTL4ky3vB05euSgG5NpALhEhDPvQ56wvXg==}
+    peerDependencies:
+      typescript: '>= 4.3.x'
 
   react-dom@18.3.1:
     resolution: {integrity: sha512-5m4nQKp+rZRb09LNH59GM4BxTh9251/ylbKIbpe7TpGxfJ+9kv6BLkLBXIjjspbgbnIBNqlI23tRnTWT0snUIw==}
@@ -10320,6 +10332,10 @@ snapshots:
       '@date-fns/tz': 1.4.1
       date-fns: 4.1.0
       react: 18.3.1
+
+  react-docgen-typescript@2.4.0(typescript@5.9.3):
+    dependencies:
+      typescript: 5.9.3
 
   react-dom@18.3.1(react@18.3.1):
     dependencies:

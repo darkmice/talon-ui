@@ -8,6 +8,7 @@ coverage/
 .changeset/.cache
 apps/docs/dist/
 apps/docs/.astro/
+apps/docs/.generated/
 .idea/
 .vscode/*
 !.vscode/extensions.json

@@ -45,15 +45,9 @@ import Sizes from '@/examples/button/sizes.tsx';
 
 ## Props
 
-| Prop | Type | Default | Description |
-|---|---|---|---|
-| `variant` | `'primary' \| 'secondary' \| 'ghost' \| 'danger'` | `'primary'` | Visual tone. |
-| `size` | `'sm' \| 'md' \| 'lg'` | `'md'` | Height + horizontal padding + type scale. |
-| `iconOnly` | `boolean` | `false` | Square aspect ratio with no horizontal padding. |
-| `leading` | `ReactNode` | — | Renders before children. |
-| `trailing` | `ReactNode` | — | Renders after children. |
-| `loading` | `boolean` | `false` | Replaces leading slot with a spinner; sets `aria-busy` and disables the button. |
-| `asChild` | `boolean` | `false` | Render a child element instead of `<button>` (via Radix `Slot`). |
+import PropsTable from '@/components/PropsTable.astro';
+
+<PropsTable component="Button" />
 
 All native `<button>` attributes are accepted.
 
