@@ -32,3 +32,4 @@ export * from './components/tabs/index.js';
 export * from './components/tooltip/index.js';
 export * from './components/popover/index.js';
 export * from './components/popconfirm/index.js';
+export * from './components/menu/index.js';
