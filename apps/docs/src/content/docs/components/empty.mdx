@@ -1,0 +1,46 @@
+---
+title: Empty
+description: Empty-state placeholder with icon, title, description, and optional CTA.
+sidebar:
+  order: 38
+---
+
+import ComponentPreview from '@/components/ComponentPreview.astro';
+import Basic from '@/examples/empty/basic.tsx';
+import CustomIcon from '@/examples/empty/custom-icon.tsx';
+import Action from '@/examples/empty/action.tsx';
+
+`Empty` is the "no data" placeholder. Use it whenever a list, table, or panel has nothing to show — paired with a CTA where actionable.
+
+## Basic
+
+<ComponentPreview src="examples/empty/basic.tsx" title="Title + description" height="220px">
+  <Basic client:load />
+</ComponentPreview>
+
+## Custom icon
+
+<ComponentPreview src="examples/empty/custom-icon.tsx" title="Search empty state" height="220px">
+  <CustomIcon client:load />
+</ComponentPreview>
+
+## With CTA
+
+<ComponentPreview src="examples/empty/action.tsx" title="Empty + action" height="260px">
+  <Action client:load />
+</ComponentPreview>
+
+## Props
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `icon` | `ReactNode` | `Inbox` | Visual marker. |
+| `title` | `ReactNode` | — | Headline. |
+| `description` | `ReactNode` | — | Supporting text. |
+| `action` | `ReactNode` | — | CTA element (typically a `Button`). |
+| `size` | `'sm' \| 'md' \| 'lg'` | `'md'` | Icon size + vertical padding. |
+
+## Don't
+
+- Don't show Empty without explaining why or how to populate the view.
+- Don't pair Empty with Skeleton — they have different semantics.
