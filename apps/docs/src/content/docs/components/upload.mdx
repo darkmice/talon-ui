@@ -1,0 +1,57 @@
+---
+title: Upload
+description: Drag-and-drop file uploader with progress / cancel / retry / delete.
+sidebar:
+  order: 22
+---
+
+import ComponentPreview from '@/components/ComponentPreview.astro';
+import Basic from '@/examples/upload/basic.tsx';
+import Progress from '@/examples/upload/progress.tsx';
+import FormDemo from '@/examples/upload/form.tsx';
+
+`Upload` is a dashed drop zone plus a file list. It manages an internal `UploadFile[]` state (or you can control it) and can drive uploads through an `onUpload` async hook.
+
+## Basic
+
+<ComponentPreview src="examples/upload/basic.tsx" title="Pending list" height="260px">
+  <Basic client:load />
+</ComponentPreview>
+
+## With upload progress
+
+<ComponentPreview src="examples/upload/progress.tsx" title="Async onUpload" height="280px">
+  <Progress client:load />
+</ComponentPreview>
+
+Try naming a file like `fail.txt` to see the error path.
+
+## Inside a Form
+
+<ComponentPreview src="examples/upload/form.tsx" title="With validation" height="380px">
+  <FormDemo client:load />
+</ComponentPreview>
+
+## Props
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `value` | `UploadFile[]` | — | Controlled list. |
+| `defaultValue` | `UploadFile[]` | `[]` | Uncontrolled initial list. |
+| `onValueChange` | `(files: UploadFile[]) => void` | — | List change handler. |
+| `onUpload` | `(file: File) => Promise<{ url: string }>` | — | Async uploader. When set, drop / pick kicks off uploads automatically. |
+| `onRemove` | `(id: string) => void` | — | Called when user removes a file. |
+| `onRetry` | `(id: string) => void` | — | Called when user retries an error file. |
+| `accept` | `string` | — | Native `<input accept>`. |
+| `multiple` | `boolean` | `true` | Allow multiple files per pick. |
+| `maxFiles` | `number` | — | Cap on total list length. |
+| `maxSize` | `number` | — | Reject files larger than this byte count. |
+| `disabled` | `boolean` | `false` | Disables the drop zone. |
+| `hideList` | `boolean` | `false` | Render drop zone only. |
+| `prompt` | `ReactNode` | `'Click or drag files to upload'` | Drop-zone main text. |
+| `hint` | `ReactNode` | `'Up to 10 MB each'` | Drop-zone caption. |
+
+## Don't
+
+- Don't use `Upload` for image previews without a thumbnail extension — Phase 1 ships text-only entries.
+- Don't pair an external file picker with `Upload` — the component already owns input + drop interaction.
