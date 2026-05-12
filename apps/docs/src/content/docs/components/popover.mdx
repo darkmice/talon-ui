@@ -1,0 +1,47 @@
+---
+title: Popover
+description: Persistent overlay anchored to a trigger element.
+sidebar:
+  order: 34
+---
+
+import ComponentPreview from '@/components/ComponentPreview.astro';
+import Basic from '@/examples/popover/basic.tsx';
+import CloseButton from '@/examples/popover/close-button.tsx';
+import Anchor from '@/examples/popover/anchor.tsx';
+
+`Popover` is a persistent overlay anchored to its trigger. Unlike `Tooltip` it requires explicit click to open and stays open until the user dismisses it.
+
+## Basic
+
+<ComponentPreview src="examples/popover/basic.tsx" title="Default" height="180px">
+  <Basic client:load />
+</ComponentPreview>
+
+## With explicit close button
+
+<ComponentPreview src="examples/popover/close-button.tsx" title="With X close" height="220px">
+  <CloseButton client:load />
+</ComponentPreview>
+
+## Anchored (custom positioning target)
+
+<ComponentPreview src="examples/popover/anchor.tsx" title="Anchored to another element" height="160px">
+  <Anchor client:load />
+</ComponentPreview>
+
+## Exports
+
+| Name | Description |
+|---|---|
+| `Popover` | Root state container. |
+| `PopoverTrigger` | The element that toggles the popover. |
+| `PopoverAnchor` | Optional positioning anchor when the trigger and visual anchor differ. |
+| `PopoverContent` | The floating surface. Accepts `width` (`'sm' \| 'md' \| 'lg' \| 'xl'`). |
+| `PopoverClose` | Optional X close button absolutely positioned in the top-right. |
+| `PopoverArrow` | Optional visual arrow pointing back to the trigger / anchor. |
+
+## Don't
+
+- Don't put long-form forms inside `Popover` — use `Modal` or `Drawer` for that.
+- Don't nest two popovers; combine into one.
