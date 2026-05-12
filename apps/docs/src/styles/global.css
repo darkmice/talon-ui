@@ -4,20 +4,110 @@
  * Licensed under the MIT License.
  */
 
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
 @import '@talon-ui/tokens/css';
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Starlight overrides: use Talon Pilot palette in the docs chrome */
+/* ============================================================
+ * Starlight theme variable bridge → Talon Pilot tokens
+ * Light + dark both supported because Talon tokens flip on
+ * [data-theme='dark'] / .dark, and Starlight uses the same
+ * selector for its own dark mode.
+ * ============================================================ */
 :root {
+  /* Typography */
+  --sl-font: var(--tp-font-sans);
+  --sl-font-system: var(--tp-font-sans);
+  --sl-font-system-mono: var(--tp-font-mono);
+
+  --sl-text-h1: var(--tp-fs-display);
+  --sl-text-h2: var(--tp-fs-h1);
+  --sl-text-h3: var(--tp-fs-h2);
+  --sl-text-h4: var(--tp-fs-h3);
+  --sl-text-h5: var(--tp-fs-body-strong);
+  --sl-line-height-headings: 1.25;
+
+  /* Backgrounds */
   --sl-color-bg: var(--tp-bg-app);
   --sl-color-bg-nav: var(--tp-bg-surface);
   --sl-color-bg-sidebar: var(--tp-bg-surface);
+  --sl-color-bg-inline-code: var(--tp-bg-subtle);
+  --sl-color-bg-accent: var(--tp-primary-500);
+
+  /* Hairlines */
+  --sl-color-hairline: var(--tp-border-default);
+  --sl-color-hairline-light: var(--tp-border-subtle);
+  --sl-color-hairline-shade: var(--tp-border-strong);
+
+  /* Text */
   --sl-color-text: var(--tp-text-primary);
   --sl-color-text-accent: var(--tp-primary-600);
+  --sl-color-text-invert: var(--tp-text-on-primary);
+
+  /* Starlight refers to its dimmest tone as "gray-N"; map the ramp to Talon */
+  --sl-color-white: var(--tp-text-primary);       /* primary text colour */
+  --sl-color-gray-1: var(--tp-text-secondary);
+  --sl-color-gray-2: var(--tp-text-tertiary);
+  --sl-color-gray-3: var(--tp-border-strong);
+  --sl-color-gray-4: var(--tp-border-default);
+  --sl-color-gray-5: var(--tp-bg-subtle);
+  --sl-color-gray-6: var(--tp-bg-surface);
+  --sl-color-gray-7: var(--tp-bg-app);
+  --sl-color-black: var(--tp-bg-app);            /* deepest surface */
+
+  /* Accent ramp (interactive primary) */
+  --sl-color-accent-low: var(--tp-primary-100);
   --sl-color-accent: var(--tp-primary-500);
+  --sl-color-accent-high: var(--tp-primary-700);
+
+  /* Code blocks */
+  --sl-color-bg-code: var(--tp-bg-inverse);
+  --sl-color-text-code: var(--tp-text-on-primary);
+}
+
+/* Heading weight — Talon Pilot uses 600 (semibold), not 800 (extrabold) */
+.sl-markdown-content :is(h1, h2, h3, h4, h5, h6) {
+  font-weight: var(--tp-fw-semibold);
+  letter-spacing: -0.005em;
+}
+
+/* Tighten body type to 14/22 per design.md §3 */
+.sl-markdown-content {
+  font-size: var(--tp-fs-body);
+  line-height: calc(var(--tp-lh-body) / var(--tp-fs-body));
+  font-feature-settings: 'ss01', 'cv11';
+}
+
+/* Inline code: subtle chip, mono, primary-ink */
+.sl-markdown-content :not(pre) > code {
+  font-family: var(--tp-font-mono);
+  font-size: 0.875em;
+  padding: 0.1em 0.4em;
+  border-radius: var(--tp-radius-sm);
+  background: var(--tp-bg-subtle);
+  color: var(--tp-text-primary);
+  border: 1px solid var(--tp-border-subtle);
+}
+
+/* Tabular numerals everywhere by default for consistency */
+.sl-markdown-content table { font-variant-numeric: tabular-nums; }
+
+/* Sidebar item — Talon-style active state */
+.sidebar-pane a[aria-current='page'] {
+  background: var(--tp-primary-50);
+  color: var(--tp-primary-700);
+  border-radius: var(--tp-radius-sm);
+}
+
+/* Top-bar brand mark — pop with primary-600, semibold */
+.site-title,
+header a.site-title {
+  font-weight: var(--tp-fw-semibold);
+  color: var(--tp-primary-600);
+  letter-spacing: -0.01em;
 }
 
 /* Demo container — Talon-pilot card aesthetic */
@@ -27,3 +117,26 @@
   background: var(--tp-bg-surface);
   padding: var(--tp-space-5);
 }
+
+/* Source-view panel under demos */
+.tp-component-preview details > summary {
+  font-size: var(--tp-fs-caption);
+  color: var(--tp-text-secondary);
+  padding: var(--tp-space-1) 0;
+  user-select: none;
+}
+.tp-component-preview pre {
+  font-family: var(--tp-font-mono);
+  font-size: var(--tp-fs-mono-sm);
+  line-height: calc(var(--tp-lh-mono-sm) / var(--tp-fs-mono-sm));
+  border: 1px solid var(--tp-border-subtle);
+  background: var(--tp-bg-subtle);
+  color: var(--tp-text-primary);
+  border-radius: var(--tp-radius-md);
+  padding: var(--tp-space-3);
+}
+
+/* Hero (landing page splash) — center-aligned with primary tagline */
+.hero-html { text-align: center; }
+.hero h1 { color: var(--tp-text-primary); font-weight: var(--tp-fw-semibold); }
+.hero .tagline { color: var(--tp-text-secondary); }
