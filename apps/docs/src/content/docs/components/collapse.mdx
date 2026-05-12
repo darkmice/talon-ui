@@ -1,0 +1,40 @@
+---
+title: Collapse
+description: Expandable panels (accordion) for grouped, secondary content.
+sidebar:
+  order: 43
+---
+
+import ComponentPreview from '@/components/ComponentPreview.astro';
+import Basic from '@/examples/collapse/basic.tsx';
+import Multiple from '@/examples/collapse/multiple.tsx';
+import Extra from '@/examples/collapse/extra.tsx';
+
+`Collapse` is the Radix-backed accordion. Use it for grouped optional content (FAQ, advanced settings, sidebar nav sub-items).
+
+## Single
+
+<ComponentPreview src="examples/collapse/basic.tsx" title="One panel open at a time" height="280px">
+  <Basic client:load />
+</ComponentPreview>
+
+## Multiple open
+
+<ComponentPreview src="examples/collapse/multiple.tsx" title="Multiple panels open" height="280px">
+  <Multiple client:load />
+</ComponentPreview>
+
+## With extra slot
+
+<ComponentPreview src="examples/collapse/extra.tsx" title="Header right-side counter" height="200px">
+  <Extra client:load />
+</ComponentPreview>
+
+## Exports
+
+`Collapse` (Radix Root — accepts `type: 'single' | 'multiple'`, `value`, `defaultValue`, `onValueChange`, `collapsible`), `CollapsePanel`, `CollapseHeader` (accepts `extra` ReactNode), `CollapseContent`.
+
+## Don't
+
+- Don't put long-form prose inside Collapse — readers skim, and hidden long text gets missed.
+- Don't nest Collapse more than 2 levels deep — focus model gets confusing.
