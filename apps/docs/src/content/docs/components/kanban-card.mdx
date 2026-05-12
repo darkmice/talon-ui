@@ -1,0 +1,51 @@
+---
+title: KanbanCard
+description: Single Kanban board card composed of id, title, tags, assignees, progress, timestamp.
+sidebar:
+  order: 44
+---
+
+import ComponentPreview from '@/components/ComponentPreview.astro';
+import Basic from '@/examples/kanban-card/basic.tsx';
+import ProgressDemo from '@/examples/kanban-card/progress.tsx';
+import Assignees from '@/examples/kanban-card/assignees.tsx';
+
+`KanbanCard` is a complete board card. It composes our `Card` + `Tag` + `Avatar` / `AvatarGroup` + `Progress` so callers don't reinvent the layout.
+
+## Basic
+
+<ComponentPreview src="examples/kanban-card/basic.tsx" title="Default card" height="220px">
+  <Basic client:load />
+</ComponentPreview>
+
+## With progress
+
+<ComponentPreview src="examples/kanban-card/progress.tsx" title="Progress bar" height="220px">
+  <ProgressDemo client:load />
+</ComponentPreview>
+
+## Selectable + assignees
+
+<ComponentPreview src="examples/kanban-card/assignees.tsx" title="Selectable, multiple assignees" height="220px">
+  <Assignees client:load />
+</ComponentPreview>
+
+## Props
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `id` | `string` | — | Task code (rendered as mono-sm caption). |
+| `title` | `ReactNode` | required | Main label. |
+| `description` | `ReactNode` | — | Body copy, clamped to 2 lines. |
+| `tags` | `Array<{ label, tone? }>` | — | Status pills. |
+| `assignees` | `KanbanAssignee[]` | — | Group of assignees; collapses past 3 via `AvatarGroup`. |
+| `progress` | `number` | — | 0–100 progress bar. |
+| `timestamp` | `ReactNode` | — | Footer caption (e.g. "Updated 2h ago"). |
+| `onSelect` | `() => void` | — | When set, card becomes interactive. |
+| `selected` | `boolean` | `false` | Highlight with primary ring + border. |
+| `size` | `'sm' \| 'md'` | `'md'` | Max-width 280 / 320. |
+
+## Don't
+
+- Don't squeeze more than two tags side-by-side; use vertical stacking.
+- Don't use KanbanCard outside a column / board context — orphan cards lose meaning.

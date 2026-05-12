@@ -48,3 +48,4 @@ export * from './components/statistic/index.js';
 export * from './components/progress/index.js';
 export * from './components/descriptions/index.js';
 export * from './components/collapse/index.js';
+export * from './components/kanban-card/index.js';
