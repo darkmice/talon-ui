@@ -16,3 +16,4 @@ export * from './components/divider/index.js';
 export * from './components/space/index.js';
 export * from './components/typography/index.js';
 export * from './components/form/index.js';
+export * from './components/checkbox/index.js';
