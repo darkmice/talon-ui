@@ -1,0 +1,32 @@
+---
+/*
+ * Copyright (c) 2026 Talon Contributors
+ * Author: dark.lijin@gmail.com
+ * Licensed under the MIT License.
+ */
+
+interface Props {
+  src: string;           // path of demo .tsx, relative to apps/docs/src
+  title?: string;
+  height?: string;       // CSS height, e.g. "200px"
+}
+
+const { src, title, height = '200px' } = Astro.props;
+
+// Vite ?raw — pull demo source at build time for the "View source" panel.
+const sourceModules = import.meta.glob('../examples/**/*.tsx', { as: 'raw', eager: true });
+const source = sourceModules[`../${src}`] ?? '';
+---
+
+<div class="tp-component-preview my-6">
+  {title && <p class="text-sm text-text-secondary mb-2">{title}</p>}
+  <div class="tp-demo" style={`min-height:${height}`}>
+    <slot />
+  </div>
+  <details class="mt-2">
+    <summary class="cursor-pointer text-sm text-text-secondary hover:text-text-primary">
+      View source
+    </summary>
+    <pre class="text-mono-sm overflow-auto p-3 mt-2 rounded-md bg-bg-subtle"><code>{source}</code></pre>
+  </details>
+</div>

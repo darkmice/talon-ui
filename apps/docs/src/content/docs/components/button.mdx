@@ -1,0 +1,64 @@
+---
+title: Button
+description: Primary / secondary / ghost / danger action buttons with size, icon, and loading states.
+sidebar:
+  order: 1
+---
+
+import ComponentPreview from '@/components/ComponentPreview.astro';
+import Basic from '@/examples/button/basic.tsx';
+import Variants from '@/examples/button/variants.tsx';
+import Sizes from '@/examples/button/sizes.tsx';
+
+`Button` is the primary call-to-action surface. Variants map to action priority; sizes map to control density.
+
+## Basic
+
+<ComponentPreview src="examples/button/basic.tsx" title="Default">
+  <Basic client:load />
+</ComponentPreview>
+
+## Variants
+
+<ComponentPreview src="examples/button/variants.tsx" title="Variants" height="80px">
+  <Variants client:load />
+</ComponentPreview>
+
+| Variant | Use |
+|---|---|
+| `primary` | The single main action per screen. |
+| `secondary` | Supporting actions. White background + 1px border. |
+| `ghost` | Tertiary or inline actions. Transparent. |
+| `danger` | Destructive actions. Must be paired with text — icon-only danger is forbidden. |
+
+## Sizes
+
+<ComponentPreview src="examples/button/sizes.tsx" title="Sizes" height="80px">
+  <Sizes client:load />
+</ComponentPreview>
+
+| Size | Height | Typography |
+|---|---|---|
+| `sm` | 28 | `text-caption` |
+| `md` (default) | 36 | `text-body` |
+| `lg` | 44 | `text-body` |
+
+## Props
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `variant` | `'primary' \| 'secondary' \| 'ghost' \| 'danger'` | `'primary'` | Visual tone. |
+| `size` | `'sm' \| 'md' \| 'lg'` | `'md'` | Height + horizontal padding + type scale. |
+| `iconOnly` | `boolean` | `false` | Square aspect ratio with no horizontal padding. |
+| `leading` | `ReactNode` | — | Renders before children. |
+| `trailing` | `ReactNode` | — | Renders after children. |
+| `loading` | `boolean` | `false` | Replaces leading slot with a spinner; sets `aria-busy` and disables the button. |
+| `asChild` | `boolean` | `false` | Render a child element instead of `<button>` (via Radix `Slot`). |
+
+All native `<button>` attributes are accepted.
+
+## Don't
+
+- Don't use `iconOnly` on `danger` — the destructive action needs a label.
+- Don't put two primary buttons on the same screen.
+- Don't disable a button without explaining why (use a tooltip or inline help).

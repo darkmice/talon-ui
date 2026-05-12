@@ -1,0 +1,29 @@
+/*
+ * Copyright (c) 2026 Talon Contributors
+ * Author: dark.lijin@gmail.com
+ * Licensed under the MIT License.
+ */
+
+@import '@talon-ui/tokens/css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Starlight overrides: use Talon Pilot palette in the docs chrome */
+:root {
+  --sl-color-bg: var(--tp-bg-app);
+  --sl-color-bg-nav: var(--tp-bg-surface);
+  --sl-color-bg-sidebar: var(--tp-bg-surface);
+  --sl-color-text: var(--tp-text-primary);
+  --sl-color-text-accent: var(--tp-primary-600);
+  --sl-color-accent: var(--tp-primary-500);
+}
+
+/* Demo container — Talon-pilot card aesthetic */
+.tp-demo {
+  border: 1px solid var(--tp-border-default);
+  border-radius: var(--tp-radius-lg);
+  background: var(--tp-bg-surface);
+  padding: var(--tp-space-5);
+}

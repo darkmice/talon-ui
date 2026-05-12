@@ -1,0 +1,42 @@
+---
+title: Input
+description: Single-line text input with prefix/suffix slots and tone variants.
+sidebar:
+  order: 2
+---
+
+import ComponentPreview from '@/components/ComponentPreview.astro';
+import Basic from '@/examples/input/basic.tsx';
+import PrefixSuffix from '@/examples/input/prefix-suffix.tsx';
+
+`Input` wraps a bare `<input>` inside a `<label>` so the wrapper handles the focus boundary and slots for icons/units.
+
+## Basic
+
+<ComponentPreview src="examples/input/basic.tsx" title="Default">
+  <Basic client:load />
+</ComponentPreview>
+
+## Prefix and suffix
+
+<ComponentPreview src="examples/input/prefix-suffix.tsx" title="Slots" height="200px">
+  <PrefixSuffix client:load />
+</ComponentPreview>
+
+## Props
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `size` | `'sm' \| 'md' \| 'lg'` | `'md'` | Heights 28 / 36 / 44. |
+| `tone` | `'default' \| 'invalid'` | `'default'` | `invalid` paints the border red. Auto-derived from `aria-invalid`. |
+| `prefix` | `ReactNode` | — | Slot rendered before the input. |
+| `suffix` | `ReactNode` | — | Slot rendered after the input. |
+| `wrapperClassName` | `string` | — | Class applied to the outer `<label>`. |
+| `className` | `string` | — | Class applied to the inner `<input>`. |
+
+All native `<input>` attributes are accepted (except `size`, which is shadowed by the visual `size` variant).
+
+## Don't
+
+- Don't put `<Input>` inside `<Input>` — the label wrapper assumes a single inner input.
+- Don't fight the focus ring; the wrapper supplies it.

@@ -1,0 +1,40 @@
+---
+title: Talon UI
+description: React component library and design tokens for the Talon Pilot design system.
+template: splash
+hero:
+  title: Talon UI
+  tagline: Clean · disciplined · engineering-grade UI for AI-native control planes.
+  actions:
+    - text: Get started
+      link: /getting-started/installation/
+      variant: primary
+    - text: Components
+      link: /components/button/
+      variant: secondary
+---
+
+import { Card, CardGrid } from '@astrojs/starlight/components';
+
+<CardGrid>
+  <Card title="Design tokens" icon="palette">
+    3-layer CSS variables (primitive / semantic / component). Light + dark themes via `<html data-theme>` or `.dark`.
+  </Card>
+  <Card title="React components" icon="puzzle">
+    Block 1 (10 primitives) shipping. CVA variants. Radix-backed where accessibility primitives matter.
+  </Card>
+  <Card title="Two consumption modes" icon="rocket">
+    Tailwind preset OR pre-compiled `styles.css` — your call.
+  </Card>
+  <Card title="Phase 1 scope" icon="information">
+    45 components at Ant Design parity. Track progress at the GitHub or x.xgit.pro repo.
+  </Card>
+</CardGrid>
+
+:::note[TODO — Phase 2 enhancements]
+- Auto-generated PropsTable from TypeScript types
+- Algolia search integration
+- Version switcher
+- Interactive codegen (StackBlitz / CodeSandbox embeds)
+- Live component playground without iframe isolation
+:::

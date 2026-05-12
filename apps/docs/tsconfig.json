@@ -1,0 +1,11 @@
+{
+  "extends": "astro/tsconfigs/strict",
+  "compilerOptions": {
+    "jsx": "react-jsx",
+    "jsxImportSource": "react",
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "noUncheckedIndexedAccess": true
+  },
+  "include": ["src", "astro.config.mjs"]
+}
