@@ -1,0 +1,57 @@
+---
+title: Card
+description: Surface container with padding, hoverable, and interactive variants.
+sidebar:
+  order: 6
+---
+
+import ComponentPreview from '@/components/ComponentPreview.astro';
+import Basic from '@/examples/card/basic.tsx';
+import Padding from '@/examples/card/padding.tsx';
+import Interactive from '@/examples/card/interactive.tsx';
+
+`Card` is the standard surface container: white background, 1px border, 14px radius, soft shadow.
+
+## Basic
+
+<ComponentPreview src="examples/card/basic.tsx" title="Default card" height="180px">
+  <Basic client:load />
+</ComponentPreview>
+
+## Padding
+
+<ComponentPreview src="examples/card/padding.tsx" title="Padding sizes" height="240px">
+  <Padding client:load />
+</ComponentPreview>
+
+| Padding | Spacing token |
+|---|---|
+| `sm` | 12 |
+| `md` (default) | 20 |
+| `lg` | 24 |
+| `none` | 0 (use for full-bleed children) |
+
+## Interactive
+
+<ComponentPreview src="examples/card/interactive.tsx" title="Hoverable + interactive" height="160px">
+  <Interactive client:load />
+</ComponentPreview>
+
+- `hoverable` swaps the border to indigo-200 and bumps the shadow on hover.
+- `interactive` adds `role="button"`, makes the card keyboard-focusable, and shows the focus ring on `:focus-visible`.
+
+## Props
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `padding` | `'sm' \| 'md' \| 'lg' \| 'none'` | `'md'` | Internal padding scale. |
+| `hoverable` | `boolean` | `false` | Indigo-tinted border + pop shadow on hover. |
+| `interactive` | `boolean` | `false` | Set `role="button"`, focusable, focus ring. |
+| `asChild` | `boolean` | `false` | Render as the child element (e.g. an `<a>`). |
+
+All native `<div>` attributes are accepted; `role` is automatically `button` when `interactive` unless explicitly overridden.
+
+## Don't
+
+- Don't stack hoverable cards without a parent grid — too many interactive cards in a row creates noise.
+- Don't combine `interactive` with no obvious affordance — the user should know the card is clickable.
