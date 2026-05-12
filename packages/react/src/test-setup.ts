@@ -29,3 +29,18 @@ if (typeof Element !== 'undefined' && !Element.prototype.hasPointerCapture) {
 if (typeof Element !== 'undefined' && !Element.prototype.releasePointerCapture) {
   Element.prototype.releasePointerCapture = () => {};
 }
+
+// Lightweight axe helper for component tests.
+// Usage in a test:
+//   const { container } = render(<Component />);
+//   await expect(container).toBeAccessible();   // or call runAxe(container)
+import axe from 'axe-core';
+
+declare global {
+  // eslint-disable-next-line no-var
+  var __runAxe: typeof axe;
+}
+
+if (typeof globalThis.__runAxe === 'undefined') {
+  globalThis.__runAxe = axe;
+}
