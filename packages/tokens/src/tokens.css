@@ -292,7 +292,8 @@
 }
 
 /* ---- 强制暗（覆盖系统亮） ---- */
-:root[data-theme='dark'] {
+:root[data-theme='dark'],
+.dark {
   color-scheme: dark;
   --tp-bg-app: #0b1220;
   --tp-bg-surface: #131a2a;
