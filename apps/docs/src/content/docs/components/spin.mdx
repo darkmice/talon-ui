@@ -1,0 +1,47 @@
+---
+title: Spin
+description: Inline spinner or content overlay for in-flight async operations.
+sidebar:
+  order: 37
+---
+
+import ComponentPreview from '@/components/ComponentPreview.astro';
+import Basic from '@/examples/spin/basic.tsx';
+import Wrap from '@/examples/spin/wrap.tsx';
+import Tip from '@/examples/spin/tip.tsx';
+
+`Spin` shows a small animated loader. Render it inline, or wrap any element to overlay a "loading" state across it.
+
+## Basic
+
+<ComponentPreview src="examples/spin/basic.tsx" title="Three sizes" height="120px">
+  <Basic client:load />
+</ComponentPreview>
+
+## With tip
+
+<ComponentPreview src="examples/spin/tip.tsx" title="Spinner + caption" height="120px">
+  <Tip client:load />
+</ComponentPreview>
+
+## Wrapping content
+
+<ComponentPreview src="examples/spin/wrap.tsx" title="Toggle overlay" height="160px">
+  <Wrap client:load />
+</ComponentPreview>
+
+## Props
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `size` | `'sm' \| 'md' \| 'lg'` | `'md'` | Spinner icon size (14 / 20 / 28 px). |
+| `tone` | `'primary' \| 'inverse'` | `'primary'` | Spinner colour. |
+| `tip` | `ReactNode` | — | Caption rendered below the spinner. |
+| `spinning` | `boolean` | `true` | Toggle the overlay (only meaningful when wrapping children). |
+| `delay` | `number` | `0` | Wait this many ms before showing the overlay (avoids flashing on fast requests). |
+| `children` | `ReactNode` | — | When provided, renders the spinner as an overlay on top of the children. |
+
+## Don't
+
+- Don't use Spin for non-async loading (use Skeleton for content placeholders).
+- Don't ship Spin without an outer container width — overlay needs measurable bounds.

@@ -41,3 +41,4 @@ export * from './components/pagination/index.js';
 export * from './components/stepper/index.js';
 export * from './components/breadcrumb/index.js';
 export * from './components/skeleton/index.js';
+export * from './components/spin/index.js';
