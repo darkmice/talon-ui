@@ -1,0 +1,54 @@
+---
+title: NumberInput
+description: Numeric input with stepper buttons, unit suffix, and hold-to-repeat.
+sidebar:
+  order: 16
+---
+
+import ComponentPreview from '@/components/ComponentPreview.astro';
+import Basic from '@/examples/number-input/basic.tsx';
+import Unit from '@/examples/number-input/unit.tsx';
+import FormDemo from '@/examples/number-input/form.tsx';
+
+`NumberInput` is a 36px input with `tp-nums` numeric font and right-side up/down arrow buttons. Holding an arrow continuously steps.
+
+## Basic
+
+<ComponentPreview src="examples/number-input/basic.tsx" title="Bounded counter" height="100px">
+  <Basic client:load />
+</ComponentPreview>
+
+## Unit suffix
+
+<ComponentPreview src="examples/number-input/unit.tsx" title="Units" height="160px">
+  <Unit client:load />
+</ComponentPreview>
+
+## Inside a Form
+
+<ComponentPreview src="examples/number-input/form.tsx" title="With Form" height="220px">
+  <FormDemo client:load />
+</ComponentPreview>
+
+## Props
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `value` | `number \| string` | — | Controlled value. |
+| `defaultValue` | `number \| string` | — | Uncontrolled initial value. |
+| `onValueChange` | `(value: number) => void` | — | Convenience callback with the parsed number. |
+| `min` | `number` | — | Lower bound. |
+| `max` | `number` | — | Upper bound. |
+| `step` | `number` | `1` | Increment per arrow / keypress. |
+| `precision` | `number` | inferred from `step` | Decimal places to display. |
+| `unit` | `ReactNode` | — | Suffix rendered as caption between the input and the arrow column. |
+| `size` | `'sm' \| 'md' \| 'lg'` | `'md'` | Mirrors `Input`. |
+| `tone` | `'default' \| 'invalid'` | `'default'` | Mirrors `Input`. |
+| `holdStep` | `number` | `100` | Repeat interval (ms) when an arrow is held. |
+
+All non-`size` `<input>` attributes are forwarded.
+
+## Don't
+
+- Don't combine `NumberInput` with a `<Slider>` for the same value — pick one input affordance.
+- Don't ship without `min` / `max` if the field has logical bounds. Unbounded numerics invite invalid data.
