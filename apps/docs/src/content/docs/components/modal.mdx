@@ -1,0 +1,42 @@
+---
+title: Modal
+description: Centered dialog with focus trap and escape-to-close.
+sidebar:
+  order: 29
+---
+
+import ComponentPreview from '@/components/ComponentPreview.astro';
+import Basic from '@/examples/modal/basic.tsx';
+import Sizes from '@/examples/modal/sizes.tsx';
+import Destructive from '@/examples/modal/destructive.tsx';
+
+`Modal` is the centered dialog. Built on `@radix-ui/react-dialog`: focus trap, scroll lock, escape-to-close, accessible labelling via Title + Description.
+
+## Basic
+
+<ComponentPreview src="examples/modal/basic.tsx" title="Default md" height="120px">
+  <Basic client:load />
+</ComponentPreview>
+
+## Sizes
+
+<ComponentPreview src="examples/modal/sizes.tsx" title="sm / md / lg" height="120px">
+  <Sizes client:load />
+</ComponentPreview>
+
+## Destructive
+
+<ComponentPreview src="examples/modal/destructive.tsx" title="Two-step destructive flow" height="120px">
+  <Destructive client:load />
+</ComponentPreview>
+
+## Exports
+
+`Modal`, `ModalTrigger`, `ModalPortal`, `ModalContent` (`size`, `showClose`), `ModalHeader`, `ModalTitle`, `ModalDescription`, `ModalFooter`, `ModalClose`, `ModalOverlay`.
+
+`ModalContent` accepts all Radix Dialog.Content props plus `size: 'sm' | 'md' | 'lg'` (default `'md'`) and `showClose: boolean` (default `true`).
+
+## Don't
+
+- Don't ship a modal without a clear primary action. Two-button confirmation is the minimum.
+- Don't open a modal from a modal — use the same modal's body to swap content.
