@@ -27,13 +27,13 @@ export const tabsTriggerVariants = cva(
   [
     'inline-flex items-center gap-tp-2 px-tp-1 pb-tp-2 -mb-px',
     'border-b-2 border-transparent',
-    'text-text-secondary font-medium',
+    'text-text-secondary',
     'transition-colors duration-fast ease-tp',
     'cursor-pointer',
     'hover:text-text-primary',
     'data-[state=active]:text-text-primary',
     'data-[state=active]:border-primary-500',
-    'focus-visible:tp-focus-ring focus-visible:outline-none rounded-sm',
+    'focus-visible:tp-focus-ring focus-visible:outline-none',
     'disabled:opacity-50 disabled:cursor-not-allowed',
   ],
   {

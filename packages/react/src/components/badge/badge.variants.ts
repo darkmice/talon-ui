@@ -10,14 +10,14 @@ export const badgePillVariants = cva(
   [
     'inline-flex items-center justify-center',
     'rounded-pill tp-nums',
-    'font-medium text-[10px] leading-none',
+    'font-normal text-[10px] leading-none',
     'bg-danger-500 text-text-on-primary',
     'select-none',
   ],
   {
     variants: {
       kind: {
-        number: 'h-3 min-w-3 px-[3px]',
+        number: 'h-4 min-w-4 px-1',
         dot:    'h-2 w-2 px-0',
       },
       tone: {
