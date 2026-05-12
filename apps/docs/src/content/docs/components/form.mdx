@@ -1,0 +1,54 @@
+---
+title: Form
+description: Thin layout layer over react-hook-form — labels, descriptions, error messages, accessible wiring.
+sidebar:
+  order: 11
+---
+
+import ComponentPreview from '@/components/ComponentPreview.astro';
+import Basic from '@/examples/form/basic.tsx';
+import Validation from '@/examples/form/validation.tsx';
+
+`Form` follows the shadcn/ui pattern: it does not own validation or state. Instead it gives you accessible `<FormItem>`, `<FormLabel>`, `<FormDescription>`, `<FormMessage>` primitives and a `<FormField>` wrapper that hooks into react-hook-form's `<Controller>`.
+
+## Basic
+
+<ComponentPreview src="examples/form/basic.tsx" title="Basic form" height="260px">
+  <Basic client:load />
+</ComponentPreview>
+
+## Validation
+
+<ComponentPreview src="examples/form/validation.tsx" title="Field-level validation" height="280px">
+  <Validation client:load />
+</ComponentPreview>
+
+When a field has an error, `FormLabel` turns danger red, `FormControl` adds `aria-invalid="true"`, and `FormMessage` renders the message.
+
+## API
+
+### Exports
+
+| Name | Kind | Description |
+|---|---|---|
+| `Form` | Component | Re-export of `react-hook-form`'s `FormProvider`. |
+| `FormField` | Component | Wraps `Controller`; provides field context to descendants. |
+| `FormItem` | Component | Layout wrapper; provides a generated id for label/description/message wiring. |
+| `FormLabel` | Component | `<label htmlFor>` automatically wired; turns red on error. |
+| `FormControl` | Component | Slot that injects `id`, `aria-describedby`, `aria-invalid` into the wrapped control. |
+| `FormDescription` | Component | Helper text `<p>` with caption type token. |
+| `FormMessage` | Component | Renders the field error or explicit children; caption + danger red. |
+| `useFormField()` | Hook | Returns `{ id, name, formItemId, formDescriptionId, formMessageId, error }`. Throws outside a `<FormField>` / `<FormItem>`. |
+
+### Peer dependency
+
+`react-hook-form ^7.49` is a **peer** dependency. Install it alongside `@talon-ui/react`:
+
+```bash
+pnpm add react-hook-form
+```
+
+## Don't
+
+- Don't use `<FormLabel>` without wrapping it in `<FormItem>` — the label loses its `htmlFor` wiring.
+- Don't bypass `<FormControl>` for an entry control inside a form — accessibility attributes won't be added.

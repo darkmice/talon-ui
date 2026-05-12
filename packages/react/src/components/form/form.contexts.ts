@@ -1,0 +1,19 @@
+/*
+ * Copyright (c) 2026 Talon Contributors
+ * Author: dark.lijin@gmail.com
+ * Licensed under the MIT License.
+ */
+
+import { createContext } from 'react';
+import type { FieldPath, FieldValues } from 'react-hook-form';
+
+export type FormFieldContextValue<
+  TFieldValues extends FieldValues = FieldValues,
+  TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
+> = { name: TName };
+
+export const FormFieldContext = createContext<FormFieldContextValue | null>(null);
+
+export type FormItemContextValue = { id: string };
+
+export const FormItemContext = createContext<FormItemContextValue | null>(null);
