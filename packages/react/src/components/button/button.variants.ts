@@ -20,7 +20,7 @@ export const buttonVariants = cva(
         primary:   'bg-primary-500 text-text-on-primary hover:bg-primary-600 active:bg-primary-700',
         secondary: 'bg-bg-surface text-text-primary border border-border hover:bg-bg-subtle',
         ghost:     'bg-transparent text-text-primary hover:bg-bg-subtle',
-        danger:    'bg-[#DC2626] text-white hover:bg-[#B91C1C]',
+        danger:    'bg-danger-500 text-text-on-primary hover:bg-danger-600',
       },
       size: {
         sm: 'h-control-sm px-tp-3 text-caption',

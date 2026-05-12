@@ -33,9 +33,10 @@ describe('Button anatomy (design.md §6.1)', () => {
     expect(btn.className).toMatch(/px-0/);
   });
 
-  test('danger variant uses hard-pinned red hex', () => {
+  test('danger variant uses Talon brand red tokens', () => {
     const { container } = render(<Button variant="danger">删除</Button>);
     const btn = container.firstElementChild as HTMLElement;
-    expect(btn.className).toMatch(/bg-\[#DC2626\]/);
+    expect(btn.className).toMatch(/bg-danger-500/);
+    expect(btn.className).toMatch(/text-text-on-primary/);
   });
 });

@@ -51,6 +51,11 @@ module.exports = {
           900: 'var(--tp-primary-900)',
           DEFAULT: 'var(--tp-primary-500)',
         },
+        danger: {
+          500: 'var(--tp-danger-500)',
+          600: 'var(--tp-danger-600)',
+          DEFAULT: 'var(--tp-danger-500)',
+        },
         status: {
           'progress-fg': 'var(--tp-status-progress-fg)',
           'progress-bg': 'var(--tp-status-progress-bg)',

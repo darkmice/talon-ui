@@ -90,9 +90,9 @@
   --tp-accent-pink-soft: #fce7f3;
   --tp-accent-pink-ink: #be185d;
 
-  /* danger (hard pin, theme-stable) */
-  --tp-danger-500: #dc2626;
-  --tp-danger-600: #b91c1c;
+  /* danger — Talon brand red (matches red-500 / blocked status; theme-stable) */
+  --tp-danger-500: #c8322b;
+  --tp-danger-600: #a12822;
 
   /* typography */
   --tp-font-sans: 'Inter', 'PingFang SC', 'Microsoft YaHei', system-ui, -apple-system, sans-serif;
