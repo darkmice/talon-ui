@@ -1,0 +1,49 @@
+---
+title: Statistic
+description: Single metric or grid of metrics with optional trend deltas.
+sidebar:
+  order: 40
+---
+
+import ComponentPreview from '@/components/ComponentPreview.astro';
+import Basic from '@/examples/statistic/basic.tsx';
+import WithTrend from '@/examples/statistic/with-trend.tsx';
+import Grid from '@/examples/statistic/grid.tsx';
+
+`Statistic` shows one number with a label. Combine multiple in a CSS grid to build a metric strip.
+
+## Basic
+
+<ComponentPreview src="examples/statistic/basic.tsx" title="Single metric" height="100px">
+  <Basic client:load />
+</ComponentPreview>
+
+## With trend delta
+
+<ComponentPreview src="examples/statistic/with-trend.tsx" title="Up and down deltas" height="120px">
+  <WithTrend client:load />
+</ComponentPreview>
+
+## In a grid
+
+<ComponentPreview src="examples/statistic/grid.tsx" title="2x2 grid" height="160px">
+  <Grid client:load />
+</ComponentPreview>
+
+## Props
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `label` | `ReactNode` | required | Caption text above the value. |
+| `value` | `number \| string` | required | Main metric. |
+| `prefix` / `suffix` | `ReactNode` | — | Inline unit / sign markers. |
+| `precision` | `number` | — | Decimal places for numeric values. |
+| `delta` | `number` | — | Optional trend value (e.g. +12 / -5). |
+| `deltaDirection` | `'up' \| 'down' \| 'auto'` | `'auto'` | Override the trend direction. |
+| `size` | `'sm' \| 'md' \| 'lg'` | `'md'` | Value type scale (h3 / h2 / display). |
+| `align` | `'start' \| 'center'` | `'start'` | Horizontal alignment. |
+
+## Don't
+
+- Don't add icons or borders inside `Statistic` — the design system uses pure typography for rhythm.
+- Don't pair a delta with a relative value if the absolute is unclear; show both.
