@@ -1,0 +1,59 @@
+---
+title: Tag
+description: Status pills and skill chips with six status tones plus neutral.
+sidebar:
+  order: 4
+---
+
+import ComponentPreview from '@/components/ComponentPreview.astro';
+import Basic from '@/examples/tag/basic.tsx';
+import Tones from '@/examples/tag/tones.tsx';
+import Removable from '@/examples/tag/removable.tsx';
+
+`Tag` is a 22px-tall pill for short labels: status markers, skill chips, and removable filters.
+
+## Basic
+
+<ComponentPreview src="examples/tag/basic.tsx" title="Default" height="80px">
+  <Basic client:load />
+</ComponentPreview>
+
+## Tones
+
+<ComponentPreview src="examples/tag/tones.tsx" title="Status tones" height="80px">
+  <Tones client:load />
+</ComponentPreview>
+
+| Tone | Use |
+|---|---|
+| `neutral` (default) | Skill chips. Grey background. |
+| `progress` | Task or node running. |
+| `pending` | Awaiting human or AI sign-off. |
+| `done` | Completed / online. |
+| `blocked` | Failed / offline. |
+| `idle` | Not started / draft. |
+| `info` | System-level info. |
+
+All status tones add `role="status"` automatically for assistive tech.
+
+## Removable
+
+<ComponentPreview src="examples/tag/removable.tsx" title="Removable" height="120px">
+  <Removable client:load />
+</ComponentPreview>
+
+## Props
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `tone` | `'neutral' \| 'progress' \| 'pending' \| 'done' \| 'blocked' \| 'idle' \| 'info'` | `'neutral'` | Visual semantics. |
+| `size` | `'sm' \| 'md'` | `'md'` | Heights 18 / 22. |
+| `dot` | `boolean` | `false` | Render a leading status dot. |
+| `removable` | `boolean` | `false` | Render a trailing remove button. |
+| `removeLabel` | `string` | `'Remove'` | `aria-label` for the remove button. |
+| `onRemove` | `(event) => void` | — | Click handler for the remove button. |
+
+## Don't
+
+- Don't pair two status tones in a single visual unit — pick the most specific one.
+- Don't use removable inside a non-editable list — the affordance implies mutability.
