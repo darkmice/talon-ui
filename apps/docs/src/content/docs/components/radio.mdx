@@ -6,6 +6,7 @@ sidebar:
 ---
 
 import ComponentPreview from '@/components/ComponentPreview.astro';
+import PropsTable from '@/components/PropsTable.astro';
 import Basic from '@/examples/radio/basic.tsx';
 import Horizontal from '@/examples/radio/horizontal.tsx';
 import FormDemo from '@/examples/radio/form.tsx';
@@ -34,22 +35,11 @@ import FormDemo from '@/examples/radio/form.tsx';
 
 ### RadioGroup
 
-| Prop | Type | Default | Description |
-|---|---|---|---|
-| `orientation` | `'horizontal' \| 'vertical'` | `'vertical'` | Axis. |
-| `value` | `string` | — | Controlled selected value. |
-| `defaultValue` | `string` | — | Uncontrolled initial value. |
-| `onValueChange` | `(value: string) => void` | — | Change handler. |
-| `disabled` | `boolean` | `false` | Disables every item. |
+<PropsTable component="RadioGroup" />
 
 ### RadioGroupItem
 
-| Prop | Type | Default | Description |
-|---|---|---|---|
-| `value` | `string` | required | Item identifier. |
-| `size` | `'sm' \| 'md'` | `'md'` | 14 / 16 px. |
-| `tone` | `'primary' \| 'danger'` | `'primary'` | Indicator and selected border colour. |
-| `disabled` | `boolean` | `false` | Disables this item. |
+<PropsTable component="RadioGroupItem" />
 
 ## Don't
 

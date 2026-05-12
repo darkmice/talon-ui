@@ -6,6 +6,7 @@ sidebar:
 ---
 
 import ComponentPreview from '@/components/ComponentPreview.astro';
+import PropsTable from '@/components/PropsTable.astro';
 import Basic from '@/examples/kanban-card/basic.tsx';
 import ProgressDemo from '@/examples/kanban-card/progress.tsx';
 import Assignees from '@/examples/kanban-card/assignees.tsx';
@@ -32,18 +33,7 @@ import Assignees from '@/examples/kanban-card/assignees.tsx';
 
 ## Props
 
-| Prop | Type | Default | Description |
-|---|---|---|---|
-| `id` | `string` | — | Task code (rendered as mono-sm caption). |
-| `title` | `ReactNode` | required | Main label. |
-| `description` | `ReactNode` | — | Body copy, clamped to 2 lines. |
-| `tags` | `Array<{ label, tone? }>` | — | Status pills. |
-| `assignees` | `KanbanAssignee[]` | — | Group of assignees; collapses past 3 via `AvatarGroup`. |
-| `progress` | `number` | — | 0–100 progress bar. |
-| `timestamp` | `ReactNode` | — | Footer caption (e.g. "Updated 2h ago"). |
-| `onSelect` | `() => void` | — | When set, card becomes interactive. |
-| `selected` | `boolean` | `false` | Highlight with primary ring + border. |
-| `size` | `'sm' \| 'md'` | `'md'` | Max-width 280 / 320. |
+<PropsTable component="KanbanCard" />
 
 ## Don't
 

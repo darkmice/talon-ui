@@ -6,6 +6,7 @@ sidebar:
 ---
 
 import ComponentPreview from '@/components/ComponentPreview.astro';
+import PropsTable from '@/components/PropsTable.astro';
 import Headings from '@/examples/typography/headings.tsx';
 import Body from '@/examples/typography/body.tsx';
 import LinkDemo from '@/examples/typography/link.tsx';
@@ -54,34 +55,19 @@ All titles render at weight 600.
 
 ### Title
 
-| Prop | Type | Default | Description |
-|---|---|---|---|
-| `level` | `'display' \| 1 \| 2 \| 3` | `1` | Heading level. `display` still renders `<h1>` but with the display type scale. |
-| `tone` | `'primary' \| 'secondary' \| 'tertiary' \| 'inverse'` | `'primary'` | Text colour token. |
-| `asChild` | `boolean` | `false` | Render through the child element. |
+<PropsTable component="Title" />
 
 ### Text
 
-| Prop | Type | Default | Description |
-|---|---|---|---|
-| `variant` | `'body' \| 'body-strong' \| 'caption' \| 'mono-sm'` | `'body'` | Type scale. |
-| `tone` | `'primary' \| 'secondary' \| 'tertiary' \| 'inverse'` | `'primary'` | Text colour token. |
-| `nums` | `boolean` | `false` | Apply `tp-nums` (tabular numerals). |
-| `asChild` | `boolean` | `false` | Render through the child. |
+<PropsTable component="Text" />
 
 ### Paragraph
 
-| Prop | Type | Default | Description |
-|---|---|---|---|
-| `tone` | `'primary' \| 'secondary' \| 'tertiary'` | `'primary'` | Text colour token. |
-| `spacing` | `'tight' \| 'normal' \| 'loose' \| 'none'` | `'normal'` | Bottom margin. |
+<PropsTable component="Paragraph" />
 
 ### Link
 
-| Prop | Type | Default | Description |
-|---|---|---|---|
-| `tone` | `'primary' \| 'muted'` | `'primary'` | Colour scheme. |
-| `asChild` | `boolean` | `false` | Render through the child (e.g. a router `<Link>`). |
+<PropsTable component="Link" />
 
 All native `<a>` attributes are accepted.
 

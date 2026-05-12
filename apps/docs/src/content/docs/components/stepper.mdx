@@ -6,6 +6,7 @@ sidebar:
 ---
 
 import ComponentPreview from '@/components/ComponentPreview.astro';
+import PropsTable from '@/components/PropsTable.astro';
 import Basic from '@/examples/stepper/basic.tsx';
 import Vertical from '@/examples/stepper/vertical.tsx';
 import ErrorDemo from '@/examples/stepper/error.tsx';
@@ -32,13 +33,7 @@ import ErrorDemo from '@/examples/stepper/error.tsx';
 
 ## Props
 
-| Prop | Type | Default | Description |
-|---|---|---|---|
-| `steps` | `StepperStep[]` | required | Array of `{ title, description?, status?, icon? }`. |
-| `current` | `number` | required | 0-indexed current step. |
-| `orientation` | `'horizontal' \| 'vertical'` | `'horizontal'` | Layout direction. |
-| `size` | `'sm' \| 'md'` | `'md'` | Indicator circle size (24 / 28 px). |
-| `onStepClick` | `(index: number) => void` | — | When set, indicators become buttons for jump navigation. |
+<PropsTable component="Stepper" />
 
 ## Don't
 

@@ -6,6 +6,7 @@ sidebar:
 ---
 
 import ComponentPreview from '@/components/ComponentPreview.astro';
+import PropsTable from '@/components/PropsTable.astro';
 import Basic from '@/examples/popconfirm/basic.tsx';
 import Danger from '@/examples/popconfirm/danger.tsx';
 import Async from '@/examples/popconfirm/async.tsx';
@@ -32,20 +33,7 @@ import Async from '@/examples/popconfirm/async.tsx';
 
 ## Props
 
-| Prop | Type | Default | Description |
-|---|---|---|---|
-| `title` | `ReactNode` | required | The headline question. |
-| `description` | `ReactNode` | — | Helper text below the title. |
-| `icon` | `ReactNode` | auto | Default `AlertTriangle` for danger, `Info` otherwise. |
-| `tone` | `'default' \| 'danger' \| 'warning'` | `'default'` | Icon colour + OK button variant. |
-| `okText` | `string` | `'OK'` | Label for the confirm button. |
-| `cancelText` | `string` | `'Cancel'` | Label for the cancel button. |
-| `onConfirm` | `() => void \| Promise<void>` | — | Confirm handler. |
-| `onCancel` | `() => void` | — | Cancel handler. |
-| `confirming` | `boolean` | `false` | Show loading state on the confirm button. |
-| `open` / `defaultOpen` / `onOpenChange` | — | — | Standard Radix open state. |
-| `side` / `align` | — | — | Standard Radix Popover positioning. |
-| `children` | `ReactNode` | required | The trigger element. Should `asChild`-style accept the popover trigger (a single React element). |
+<PropsTable component="Popconfirm" />
 
 ## Don't
 

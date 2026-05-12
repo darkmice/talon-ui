@@ -6,6 +6,7 @@ sidebar:
 ---
 
 import ComponentPreview from '@/components/ComponentPreview.astro';
+import PropsTable from '@/components/PropsTable.astro';
 import Basic from '@/examples/tabs/basic.tsx';
 import WithBadge from '@/examples/tabs/with-badge.tsx';
 import Controlled from '@/examples/tabs/controlled.tsx';
@@ -32,20 +33,21 @@ import Controlled from '@/examples/tabs/controlled.tsx';
 
 ## Props
 
-### Tabs (Radix Root)
-| Prop | Type | Description |
-|---|---|---|
-| `value` | `string` | Controlled active value. |
-| `defaultValue` | `string` | Uncontrolled initial active value. |
-| `onValueChange` | `(value: string) => void` | Change handler. |
-| `orientation` | `'horizontal' \| 'vertical'` | Default `horizontal`. |
+### Tabs
 
-### TabsList / TabsTrigger
-| Prop | Type | Default | Description |
-|---|---|---|---|
-| `size` | `'sm' \| 'md' \| 'lg'` | `'md'` | Font scale; affects only typography (the underline indicator stays 2px). |
+<PropsTable component="Tabs" />
 
-`TabsTrigger` accepts a `disabled` prop.
+### TabsList
+
+<PropsTable component="TabsList" />
+
+### TabsTrigger
+
+<PropsTable component="TabsTrigger" />
+
+### TabsContent
+
+<PropsTable component="TabsContent" />
 
 ## Don't
 

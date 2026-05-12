@@ -6,6 +6,7 @@ sidebar:
 ---
 
 import ComponentPreview from '@/components/ComponentPreview.astro';
+import PropsTable from '@/components/PropsTable.astro';
 import Basic from '@/examples/tag/basic.tsx';
 import Tones from '@/examples/tag/tones.tsx';
 import Removable from '@/examples/tag/removable.tsx';
@@ -44,14 +45,7 @@ All status tones add `role="status"` automatically for assistive tech.
 
 ## Props
 
-| Prop | Type | Default | Description |
-|---|---|---|---|
-| `tone` | `'neutral' \| 'progress' \| 'pending' \| 'done' \| 'blocked' \| 'idle' \| 'info'` | `'neutral'` | Visual semantics. |
-| `size` | `'sm' \| 'md'` | `'md'` | Heights 18 / 22. |
-| `dot` | `boolean` | `false` | Render a leading status dot. |
-| `removable` | `boolean` | `false` | Render a trailing remove button. |
-| `removeLabel` | `string` | `'Remove'` | `aria-label` for the remove button. |
-| `onRemove` | `(event) => void` | — | Click handler for the remove button. |
+<PropsTable component="Tag" />
 
 ## Don't
 

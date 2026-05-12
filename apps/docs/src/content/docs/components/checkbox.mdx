@@ -6,6 +6,7 @@ sidebar:
 ---
 
 import ComponentPreview from '@/components/ComponentPreview.astro';
+import PropsTable from '@/components/PropsTable.astro';
 import Basic from '@/examples/checkbox/basic.tsx';
 import States from '@/examples/checkbox/states.tsx';
 import FormDemo from '@/examples/checkbox/form.tsx';
@@ -32,14 +33,7 @@ import FormDemo from '@/examples/checkbox/form.tsx';
 
 ## Props
 
-| Prop | Type | Default | Description |
-|---|---|---|---|
-| `size` | `'sm' \| 'md'` | `'md'` | 14 / 16 px. |
-| `tone` | `'primary' \| 'danger'` | `'primary'` | Background colour when checked. |
-| `checked` | `boolean \| 'indeterminate'` | — | Controlled state. |
-| `defaultChecked` | `boolean` | — | Uncontrolled initial state. |
-| `onCheckedChange` | `(checked: boolean \| 'indeterminate') => void` | — | Change handler. |
-| `disabled` | `boolean` | `false` | Disables the control. |
+<PropsTable component="Checkbox" />
 
 ## Don't
 

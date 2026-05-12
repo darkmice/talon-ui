@@ -6,6 +6,7 @@ sidebar:
 ---
 
 import ComponentPreview from '@/components/ComponentPreview.astro';
+import PropsTable from '@/components/PropsTable.astro';
 import Basic from '@/examples/time-picker/basic.tsx';
 import Seconds from '@/examples/time-picker/seconds.tsx';
 import FormDemo from '@/examples/time-picker/form.tsx';
@@ -32,18 +33,7 @@ import FormDemo from '@/examples/time-picker/form.tsx';
 
 ## Props
 
-| Prop | Type | Default | Description |
-|---|---|---|---|
-| `value` | `string` | — | Controlled `"HH:MM"` or `"HH:MM:SS"`. |
-| `defaultValue` | `string` | — | Uncontrolled initial. |
-| `onValueChange` | `(value: string) => void` | — | Commit handler. |
-| `withSeconds` | `boolean` | `false` | Adds the seconds column. |
-| `hourStep` | `number` | `1` | Hour grid step. |
-| `minuteStep` | `number` | `1` | Minute grid step. |
-| `secondStep` | `number` | `1` | Second grid step. |
-| `placeholder` | `string` | `'HH:MM'` | Shown when no value. |
-| `size` | `'sm' \| 'md' \| 'lg'` | `'md'` | Trigger height. |
-| `tone` | `'default' \| 'invalid'` | `'default'` | Border treatment. |
+<PropsTable component="TimePicker" />
 
 ## Don't
 

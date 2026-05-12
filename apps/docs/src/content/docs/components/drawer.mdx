@@ -6,6 +6,7 @@ sidebar:
 ---
 
 import ComponentPreview from '@/components/ComponentPreview.astro';
+import PropsTable from '@/components/PropsTable.astro';
 import Right from '@/examples/drawer/right.tsx';
 import Left from '@/examples/drawer/left.tsx';
 import Form from '@/examples/drawer/form.tsx';
@@ -34,13 +35,14 @@ import Form from '@/examples/drawer/form.tsx';
 
 `Drawer`, `DrawerTrigger`, `DrawerPortal`, `DrawerClose`, `DrawerOverlay`, `DrawerContent` (`side`, `size`, `showClose`), `DrawerHeader`, `DrawerTitle`, `DrawerDescription`, `DrawerBody`, `DrawerFooter`.
 
-`DrawerContent` accepts all Radix Dialog.Content props plus:
-- `side: 'right' | 'left' | 'top' | 'bottom'` (default `'right'`)
-- `size: 'sm' | 'md' | 'lg'` (default `'md'`)
-- `showClose: boolean` (default `true`)
-
 Widths for `left` / `right`: `sm` = 400 px, `md` = 520 px, `lg` = 720 px.
 Heights for `top` / `bottom`: `sm` = 200 px, `md` = 320 px, `lg` = 480 px.
+
+## Props
+
+### DrawerContent
+
+<PropsTable component="DrawerContent" />
 
 ## Don't
 

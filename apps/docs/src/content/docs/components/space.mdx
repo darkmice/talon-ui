@@ -6,6 +6,7 @@ sidebar:
 ---
 
 import ComponentPreview from '@/components/ComponentPreview.astro';
+import PropsTable from '@/components/PropsTable.astro';
 import Horizontal from '@/examples/space/horizontal.tsx';
 import Vertical from '@/examples/space/vertical.tsx';
 import Responsive from '@/examples/space/responsive.tsx';
@@ -42,14 +43,7 @@ import Responsive from '@/examples/space/responsive.tsx';
 
 ## Props
 
-| Prop | Type | Default | Description |
-|---|---|---|---|
-| `direction` | `'horizontal' \| 'vertical'` | `'horizontal'` | Axis. |
-| `size` | `'xs' \| 'sm' \| 'md' \| 'lg' \| 'xl'` | `'md'` | Gap scale. |
-| `align` | `'start' \| 'center' \| 'end' \| 'stretch' \| 'baseline'` | — | `align-items`. |
-| `justify` | `'start' \| 'center' \| 'end' \| 'between' \| 'around'` | — | `justify-content`. |
-| `wrap` | `boolean` | `false` | `flex-wrap`. |
-| `inline` | `boolean` | `false` | `inline-flex` instead of `flex`. |
+<PropsTable component="Space" />
 
 ## Don't
 

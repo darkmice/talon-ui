@@ -6,6 +6,7 @@ sidebar:
 ---
 
 import ComponentPreview from '@/components/ComponentPreview.astro';
+import PropsTable from '@/components/PropsTable.astro';
 import Basic from '@/examples/upload/basic.tsx';
 import Progress from '@/examples/upload/progress.tsx';
 import FormDemo from '@/examples/upload/form.tsx';
@@ -34,22 +35,7 @@ Try naming a file like `fail.txt` to see the error path.
 
 ## Props
 
-| Prop | Type | Default | Description |
-|---|---|---|---|
-| `value` | `UploadFile[]` | — | Controlled list. |
-| `defaultValue` | `UploadFile[]` | `[]` | Uncontrolled initial list. |
-| `onValueChange` | `(files: UploadFile[]) => void` | — | List change handler. |
-| `onUpload` | `(file: File) => Promise<{ url: string }>` | — | Async uploader. When set, drop / pick kicks off uploads automatically. |
-| `onRemove` | `(id: string) => void` | — | Called when user removes a file. |
-| `onRetry` | `(id: string) => void` | — | Called when user retries an error file. |
-| `accept` | `string` | — | Native `<input accept>`. |
-| `multiple` | `boolean` | `true` | Allow multiple files per pick. |
-| `maxFiles` | `number` | — | Cap on total list length. |
-| `maxSize` | `number` | — | Reject files larger than this byte count. |
-| `disabled` | `boolean` | `false` | Disables the drop zone. |
-| `hideList` | `boolean` | `false` | Render drop zone only. |
-| `prompt` | `ReactNode` | `'Click or drag files to upload'` | Drop-zone main text. |
-| `hint` | `ReactNode` | `'Up to 10 MB each'` | Drop-zone caption. |
+<PropsTable component="Upload" />
 
 ## Don't
 

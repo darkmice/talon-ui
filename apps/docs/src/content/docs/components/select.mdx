@@ -6,6 +6,7 @@ sidebar:
 ---
 
 import ComponentPreview from '@/components/ComponentPreview.astro';
+import PropsTable from '@/components/PropsTable.astro';
 import Basic from '@/examples/select/basic.tsx';
 import Grouped from '@/examples/select/grouped.tsx';
 import FormDemo from '@/examples/select/form.tsx';
@@ -48,28 +49,23 @@ import FormDemo from '@/examples/select/form.tsx';
 </Select>
 ```
 
-## Props (highlights)
+## Props
 
-### Select (Radix Root)
-| Prop | Type | Description |
-|---|---|---|
-| `value` | `string` | Controlled value. |
-| `defaultValue` | `string` | Uncontrolled initial value. |
-| `onValueChange` | `(value: string) => void` | Change handler. |
-| `disabled` | `boolean` | Disables the trigger. |
+### Select
+
+<PropsTable component="Select" />
 
 ### SelectTrigger
-| Prop | Type | Default | Description |
-|---|---|---|---|
-| `size` | `'sm' \| 'md' \| 'lg'` | `'md'` | Mirrors Input heights. |
-| `tone` | `'default' \| 'invalid'` | `'default'` | Border treatment. |
+
+<PropsTable component="SelectTrigger" />
+
+### SelectContent
+
+<PropsTable component="SelectContent" />
 
 ### SelectItem
-| Prop | Type | Default | Description |
-|---|---|---|---|
-| `value` | `string` | required | Item key. |
-| `tone` | `'default' \| 'danger'` | `'default'` | Text colour. |
-| `disabled` | `boolean` | `false` | Non-selectable. |
+
+<PropsTable component="SelectItem" />
 
 ## Don't
 

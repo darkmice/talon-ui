@@ -6,6 +6,7 @@ sidebar:
 ---
 
 import ComponentPreview from '@/components/ComponentPreview.astro';
+import PropsTable from '@/components/PropsTable.astro';
 import Basic from '@/examples/pagination/basic.tsx';
 import Small from '@/examples/pagination/small.tsx';
 import WithPageSize from '@/examples/pagination/with-page-size.tsx';
@@ -32,19 +33,7 @@ import WithPageSize from '@/examples/pagination/with-page-size.tsx';
 
 ## Props
 
-| Prop | Type | Default | Description |
-|---|---|---|---|
-| `page` | `number` | required | Current page (1-indexed). |
-| `pageSize` | `number` | `10` | Items per page. |
-| `total` | `number` | required | Total item count (used to compute `totalPages`). |
-| `onChange` | `(page, pageSize) => void` | required | Fires on page or pageSize change. |
-| `showPageSize` | `boolean` | `true` | Render the per-page Select. |
-| `pageSizeOptions` | `number[]` | `[10, 20, 50, 100]` | Choices for the Select. |
-| `siblings` | `number` | `1` | Numeric siblings on each side of the current page. |
-| `boundaries` | `number` | `1` | First / last anchored pages. |
-| `size` | `'sm' \| 'md'` | `'md'` | 28×28 / 32×32 squares. |
-| `disabled` | `boolean` | `false` | Disables all interaction. |
-| `label` | `string` | `'Pagination'` | `aria-label` for the nav element. |
+<PropsTable component="Pagination" />
 
 ## Don't
 

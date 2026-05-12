@@ -6,6 +6,7 @@ sidebar:
 ---
 
 import ComponentPreview from '@/components/ComponentPreview.astro';
+import PropsTable from '@/components/PropsTable.astro';
 import Basic from '@/examples/combobox/basic.tsx';
 import Grouped from '@/examples/combobox/grouped.tsx';
 import FormDemo from '@/examples/combobox/form.tsx';
@@ -49,25 +50,23 @@ import FormDemo from '@/examples/combobox/form.tsx';
 </Combobox>
 ```
 
-## Props (highlights)
+## Props
 
 ### Combobox
-| Prop | Type | Description |
-|---|---|---|
-| `value` | `string` | Controlled value. |
-| `defaultValue` | `string` | Uncontrolled initial value. |
-| `onValueChange` | `(value: string) => void` | Commit handler. |
-| `open` / `defaultOpen` / `onOpenChange` | — | Popover open state. |
+
+<PropsTable component="Combobox" />
 
 ### ComboboxTrigger
-Same `size` / `tone` as `SelectTrigger`.
+
+<PropsTable component="ComboboxTrigger" />
+
+### ComboboxContent
+
+<PropsTable component="ComboboxContent" />
 
 ### ComboboxItem
-| Prop | Type | Default | Description |
-|---|---|---|---|
-| `value` | `string` | required | Item identifier; also used by cmdk for filtering. |
-| `tone` | `'default' \| 'danger'` | `'default'` | Destructive items go red. |
-| `disabled` | `boolean` | `false` | Non-selectable. |
+
+<PropsTable component="ComboboxItem" />
 
 ## Don't
 

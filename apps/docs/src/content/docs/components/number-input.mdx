@@ -6,6 +6,7 @@ sidebar:
 ---
 
 import ComponentPreview from '@/components/ComponentPreview.astro';
+import PropsTable from '@/components/PropsTable.astro';
 import Basic from '@/examples/number-input/basic.tsx';
 import Unit from '@/examples/number-input/unit.tsx';
 import FormDemo from '@/examples/number-input/form.tsx';
@@ -32,19 +33,7 @@ import FormDemo from '@/examples/number-input/form.tsx';
 
 ## Props
 
-| Prop | Type | Default | Description |
-|---|---|---|---|
-| `value` | `number \| string` | — | Controlled value. |
-| `defaultValue` | `number \| string` | — | Uncontrolled initial value. |
-| `onValueChange` | `(value: number) => void` | — | Convenience callback with the parsed number. |
-| `min` | `number` | — | Lower bound. |
-| `max` | `number` | — | Upper bound. |
-| `step` | `number` | `1` | Increment per arrow / keypress. |
-| `precision` | `number` | inferred from `step` | Decimal places to display. |
-| `unit` | `ReactNode` | — | Suffix rendered as caption between the input and the arrow column. |
-| `size` | `'sm' \| 'md' \| 'lg'` | `'md'` | Mirrors `Input`. |
-| `tone` | `'default' \| 'invalid'` | `'default'` | Mirrors `Input`. |
-| `holdStep` | `number` | `100` | Repeat interval (ms) when an arrow is held. |
+<PropsTable component="NumberInput" />
 
 All non-`size` `<input>` attributes are forwarded.
 

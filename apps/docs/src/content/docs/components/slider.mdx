@@ -6,6 +6,7 @@ sidebar:
 ---
 
 import ComponentPreview from '@/components/ComponentPreview.astro';
+import PropsTable from '@/components/PropsTable.astro';
 import Basic from '@/examples/slider/basic.tsx';
 import Range from '@/examples/slider/range.tsx';
 import FormDemo from '@/examples/slider/form.tsx';
@@ -32,17 +33,7 @@ import FormDemo from '@/examples/slider/form.tsx';
 
 ## Props
 
-| Prop | Type | Default | Description |
-|---|---|---|---|
-| `value` | `number[]` | — | Controlled. `[v]` = single; `[lo, hi]` = range. |
-| `defaultValue` | `number[]` | `[0]` | Uncontrolled initial value(s). |
-| `onValueChange` | `(values: number[]) => void` | — | Change handler. |
-| `min` | `number` | `0` | Minimum value. |
-| `max` | `number` | `100` | Maximum value. |
-| `step` | `number` | `1` | Increment. |
-| `orientation` | `'horizontal' \| 'vertical'` | `'horizontal'` | Axis. |
-| `tone` | `'primary' \| 'danger'` | `'primary'` | Range and thumb border colour. |
-| `disabled` | `boolean` | `false` | Disables interaction. |
+<PropsTable component="Slider" />
 
 ## Don't
 

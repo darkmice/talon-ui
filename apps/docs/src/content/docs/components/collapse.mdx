@@ -6,6 +6,7 @@ sidebar:
 ---
 
 import ComponentPreview from '@/components/ComponentPreview.astro';
+import PropsTable from '@/components/PropsTable.astro';
 import Basic from '@/examples/collapse/basic.tsx';
 import Multiple from '@/examples/collapse/multiple.tsx';
 import Extra from '@/examples/collapse/extra.tsx';
@@ -33,6 +34,20 @@ import Extra from '@/examples/collapse/extra.tsx';
 ## Exports
 
 `Collapse` (Radix Root — accepts `type: 'single' | 'multiple'`, `value`, `defaultValue`, `onValueChange`, `collapsible`), `CollapsePanel`, `CollapseHeader` (accepts `extra` ReactNode), `CollapseContent`.
+
+## Props
+
+### Collapse
+
+<PropsTable component="Collapse" />
+
+### CollapsePanel
+
+<PropsTable component="CollapsePanel" />
+
+### CollapseHeader
+
+<PropsTable component="CollapseHeader" />
 
 ## Don't
 

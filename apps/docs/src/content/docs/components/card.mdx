@@ -6,6 +6,7 @@ sidebar:
 ---
 
 import ComponentPreview from '@/components/ComponentPreview.astro';
+import PropsTable from '@/components/PropsTable.astro';
 import Basic from '@/examples/card/basic.tsx';
 import Padding from '@/examples/card/padding.tsx';
 import Interactive from '@/examples/card/interactive.tsx';
@@ -42,12 +43,7 @@ import Interactive from '@/examples/card/interactive.tsx';
 
 ## Props
 
-| Prop | Type | Default | Description |
-|---|---|---|---|
-| `padding` | `'sm' \| 'md' \| 'lg' \| 'none'` | `'md'` | Internal padding scale. |
-| `hoverable` | `boolean` | `false` | Indigo-tinted border + pop shadow on hover. |
-| `interactive` | `boolean` | `false` | Set `role="button"`, focusable, focus ring. |
-| `asChild` | `boolean` | `false` | Render as the child element (e.g. an `<a>`). |
+<PropsTable component="Card" />
 
 All native `<div>` attributes are accepted; `role` is automatically `button` when `interactive` unless explicitly overridden.
 

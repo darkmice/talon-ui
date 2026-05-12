@@ -6,6 +6,7 @@ sidebar:
 ---
 
 import ComponentPreview from '@/components/ComponentPreview.astro';
+import PropsTable from '@/components/PropsTable.astro';
 import Basic from '@/examples/rate/basic.tsx';
 import Half from '@/examples/rate/half.tsx';
 import FormDemo from '@/examples/rate/form.tsx';
@@ -32,17 +33,7 @@ import FormDemo from '@/examples/rate/form.tsx';
 
 ## Props
 
-| Prop | Type | Default | Description |
-|---|---|---|---|
-| `value` | `number` | — | Controlled value. |
-| `defaultValue` | `number` | `0` | Uncontrolled initial value. |
-| `count` | `number` | `5` | Number of stars. |
-| `size` | `'sm' \| 'md' \| 'lg'` | `'md'` | Star pixel size 14 / 16 / 20. |
-| `allowHalf` | `boolean` | `false` | Enable 0.5 step. |
-| `readOnly` | `boolean` | `false` | Display-only. |
-| `disabled` | `boolean` | `false` | Display-only + greyed out. |
-| `onValueChange` | `(value: number) => void` | — | Commit handler. |
-| `label` | `string` | `'Rating'` | `aria-label`. |
+<PropsTable component="Rate" />
 
 ## Don't
 

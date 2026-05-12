@@ -6,6 +6,7 @@ sidebar:
 ---
 
 import ComponentPreview from '@/components/ComponentPreview.astro';
+import PropsTable from '@/components/PropsTable.astro';
 import Basic from '@/examples/popover/basic.tsx';
 import CloseButton from '@/examples/popover/close-button.tsx';
 import Anchor from '@/examples/popover/anchor.tsx';
@@ -32,14 +33,21 @@ import Anchor from '@/examples/popover/anchor.tsx';
 
 ## Exports
 
-| Name | Description |
-|---|---|
-| `Popover` | Root state container. |
-| `PopoverTrigger` | The element that toggles the popover. |
-| `PopoverAnchor` | Optional positioning anchor when the trigger and visual anchor differ. |
-| `PopoverContent` | The floating surface. Accepts `width` (`'sm' \| 'md' \| 'lg' \| 'xl'`). |
-| `PopoverClose` | Optional X close button absolutely positioned in the top-right. |
-| `PopoverArrow` | Optional visual arrow pointing back to the trigger / anchor. |
+`Popover`, `PopoverTrigger`, `PopoverAnchor`, `PopoverContent` (floating surface with `width` prop), `PopoverClose`, `PopoverArrow`.
+
+## Props
+
+### PopoverContent
+
+<PropsTable component="PopoverContent" />
+
+### PopoverClose
+
+<PropsTable component="PopoverClose" />
+
+### PopoverArrow
+
+<PropsTable component="PopoverArrow" />
 
 ## Don't
 

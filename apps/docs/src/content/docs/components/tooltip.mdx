@@ -6,6 +6,7 @@ sidebar:
 ---
 
 import ComponentPreview from '@/components/ComponentPreview.astro';
+import PropsTable from '@/components/PropsTable.astro';
 import Basic from '@/examples/tooltip/basic.tsx';
 import Sides from '@/examples/tooltip/sides.tsx';
 import OnIcon from '@/examples/tooltip/on-icon.tsx';
@@ -42,9 +43,9 @@ import OnIcon from '@/examples/tooltip/on-icon.tsx';
 
 `delayDuration` controls how long users hover before the tooltip appears; `skipDelayDuration` controls how long after closing one tooltip the next one opens instantly.
 
-## Props (highlights)
+## Props
 
-`TooltipContent` accepts all Radix Tooltip.Content props including `side` (`'top' | 'right' | 'bottom' | 'left'`), `align`, `sideOffset`, `alignOffset`, `arrowPadding`, `sticky`, `hideWhenDetached`, etc.
+<PropsTable component="TooltipContent" />
 
 ## Don't
 

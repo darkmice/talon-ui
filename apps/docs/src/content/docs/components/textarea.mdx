@@ -6,6 +6,7 @@ sidebar:
 ---
 
 import ComponentPreview from '@/components/ComponentPreview.astro';
+import PropsTable from '@/components/PropsTable.astro';
 import Basic from '@/examples/textarea/basic.tsx';
 import Autosize from '@/examples/textarea/autosize.tsx';
 
@@ -25,12 +26,6 @@ import Autosize from '@/examples/textarea/autosize.tsx';
 
 ## Props
 
-| Prop | Type | Default | Description |
-|---|---|---|---|
-| `size` | `'sm' \| 'md' \| 'lg'` | `'md'` | Min-heights 28 / 36 / 44. |
-| `tone` | `'default' \| 'invalid'` | `'default'` | `invalid` paints the border red. |
-| `autosize` | `boolean` | `false` | Match height to content via a layout effect. |
-| `wrapperClassName` | `string` | — | Class applied to the outer `<label>`. |
-| `className` | `string` | — | Class applied to the inner `<textarea>`. |
+<PropsTable component="Textarea" />
 
 All native `<textarea>` attributes are accepted (except `size`).

@@ -6,6 +6,7 @@ sidebar:
 ---
 
 import ComponentPreview from '@/components/ComponentPreview.astro';
+import PropsTable from '@/components/PropsTable.astro';
 import Linear from '@/examples/progress/linear.tsx';
 import Circular from '@/examples/progress/circular.tsx';
 import StatusDemo from '@/examples/progress/status.tsx';
@@ -32,17 +33,7 @@ import StatusDemo from '@/examples/progress/status.tsx';
 
 ## Props
 
-| Prop | Type | Default | Description |
-|---|---|---|---|
-| `value` | `number` | required | Current value (0..max). |
-| `max` | `number` | `100` | Maximum value. |
-| `type` | `'linear' \| 'circle'` | `'linear'` | Visual layout. |
-| `size` | `'sm' \| 'md' \| 'lg'` | `'md'` | Linear: h-1/1.5/2; circle: 32/56/80 px. |
-| `status` | `'normal' \| 'success' \| 'warning' \| 'error'` | `'normal'` | Fill colour. |
-| `showInfo` | `boolean` | `true` | Render the percentage label. |
-| `format` | `(value, max) => ReactNode` | percentage | Custom label renderer. |
-| `strokeWidth` | `number` | size-derived | Circle stroke width. |
-| `label` | `string` | `'Progress'` | `aria-label`. |
+<PropsTable component="Progress" />
 
 ## Don't
 

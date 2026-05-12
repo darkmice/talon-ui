@@ -6,6 +6,7 @@ sidebar:
 ---
 
 import ComponentPreview from '@/components/ComponentPreview.astro';
+import PropsTable from '@/components/PropsTable.astro';
 import Basic from '@/examples/spin/basic.tsx';
 import Wrap from '@/examples/spin/wrap.tsx';
 import Tip from '@/examples/spin/tip.tsx';
@@ -32,14 +33,7 @@ import Tip from '@/examples/spin/tip.tsx';
 
 ## Props
 
-| Prop | Type | Default | Description |
-|---|---|---|---|
-| `size` | `'sm' \| 'md' \| 'lg'` | `'md'` | Spinner icon size (14 / 20 / 28 px). |
-| `tone` | `'primary' \| 'inverse'` | `'primary'` | Spinner colour. |
-| `tip` | `ReactNode` | — | Caption rendered below the spinner. |
-| `spinning` | `boolean` | `true` | Toggle the overlay (only meaningful when wrapping children). |
-| `delay` | `number` | `0` | Wait this many ms before showing the overlay (avoids flashing on fast requests). |
-| `children` | `ReactNode` | — | When provided, renders the spinner as an overlay on top of the children. |
+<PropsTable component="Spin" />
 
 ## Don't
 

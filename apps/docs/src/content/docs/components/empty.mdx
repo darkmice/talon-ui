@@ -6,6 +6,7 @@ sidebar:
 ---
 
 import ComponentPreview from '@/components/ComponentPreview.astro';
+import PropsTable from '@/components/PropsTable.astro';
 import Basic from '@/examples/empty/basic.tsx';
 import CustomIcon from '@/examples/empty/custom-icon.tsx';
 import Action from '@/examples/empty/action.tsx';
@@ -32,13 +33,7 @@ import Action from '@/examples/empty/action.tsx';
 
 ## Props
 
-| Prop | Type | Default | Description |
-|---|---|---|---|
-| `icon` | `ReactNode` | `Inbox` | Visual marker. |
-| `title` | `ReactNode` | — | Headline. |
-| `description` | `ReactNode` | — | Supporting text. |
-| `action` | `ReactNode` | — | CTA element (typically a `Button`). |
-| `size` | `'sm' \| 'md' \| 'lg'` | `'md'` | Icon size + vertical padding. |
+<PropsTable component="Empty" />
 
 ## Don't
 

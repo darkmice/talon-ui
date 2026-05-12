@@ -6,6 +6,7 @@ sidebar:
 ---
 
 import ComponentPreview from '@/components/ComponentPreview.astro';
+import PropsTable from '@/components/PropsTable.astro';
 import Horizontal from '@/examples/divider/horizontal.tsx';
 import Vertical from '@/examples/divider/vertical.tsx';
 import Labelled from '@/examples/divider/labelled.tsx';
@@ -34,11 +35,7 @@ Set the height by class (`className="h-4"` by default — change to `h-5`, `h-6`
 
 ## Props
 
-| Prop | Type | Default | Description |
-|---|---|---|---|
-| `orientation` | `'horizontal' \| 'vertical'` | `'horizontal'` | Direction. |
-| `tone` | `'default' \| 'strong' \| 'subtle'` | `'default'` | Border-color token. |
-| `children` | `ReactNode` | — | Label rendered between two thin rules (horizontal only). |
+<PropsTable component="Divider" />
 
 `role="separator"` and the appropriate `aria-orientation` are always set.
 

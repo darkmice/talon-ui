@@ -6,6 +6,7 @@ sidebar:
 ---
 
 import ComponentPreview from '@/components/ComponentPreview.astro';
+import PropsTable from '@/components/PropsTable.astro';
 import Basic from '@/examples/skeleton/basic.tsx';
 import Shapes from '@/examples/skeleton/shapes.tsx';
 import CardDemo from '@/examples/skeleton/card.tsx';
@@ -32,12 +33,7 @@ import CardDemo from '@/examples/skeleton/card.tsx';
 
 ## Props
 
-| Prop | Type | Default | Description |
-|---|---|---|---|
-| `shape` | `'line' \| 'rect' \| 'circle'` | `'rect'` | Visual shape. |
-| `width` | `number \| string` | — | Inline width. |
-| `height` | `number \| string` | — | Inline height. |
-| `animation` | `boolean` | `true` | Toggle the breathing pulse. |
+<PropsTable component="Skeleton" />
 
 ## Don't
 

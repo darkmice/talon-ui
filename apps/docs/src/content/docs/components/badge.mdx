@@ -6,6 +6,7 @@ sidebar:
 ---
 
 import ComponentPreview from '@/components/ComponentPreview.astro';
+import PropsTable from '@/components/PropsTable.astro';
 import Number from '@/examples/badge/number.tsx';
 import Dot from '@/examples/badge/dot.tsx';
 import Overflow from '@/examples/badge/overflow.tsx';
@@ -34,15 +35,7 @@ When `count` exceeds `max` (default 99), the badge renders `max+`. Set `max` to 
 
 ## Props
 
-| Prop | Type | Default | Description |
-|---|---|---|---|
-| `count` | `number` | — | Counter value; hidden when 0 unless `showZero` is set. |
-| `dot` | `boolean` | `false` | Render as an 8×8 dot; ignores `count`. |
-| `max` | `number` | `99` | Overflow cutoff. |
-| `showZero` | `boolean` | `false` | Render even when `count` is 0. |
-| `tone` | `'danger' \| 'primary' \| 'success' \| 'neutral'` | `'danger'` | Background colour. |
-| `label` | `string` | — | Override the `aria-label` (default: the count or "badge"). |
-| `children` | `ReactNode` | — | Wrap a target; badge sits at top-right. |
+<PropsTable component="Badge" />
 
 ## Don't
 

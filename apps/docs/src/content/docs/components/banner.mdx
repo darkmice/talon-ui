@@ -6,6 +6,7 @@ sidebar:
 ---
 
 import ComponentPreview from '@/components/ComponentPreview.astro';
+import PropsTable from '@/components/PropsTable.astro';
 import Basic from '@/examples/banner/basic.tsx';
 import Tones from '@/examples/banner/tones.tsx';
 import Action from '@/examples/banner/action.tsx';
@@ -32,14 +33,7 @@ import Action from '@/examples/banner/action.tsx';
 
 ## Props
 
-| Prop | Type | Default | Description |
-|---|---|---|---|
-| `tone` | `'info' \| 'success' \| 'warning' \| 'error'` | `'info'` | Background tone + left-bar colour + default icon. |
-| `title` | `ReactNode` | — | Bold headline. |
-| `children` | `ReactNode` | — | Body text. |
-| `icon` | `ReactNode` | tone default | Override the default tone icon. |
-| `action` | `ReactNode` | — | Right-aligned action element (typically a `Button`). |
-| `onDismiss` | `() => void` | — | When set, render the X dismiss button. |
+<PropsTable component="Banner" />
 
 ## Don't
 

@@ -6,6 +6,7 @@ sidebar:
 ---
 
 import ComponentPreview from '@/components/ComponentPreview.astro';
+import PropsTable from '@/components/PropsTable.astro';
 import Basic from '@/examples/date-picker/basic.tsx';
 import Range from '@/examples/date-picker/range.tsx';
 import FormDemo from '@/examples/date-picker/form.tsx';
@@ -44,18 +45,7 @@ import FormDemo from '@/examples/date-picker/form.tsx';
 
 ## Props
 
-| Prop | Type | Default | Description |
-|---|---|---|---|
-| `mode` | `'single' \| 'range'` | `'single'` | Selection mode. |
-| `value` | `Date \| DateRange` | — | Controlled value (shape matches `mode`). |
-| `defaultValue` | `Date \| DateRange` | — | Uncontrolled initial value. |
-| `onValueChange` | depends on `mode` | — | Commit handler. |
-| `placeholder` | `string` | `'Pick a date'` | Shown when no value. |
-| `format` | `string` | `'PP'` (single) / `'PP – PP'` (range) | date-fns format string. |
-| `disabledDates` | `Matcher \| Matcher[]` | — | react-day-picker matcher(s) for disabled days. |
-| `weekStartsOn` | `0..6` | `0` (Sun) | First day of the week. |
-| `size` | `'sm' \| 'md' \| 'lg'` | `'md'` | Trigger height. |
-| `tone` | `'default' \| 'invalid'` | `'default'` | Trigger border treatment. |
+<PropsTable component="DatePicker" />
 
 ## Don't
 

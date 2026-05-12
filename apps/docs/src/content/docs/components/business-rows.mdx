@@ -6,6 +6,7 @@ sidebar:
 ---
 
 import ComponentPreview from '@/components/ComponentPreview.astro';
+import PropsTable from '@/components/PropsTable.astro';
 import FileRef from '@/examples/business-rows/file-ref.tsx';
 import Role from '@/examples/business-rows/role.tsx';
 import Runtime from '@/examples/business-rows/runtime.tsx';
@@ -44,6 +45,24 @@ Amber alert icon + message + go-fix action (link or button).
 <ComponentPreview src="examples/business-rows/risk.tsx" title="Three risks" height="260px">
   <Risk client:load />
 </ComponentPreview>
+
+## Props
+
+### FileRefRow
+
+<PropsTable component="FileRefRow" />
+
+### RoleRow
+
+<PropsTable component="RoleRow" />
+
+### RuntimeRow
+
+<PropsTable component="RuntimeRow" />
+
+### RiskRow
+
+<PropsTable component="RiskRow" />
 
 ## Don't
 

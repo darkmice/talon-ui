@@ -6,6 +6,7 @@ sidebar:
 ---
 
 import ComponentPreview from '@/components/ComponentPreview.astro';
+import PropsTable from '@/components/PropsTable.astro';
 import Basic from '@/examples/avatar/basic.tsx';
 import Sizes from '@/examples/avatar/sizes.tsx';
 import Status from '@/examples/avatar/status.tsx';
@@ -53,23 +54,15 @@ The dot is 8px and rings the avatar with the surrounding `bg-bg-surface` so it r
 
 When more avatars are passed than `max` allows, the remainder collapse into a `+N` chip that matches the group's size.
 
-## Avatar props
+## Props
 
-| Prop | Type | Default | Description |
-|---|---|---|---|
-| `size` | `'sm' \| 'md' \| 'lg'` | `'md'` | Pixel size 28 / 32 / 40. |
-| `src` | `string` | — | Image URL. |
-| `alt` | `string` | `''` | Image alt text. |
-| `fallback` | `ReactNode` | — | Initials or icon when image fails. |
-| `status` | `'online' \| 'away' \| 'offline'` | — | Bottom-right status dot. |
-| `ring` | `'none' \| 'surface'` | `'none'` | Add a surface ring; set automatically inside an `AvatarGroup`. |
+### Avatar
 
-## AvatarGroup props
+<PropsTable component="Avatar" />
 
-| Prop | Type | Default | Description |
-|---|---|---|---|
-| `max` | `number` | `3` | Maximum avatars to render before the `+N` chip. |
-| `size` | `'sm' \| 'md' \| 'lg'` | `'md'` | Applied to every child avatar and the overflow chip. |
+### AvatarGroup
+
+<PropsTable component="AvatarGroup" />
 
 ## Don't
 

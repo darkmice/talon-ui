@@ -6,6 +6,7 @@ sidebar:
 ---
 
 import ComponentPreview from '@/components/ComponentPreview.astro';
+import PropsTable from '@/components/PropsTable.astro';
 import Basic from '@/examples/input/basic.tsx';
 import PrefixSuffix from '@/examples/input/prefix-suffix.tsx';
 
@@ -25,14 +26,7 @@ import PrefixSuffix from '@/examples/input/prefix-suffix.tsx';
 
 ## Props
 
-| Prop | Type | Default | Description |
-|---|---|---|---|
-| `size` | `'sm' \| 'md' \| 'lg'` | `'md'` | Heights 28 / 36 / 44. |
-| `tone` | `'default' \| 'invalid'` | `'default'` | `invalid` paints the border red. Auto-derived from `aria-invalid`. |
-| `prefix` | `ReactNode` | — | Slot rendered before the input. |
-| `suffix` | `ReactNode` | — | Slot rendered after the input. |
-| `wrapperClassName` | `string` | — | Class applied to the outer `<label>`. |
-| `className` | `string` | — | Class applied to the inner `<input>`. |
+<PropsTable component="Input" />
 
 All native `<input>` attributes are accepted (except `size`, which is shadowed by the visual `size` variant).
 

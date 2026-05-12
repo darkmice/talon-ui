@@ -6,6 +6,7 @@ sidebar:
 ---
 
 import ComponentPreview from '@/components/ComponentPreview.astro';
+import PropsTable from '@/components/PropsTable.astro';
 import Basic from '@/examples/form/basic.tsx';
 import Validation from '@/examples/form/validation.tsx';
 
@@ -27,18 +28,29 @@ When a field has an error, `FormLabel` turns danger red, `FormControl` adds `ari
 
 ## API
 
-### Exports
+`Form` and `FormField` are re-exports from `react-hook-form` (`FormProvider` and `Controller`-based wrapper respectively).
 
-| Name | Kind | Description |
-|---|---|---|
-| `Form` | Component | Re-export of `react-hook-form`'s `FormProvider`. |
-| `FormField` | Component | Wraps `Controller`; provides field context to descendants. |
-| `FormItem` | Component | Layout wrapper; provides a generated id for label/description/message wiring. |
-| `FormLabel` | Component | `<label htmlFor>` automatically wired; turns red on error. |
-| `FormControl` | Component | Slot that injects `id`, `aria-describedby`, `aria-invalid` into the wrapped control. |
-| `FormDescription` | Component | Helper text `<p>` with caption type token. |
-| `FormMessage` | Component | Renders the field error or explicit children; caption + danger red. |
-| `useFormField()` | Hook | Returns `{ id, name, formItemId, formDescriptionId, formMessageId, error }`. Throws outside a `<FormField>` / `<FormItem>`. |
+### Props
+
+### FormItem
+
+<PropsTable component="FormItem" />
+
+### FormLabel
+
+<PropsTable component="FormLabel" />
+
+### FormControl
+
+<PropsTable component="FormControl" />
+
+### FormDescription
+
+<PropsTable component="FormDescription" />
+
+### FormMessage
+
+<PropsTable component="FormMessage" />
 
 ### Peer dependency
 

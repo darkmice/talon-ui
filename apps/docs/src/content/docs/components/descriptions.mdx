@@ -6,6 +6,7 @@ sidebar:
 ---
 
 import ComponentPreview from '@/components/ComponentPreview.astro';
+import PropsTable from '@/components/PropsTable.astro';
 import Basic from '@/examples/descriptions/basic.tsx';
 import Columns from '@/examples/descriptions/columns.tsx';
 import Inline from '@/examples/descriptions/inline.tsx';
@@ -34,20 +35,11 @@ import Inline from '@/examples/descriptions/inline.tsx';
 
 ### Descriptions
 
-| Prop | Type | Default | Description |
-|---|---|---|---|
-| `columns` | `number` | `1` | Grid column count. |
-| `size` | `'sm' \| 'md'` | `'md'` | Row min-height (28 / 32). |
-| `layout` | `'horizontal' \| 'vertical'` | `'horizontal'` | Label-value layout per row. |
+<PropsTable component="Descriptions" />
 
 ### DescriptionsItem
 
-| Prop | Type | Default | Description |
-|---|---|---|---|
-| `label` | `ReactNode` | required | Caption-coloured label. |
-| `children` | `ReactNode` | required | Value contents (text, Tag, link, etc.). |
-| `mono` | `boolean` | `false` | Render value in monospace (use for IDs, paths, timestamps). |
-| `span` | `number` | `1` | Number of columns this item spans. |
+<PropsTable component="DescriptionsItem" />
 
 ## Don't
 

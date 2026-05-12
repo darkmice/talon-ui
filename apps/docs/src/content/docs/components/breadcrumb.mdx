@@ -6,6 +6,7 @@ sidebar:
 ---
 
 import ComponentPreview from '@/components/ComponentPreview.astro';
+import PropsTable from '@/components/PropsTable.astro';
 import Basic from '@/examples/breadcrumb/basic.tsx';
 import Folded from '@/examples/breadcrumb/folded.tsx';
 import CustomSep from '@/examples/breadcrumb/custom-separator.tsx';
@@ -34,13 +35,7 @@ When `items.length > maxItems`, the middle entries collapse into a `…` menu.
 
 ## Props
 
-| Prop | Type | Default | Description |
-|---|---|---|---|
-| `items` | `BreadcrumbItem[]` | required | Path items. Last item is the current page. |
-| `maxItems` | `number` | `0` | When > 0 and items exceed this, middle items collapse. |
-| `separator` | `ReactNode` | `'/'` | Separator between items. |
-| `size` | `'sm' \| 'md'` | `'sm'` | `sm` = 12 / `md` = 14 typography. |
-| `label` | `string` | `'Breadcrumb'` | `aria-label` for the nav element. |
+<PropsTable component="Breadcrumb" />
 
 ## Don't
 

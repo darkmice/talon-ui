@@ -6,6 +6,7 @@ sidebar:
 ---
 
 import ComponentPreview from '@/components/ComponentPreview.astro';
+import PropsTable from '@/components/PropsTable.astro';
 import Basic from '@/examples/modal/basic.tsx';
 import Sizes from '@/examples/modal/sizes.tsx';
 import Destructive from '@/examples/modal/destructive.tsx';
@@ -34,7 +35,11 @@ import Destructive from '@/examples/modal/destructive.tsx';
 
 `Modal`, `ModalTrigger`, `ModalPortal`, `ModalContent` (`size`, `showClose`), `ModalHeader`, `ModalTitle`, `ModalDescription`, `ModalFooter`, `ModalClose`, `ModalOverlay`.
 
-`ModalContent` accepts all Radix Dialog.Content props plus `size: 'sm' | 'md' | 'lg'` (default `'md'`) and `showClose: boolean` (default `true`).
+## Props
+
+### ModalContent
+
+<PropsTable component="ModalContent" />
 
 ## Don't
 
