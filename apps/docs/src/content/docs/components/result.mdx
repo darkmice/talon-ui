@@ -1,0 +1,47 @@
+---
+title: Result
+description: Full-page status panel — success / error / warning / info / 403 / 404 / 500.
+sidebar:
+  order: 39
+---
+
+import ComponentPreview from '@/components/ComponentPreview.astro';
+import Success from '@/examples/result/success.tsx';
+import ErrorDemo from '@/examples/result/error.tsx';
+import NotFound from '@/examples/result/not-found.tsx';
+
+`Result` is the full-page status panel. Use it for completed workflows, terminal errors, and HTTP error pages.
+
+## Success
+
+<ComponentPreview src="examples/result/success.tsx" title="Deployment complete" height="320px">
+  <Success client:load />
+</ComponentPreview>
+
+## Error
+
+<ComponentPreview src="examples/result/error.tsx" title="Pipeline failed" height="320px">
+  <ErrorDemo client:load />
+</ComponentPreview>
+
+## 404
+
+<ComponentPreview src="examples/result/not-found.tsx" title="Page not found" height="320px">
+  <NotFound client:load />
+</ComponentPreview>
+
+## Props
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `status` | `'success' \| 'error' \| 'warning' \| 'info' \| '403' \| '404' \| '500'` | `'info'` | Sets icon + colour + default title. |
+| `icon` | `ReactNode` | status default | Override the default status icon. |
+| `title` | `ReactNode` | status default | Headline (`text-h2`). |
+| `description` | `ReactNode` | — | Body copy. |
+| `extra` | `ReactNode` | — | CTA row (typically one or two `Button`s). |
+| `size` | `'sm' \| 'md' \| 'lg'` | `'md'` | Icon + vertical padding scale. |
+
+## Don't
+
+- Don't use Result for transient confirmations (use Toast).
+- Don't put multiple Results on a page — it's a terminal state panel.
