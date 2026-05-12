@@ -36,7 +36,7 @@ module.exports = {
           primary: 'var(--tp-text-primary)',
           secondary: 'var(--tp-text-secondary)',
           tertiary: 'var(--tp-text-tertiary)',
-          onPrimary: 'var(--tp-text-on-primary)',
+          'on-primary': 'var(--tp-text-on-primary)',
         },
         primary: {
           50: 'var(--tp-primary-50)',

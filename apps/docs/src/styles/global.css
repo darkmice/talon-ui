@@ -140,3 +140,126 @@ header a.site-title {
 .hero-html { text-align: center; }
 .hero h1 { color: var(--tp-text-primary); font-weight: var(--tp-fw-semibold); }
 .hero .tagline { color: var(--tp-text-secondary); }
+
+/* ============================================================
+ * Starlight chrome — disclosure markers, selectors, sidebar
+ * Tailwind preflight removes Starlight's default <summary>
+ * list-style; restore it and route it through a clean SVG.
+ * ============================================================ */
+
+/* Hide every browser-native disclosure marker. Tailwind preflight
+   already does this for default <summary>, but Safari and some
+   versions of Chrome still render a marker via ::-webkit-details-marker. */
+summary,
+summary::-webkit-details-marker,
+summary::marker {
+  list-style: none;
+}
+
+/* Sidebar group label — Starlight uses <details><summary> for collapsible groups.
+   Tone it down to the Talon hierarchy and replace the disclosure with our own chevron. */
+.sidebar-pane details > summary {
+  display: flex;
+  align-items: center;
+  gap: var(--tp-space-2);
+  font-weight: var(--tp-fw-semibold);
+  font-size: var(--tp-fs-caption);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--tp-text-tertiary);
+  cursor: pointer;
+  padding: var(--tp-space-2) 0;
+  user-select: none;
+}
+
+.sidebar-pane details > summary::before {
+  content: '';
+  width: 0;
+  height: 0;
+  border-left: 4px solid currentColor;
+  border-top: 3px solid transparent;
+  border-bottom: 3px solid transparent;
+  transition: transform 150ms cubic-bezier(.2,.8,.2,1);
+}
+
+.sidebar-pane details[open] > summary::before {
+  transform: rotate(90deg);
+}
+
+/* Sidebar items: tighter, Talon-spec hover/active */
+.sidebar-pane a {
+  font-size: var(--tp-fs-body);
+  line-height: calc(var(--tp-lh-body) / var(--tp-fs-body));
+  padding: var(--tp-space-1) var(--tp-space-2);
+  border-radius: var(--tp-radius-sm);
+  color: var(--tp-text-secondary);
+  transition: background 120ms cubic-bezier(.2,.8,.2,1), color 120ms;
+}
+
+.sidebar-pane a:hover {
+  background: var(--tp-bg-subtle);
+  color: var(--tp-text-primary);
+}
+
+.sidebar-pane a[aria-current='page'] {
+  background: var(--tp-primary-50);
+  color: var(--tp-primary-700);
+  font-weight: var(--tp-fw-medium);
+}
+
+/* Theme selector (top-right) — Starlight's <select> wrapper.
+   Strip the stray default arrow and re-add our own. */
+starlight-theme-select {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+starlight-theme-select select {
+  appearance: none;
+  -webkit-appearance: none;
+  background: transparent;
+  border: 1px solid var(--tp-border-default);
+  border-radius: var(--tp-radius-sm);
+  padding: var(--tp-space-1) var(--tp-space-6) var(--tp-space-1) var(--tp-space-3);
+  color: var(--tp-text-secondary);
+  font-size: var(--tp-fs-caption);
+  cursor: pointer;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%2364748B'%3E%3Cpath d='M4 6l4 4 4-4' stroke='currentColor' stroke-width='1.6' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right var(--tp-space-2) center;
+  background-size: 14px;
+}
+
+starlight-theme-select select:hover { color: var(--tp-text-primary); border-color: var(--tp-border-strong); }
+starlight-theme-select select:focus-visible { outline: none; box-shadow: var(--tp-shadow-focus); }
+
+/* Top-bar search trigger — give it the same border treatment as inputs */
+.sl-flex.action.read-only,
+button.read-only.action {
+  border: 1px solid var(--tp-border-default);
+  border-radius: var(--tp-radius-md);
+  background: var(--tp-bg-surface);
+  color: var(--tp-text-secondary);
+}
+
+/* "On this page" panel — subtle hairline left rule */
+.right-sidebar nav a {
+  color: var(--tp-text-secondary);
+  font-size: var(--tp-fs-caption);
+  padding: var(--tp-space-1) 0;
+}
+.right-sidebar nav a:hover { color: var(--tp-text-primary); }
+.right-sidebar nav a[aria-current='true'] { color: var(--tp-primary-600); }
+
+/* "Previous / Next" page footer cards */
+.pagination-links a {
+  border: 1px solid var(--tp-border-default);
+  border-radius: var(--tp-radius-md);
+  background: var(--tp-bg-surface);
+  transition: border-color 120ms, background 120ms;
+}
+.pagination-links a:hover {
+  border-color: var(--tp-primary-200);
+  background: var(--tp-bg-app);
+}
