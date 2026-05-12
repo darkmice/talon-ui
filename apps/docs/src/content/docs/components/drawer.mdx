@@ -1,0 +1,49 @@
+---
+title: Drawer
+description: Side-anchored slide-in panel with sticky header, scrollable body, and sticky footer.
+sidebar:
+  order: 30
+---
+
+import ComponentPreview from '@/components/ComponentPreview.astro';
+import Right from '@/examples/drawer/right.tsx';
+import Left from '@/examples/drawer/left.tsx';
+import Form from '@/examples/drawer/form.tsx';
+
+`Drawer` is a side-anchored slide-in panel. Built on `@radix-ui/react-dialog`: focus trap, scroll lock, escape-to-close, accessible labelling via Title + Description. The body scrolls independently while the header and footer remain sticky.
+
+## Right (default)
+
+<ComponentPreview src="examples/drawer/right.tsx" title="Right anchor — md" height="120px">
+  <Right client:load />
+</ComponentPreview>
+
+## Left
+
+<ComponentPreview src="examples/drawer/left.tsx" title="Left anchor — sm" height="120px">
+  <Left client:load />
+</ComponentPreview>
+
+## Form drawer
+
+<ComponentPreview src="examples/drawer/form.tsx" title="Right anchor — lg with form" height="120px">
+  <Form client:load />
+</ComponentPreview>
+
+## Exports
+
+`Drawer`, `DrawerTrigger`, `DrawerPortal`, `DrawerClose`, `DrawerOverlay`, `DrawerContent` (`side`, `size`, `showClose`), `DrawerHeader`, `DrawerTitle`, `DrawerDescription`, `DrawerBody`, `DrawerFooter`.
+
+`DrawerContent` accepts all Radix Dialog.Content props plus:
+- `side: 'right' | 'left' | 'top' | 'bottom'` (default `'right'`)
+- `size: 'sm' | 'md' | 'lg'` (default `'md'`)
+- `showClose: boolean` (default `true`)
+
+Widths for `left` / `right`: `sm` = 400 px, `md` = 520 px, `lg` = 720 px.
+Heights for `top` / `bottom`: `sm` = 200 px, `md` = 320 px, `lg` = 480 px.
+
+## Don't
+
+- Don't open a drawer from a drawer — swap the body content instead.
+- Don't use a drawer for short confirmations — use `Modal` for that.
+- Don't put primary navigation in a drawer on desktop — reserve it for contextual panels.
