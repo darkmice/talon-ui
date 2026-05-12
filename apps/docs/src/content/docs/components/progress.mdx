@@ -1,0 +1,50 @@
+---
+title: Progress
+description: Linear or circular progress indicator with status colours.
+sidebar:
+  order: 41
+---
+
+import ComponentPreview from '@/components/ComponentPreview.astro';
+import Linear from '@/examples/progress/linear.tsx';
+import Circular from '@/examples/progress/circular.tsx';
+import StatusDemo from '@/examples/progress/status.tsx';
+
+`Progress` shows determinate progress as a 6px linear bar or a 32–80px circular ring.
+
+## Linear
+
+<ComponentPreview src="examples/progress/linear.tsx" title="Linear (3 states)" height="160px">
+  <Linear client:load />
+</ComponentPreview>
+
+## Circular
+
+<ComponentPreview src="examples/progress/circular.tsx" title="Circular sizes" height="160px">
+  <Circular client:load />
+</ComponentPreview>
+
+## Status colours
+
+<ComponentPreview src="examples/progress/status.tsx" title="Four statuses" height="280px">
+  <StatusDemo client:load />
+</ComponentPreview>
+
+## Props
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `value` | `number` | required | Current value (0..max). |
+| `max` | `number` | `100` | Maximum value. |
+| `type` | `'linear' \| 'circle'` | `'linear'` | Visual layout. |
+| `size` | `'sm' \| 'md' \| 'lg'` | `'md'` | Linear: h-1/1.5/2; circle: 32/56/80 px. |
+| `status` | `'normal' \| 'success' \| 'warning' \| 'error'` | `'normal'` | Fill colour. |
+| `showInfo` | `boolean` | `true` | Render the percentage label. |
+| `format` | `(value, max) => ReactNode` | percentage | Custom label renderer. |
+| `strokeWidth` | `number` | size-derived | Circle stroke width. |
+| `label` | `string` | `'Progress'` | `aria-label`. |
+
+## Don't
+
+- Don't show Progress without a known endpoint — use Spin for indeterminate states.
+- Don't combine Progress with a separate "%" suffix; the component already labels.

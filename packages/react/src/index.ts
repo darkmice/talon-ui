@@ -45,3 +45,4 @@ export * from './components/spin/index.js';
 export * from './components/empty/index.js';
 export * from './components/result/index.js';
 export * from './components/statistic/index.js';
+export * from './components/progress/index.js';
