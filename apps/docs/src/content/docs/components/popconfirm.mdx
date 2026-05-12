@@ -1,0 +1,53 @@
+---
+title: Popconfirm
+description: Inline confirm/cancel popover for impactful actions.
+sidebar:
+  order: 33
+---
+
+import ComponentPreview from '@/components/ComponentPreview.astro';
+import Basic from '@/examples/popconfirm/basic.tsx';
+import Danger from '@/examples/popconfirm/danger.tsx';
+import Async from '@/examples/popconfirm/async.tsx';
+
+`Popconfirm` is a smaller, focused popover with confirm + cancel buttons. Use it for inline actions that need a single explicit confirmation but don't warrant a full modal.
+
+## Basic
+
+<ComponentPreview src="examples/popconfirm/basic.tsx" title="Default" height="120px">
+  <Basic client:load />
+</ComponentPreview>
+
+## Danger tone
+
+<ComponentPreview src="examples/popconfirm/danger.tsx" title="Destructive action" height="120px">
+  <Danger client:load />
+</ComponentPreview>
+
+## Async confirm
+
+<ComponentPreview src="examples/popconfirm/async.tsx" title="With loading state" height="120px">
+  <Async client:load />
+</ComponentPreview>
+
+## Props
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `title` | `ReactNode` | required | The headline question. |
+| `description` | `ReactNode` | — | Helper text below the title. |
+| `icon` | `ReactNode` | auto | Default `AlertTriangle` for danger, `Info` otherwise. |
+| `tone` | `'default' \| 'danger' \| 'warning'` | `'default'` | Icon colour + OK button variant. |
+| `okText` | `string` | `'OK'` | Label for the confirm button. |
+| `cancelText` | `string` | `'Cancel'` | Label for the cancel button. |
+| `onConfirm` | `() => void \| Promise<void>` | — | Confirm handler. |
+| `onCancel` | `() => void` | — | Cancel handler. |
+| `confirming` | `boolean` | `false` | Show loading state on the confirm button. |
+| `open` / `defaultOpen` / `onOpenChange` | — | — | Standard Radix open state. |
+| `side` / `align` | — | — | Standard Radix Popover positioning. |
+| `children` | `ReactNode` | required | The trigger element. Should `asChild`-style accept the popover trigger (a single React element). |
+
+## Don't
+
+- Don't use Popconfirm when an immediate Toast undo is more appropriate (e.g. archiving with a 5-second undo window).
+- Don't stack multiple Popconfirms inside the same flow — escalate to a Modal.
