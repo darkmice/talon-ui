@@ -18,3 +18,4 @@ export * from './components/typography/index.js';
 export * from './components/form/index.js';
 export * from './components/checkbox/index.js';
 export * from './components/radio/index.js';
+export * from './components/switch/index.js';
