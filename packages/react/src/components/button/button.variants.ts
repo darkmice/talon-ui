@@ -9,7 +9,7 @@ import { cva } from 'class-variance-authority';
 export const buttonVariants = cva(
   [
     'inline-flex items-center justify-center gap-tp-2',
-    'rounded-md font-medium tp-nums',
+    'rounded-md font-normal tp-nums',
     'transition duration-fast ease-tp',
     'focus-visible:tp-focus-ring',
     'disabled:opacity-50 disabled:cursor-not-allowed',
