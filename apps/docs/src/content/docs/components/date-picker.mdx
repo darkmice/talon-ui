@@ -1,0 +1,63 @@
+---
+title: DatePicker
+description: Calendar popover built on react-day-picker. Single or range mode.
+sidebar:
+  order: 20
+---
+
+import ComponentPreview from '@/components/ComponentPreview.astro';
+import Basic from '@/examples/date-picker/basic.tsx';
+import Range from '@/examples/date-picker/range.tsx';
+import FormDemo from '@/examples/date-picker/form.tsx';
+
+`DatePicker` wraps `react-day-picker` inside a Radix Popover. Trigger styling mirrors `Input`; the calendar panel sits in a `shadow-pop` surface.
+
+## Basic (single date)
+
+<ComponentPreview src="examples/date-picker/basic.tsx" title="Single date" height="320px">
+  <Basic client:load />
+</ComponentPreview>
+
+## Range
+
+<ComponentPreview src="examples/date-picker/range.tsx" title="Range mode" height="320px">
+  <Range client:load />
+</ComponentPreview>
+
+## Inside a Form
+
+<ComponentPreview src="examples/date-picker/form.tsx" title="With validation" height="380px">
+  <FormDemo client:load />
+</ComponentPreview>
+
+## Anatomy
+
+```
+<DatePicker
+  mode="single"
+  value={date}
+  onValueChange={setDate}
+  placeholder="Pick a date"
+  size="md"
+/>
+```
+
+## Props
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `mode` | `'single' \| 'range'` | `'single'` | Selection mode. |
+| `value` | `Date \| DateRange` | — | Controlled value (shape matches `mode`). |
+| `defaultValue` | `Date \| DateRange` | — | Uncontrolled initial value. |
+| `onValueChange` | depends on `mode` | — | Commit handler. |
+| `placeholder` | `string` | `'Pick a date'` | Shown when no value. |
+| `format` | `string` | `'PP'` (single) / `'PP – PP'` (range) | date-fns format string. |
+| `disabledDates` | `Matcher \| Matcher[]` | — | react-day-picker matcher(s) for disabled days. |
+| `weekStartsOn` | `0..6` | `0` (Sun) | First day of the week. |
+| `size` | `'sm' \| 'md' \| 'lg'` | `'md'` | Trigger height. |
+| `tone` | `'default' \| 'invalid'` | `'default'` | Trigger border treatment. |
+
+## Don't
+
+- Don't combine DatePicker with a separate TimePicker in one field — use a single combined picker (planned next).
+- Don't drop `placeholder` — empty triggers are visually ambiguous.
