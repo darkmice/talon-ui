@@ -13,3 +13,4 @@ export * from './components/avatar/index.js';
 export * from './components/card/index.js';
 export * from './components/badge/index.js';
 export * from './components/divider/index.js';
+export * from './components/space/index.js';
