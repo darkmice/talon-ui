@@ -1,40 +1,91 @@
 ---
 title: Talon UI
-description: React component library and design tokens for the Talon Pilot design system.
+description: A React component library and design tokens for the Talon Pilot design system — clean, disciplined, engineering-grade.
 template: splash
 hero:
   title: Talon UI
-  tagline: Clean · disciplined · engineering-grade UI for AI-native control planes.
+  tagline: Clean · disciplined · engineering-grade React UI for AI-native control planes.
   actions:
     - text: Get started
       link: /getting-started/installation/
       variant: primary
-    - text: Components
-      link: /components/button/
+    - text: Browse components
+      link: /gallery/
       variant: secondary
+    - text: GitHub
+      link: https://github.com/darkmice/talon-ui
+      variant: minimal
+      icon: external
 ---
 
-import { Card, CardGrid } from '@astrojs/starlight/components';
+import { Card, CardGrid, LinkCard } from '@astrojs/starlight/components';
+import ComponentPreview from '@/components/ComponentPreview.astro';
+import HeroPreview from '@/examples/landing/hero-preview.tsx';
+
+## Quick start
+
+```bash
+pnpm add @talon-ui/react @talon-ui/tokens
+```
+
+### Tailwind project (recommended)
+
+```ts
+// tailwind.config.ts
+import preset from '@talon-ui/tokens/preset';
+export default {
+  presets: [preset],
+  content: [
+    './src/**/*.{ts,tsx}',
+    './node_modules/@talon-ui/react/dist/**/*.js',
+  ],
+  darkMode: ['class', '[data-theme="dark"]'],
+};
+```
+
+```ts
+// app entry
+import '@talon-ui/tokens/css';
+```
+
+### Non-Tailwind project
+
+```ts
+import '@talon-ui/react/styles.css';
+```
+
+A single import gives you tokens (light + dark) plus every utility the components use.
+
+## Live preview
+
+<ComponentPreview src="examples/landing/hero-preview.tsx" title="Real components, live" height="280px">
+  <HeroPreview client:load />
+</ComponentPreview>
+
+## What's inside
 
 <CardGrid>
-  <Card title="Design tokens" icon="palette">
-    3-layer CSS variables (primitive / semantic / component). Light + dark themes via `<html data-theme>` or `.dark`.
+  <Card title="Block 1 · Foundational primitives" icon="puzzle">
+    Button · Input · Textarea · Tag · Avatar (+ Group) · Card · Badge · Divider · Space · Typography. Ten components, every anatomy locked to a spec.
   </Card>
-  <Card title="React components" icon="puzzle">
-    Block 1 (10 primitives) shipping. CVA variants. Radix-backed where accessibility primitives matter.
+  <Card title="Block 2 · Forms & data entry" icon="document">
+    Form · Checkbox · Radio · Switch · Slider · NumberInput · Rate · Select · Combobox · DatePicker · TimePicker · Upload · ColorPicker. Thirteen — including a `<Form>` over react-hook-form.
   </Card>
-  <Card title="Two consumption modes" icon="rocket">
-    Tailwind preset OR pre-compiled `styles.css` — your call.
+  <Card title="Block 3 · Navigation & feedback" icon="rocket">
+    Tabs · Tooltip · Popover · Popconfirm · Menu · Modal · Drawer · Banner · Toast · Pagination · Stepper · Breadcrumb. Twelve overlay-and-route components.
   </Card>
-  <Card title="Phase 1 scope" icon="information">
-    45 components at Ant Design parity. Track progress at the GitHub or x.xgit.pro repo.
+  <Card title="Block 4 · Data display" icon="information">
+    Skeleton · Spin · Empty · Result · Statistic · Progress · Descriptions · Collapse · KanbanCard · BusinessRows (×4). Ten components for the dense control-plane pages.
   </Card>
 </CardGrid>
 
-:::note[TODO — Phase 2 enhancements]
-- Auto-generated PropsTable from TypeScript types
-- Algolia search integration
-- Version switcher
-- Interactive codegen (StackBlitz / CodeSandbox embeds)
-- Live component playground without iframe isolation
-:::
+## Status
+
+- **45/45** Phase 1 components shipped.
+- **550+** unit, anatomy, and a11y tests.
+- **MIT** licensed.
+- Latest tag: `block-4-v0.5.0-alpha`.
+
+## Design language
+
+Tokens follow a three-layer model: primitive → semantic → component. Components consume only the semantic layer, so light / dark / future white-label themes flip via CSS variables — no `dark:` Tailwind variants anywhere in component source. See [Tokens overview](/tokens/overview/) and [Theming](/getting-started/theming/).
