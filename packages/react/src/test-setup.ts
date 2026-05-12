@@ -19,6 +19,11 @@ if (typeof globalThis.ResizeObserver === 'undefined') {
 if (typeof Element !== 'undefined' && !Element.prototype.scrollIntoView) {
   Element.prototype.scrollIntoView = () => {};
 }
+// TimePicker Column uses scrollTo for centering the active row; jsdom stub.
+if (typeof Element !== 'undefined' && !Element.prototype.scrollTo) {
+  // @ts-expect-error jsdom doesn't implement scrollTo
+  Element.prototype.scrollTo = () => {};
+}
 if (typeof Element !== 'undefined' && !Element.prototype.hasPointerCapture) {
   Element.prototype.hasPointerCapture = () => false;
 }

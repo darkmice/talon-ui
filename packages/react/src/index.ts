@@ -25,3 +25,4 @@ export * from './components/rate/index.js';
 export * from './components/select/index.js';
 export * from './components/combobox/index.js';
 export * from './components/date-picker/index.js';
+export * from './components/time-picker/index.js';
