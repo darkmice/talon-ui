@@ -1,5 +1,13 @@
 # @talon-ui/react
 
+## 0.3.0
+
+### Minor Changes
+
+- Block 2 — forms & data entry: Form (FormItem/FormLabel/FormControl/FormDescription/FormMessage/FormField + useFormField), Checkbox, Radio (RadioGroup + Item), Switch, Slider, NumberInput, Rate, Select (composition primitives), Combobox (cmdk-backed), DatePicker (single + range), TimePicker (24h scrolling columns), Upload (drag-drop with progress hook), ColorPicker (compact preset + hex). 300+ tests, anatomy locks per design.md, docs pages with live demos and Form-integrated examples.
+
+  New peer / runtime deps: `react-hook-form` (peer), `@radix-ui/react-checkbox`, `@radix-ui/react-radio-group`, `@radix-ui/react-switch`, `@radix-ui/react-slider`, `@radix-ui/react-select`, `@radix-ui/react-popover`, `cmdk`, `react-day-picker`, `date-fns`.
+
 ## 0.2.0
 
 ### Minor Changes
