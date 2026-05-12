@@ -37,3 +37,4 @@ export * from './components/modal/index.js';
 export * from './components/drawer/index.js';
 export * from './components/banner/index.js';
 export * from './components/toast/index.js';
+export * from './components/pagination/index.js';
