@@ -67,9 +67,11 @@ Plus one line added to `packages/react/src/index.ts` exporting from the new fold
 - [ ] **Step 9: Run tests** — `pnpm --filter @talon-ui/react test` — all green (4+ existing + new).
 - [ ] **Step 10: Run typecheck + lint** — `pnpm --filter @talon-ui/react typecheck && pnpm --filter @talon-ui/react lint`.
 - [ ] **Step 11: Build** — `pnpm --filter @talon-ui/react build`. Verify `dist/styles.css` still > 1KB and new component is exported in `dist/index.d.ts`.
-- [ ] **Step 12: Commit** — `feat(react): add <Name> component (Block 1)`. Single commit per component.
-- [ ] **Step 13: Comment on the x.xgit.pro issue** with the commit SHA + commit URL. Close the issue.
-- [ ] **Step 14: Push both remotes** — `git push origin main && git push github main`.
+- [ ] **Step 12: Write `apps/docs/src/content/docs/components/<file-name>.mdx`** — anatomy summary (引 `design.md` §<section>), variants table (variant × size × tone with hand-written props), 1–3 live demos via `<ComponentPreview client:visible>` (demo sources at `apps/docs/src/examples/<file-name>/*.tsx`), do/don't list (引 `design.md` §9). One MDX per component. Sidebar wires automatically via Starlight's auto-generated sidebar from the content collection.
+- [ ] **Step 13: Build docs** — `pnpm --filter @talon-ui/example-docs build` (or whatever the docs package is named). Must succeed.
+- [ ] **Step 14: Commit** — `feat(react): add <Name> component + docs (Block 1)`. Single commit per component including both source and docs.
+- [ ] **Step 15: Comment on the x.xgit.pro issue** with the commit SHA + commit URL. Close the issue.
+- [ ] **Step 16: Push both remotes** — `git push origin main && git push github main`.
 
 ---
 
