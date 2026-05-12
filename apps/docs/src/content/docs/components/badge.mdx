@@ -1,0 +1,50 @@
+---
+title: Badge
+description: Small numeric counter or dot positioned on a container's corner.
+sidebar:
+  order: 7
+---
+
+import ComponentPreview from '@/components/ComponentPreview.astro';
+import Number from '@/examples/badge/number.tsx';
+import Dot from '@/examples/badge/dot.tsx';
+import Overflow from '@/examples/badge/overflow.tsx';
+
+`Badge` is a 12-tall counter pill or 8×8 dot. It works standalone or wraps another element to sit at its top-right.
+
+## Number
+
+<ComponentPreview src="examples/badge/number.tsx" title="Tones" height="100px">
+  <Number client:load />
+</ComponentPreview>
+
+## Dot
+
+<ComponentPreview src="examples/badge/dot.tsx" title="Status dot on container" height="100px">
+  <Dot client:load />
+</ComponentPreview>
+
+## Overflow
+
+<ComponentPreview src="examples/badge/overflow.tsx" title="Max overflow" height="120px">
+  <Overflow client:load />
+</ComponentPreview>
+
+When `count` exceeds `max` (default 99), the badge renders `max+`. Set `max` to control the cutoff.
+
+## Props
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `count` | `number` | — | Counter value; hidden when 0 unless `showZero` is set. |
+| `dot` | `boolean` | `false` | Render as an 8×8 dot; ignores `count`. |
+| `max` | `number` | `99` | Overflow cutoff. |
+| `showZero` | `boolean` | `false` | Render even when `count` is 0. |
+| `tone` | `'danger' \| 'primary' \| 'success' \| 'neutral'` | `'danger'` | Background colour. |
+| `label` | `string` | — | Override the `aria-label` (default: the count or "badge"). |
+| `children` | `ReactNode` | — | Wrap a target; badge sits at top-right. |
+
+## Don't
+
+- Don't combine `dot` with a large `count` value — pick one shape.
+- Don't use `Badge` for status pills longer than 4 digits; switch to `Tag`.
