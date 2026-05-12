@@ -23,7 +23,7 @@ export default defineConfig({
   dts: true,
   sourcemap: true,
   splitting: true,
-  clean: true,
+  clean: !process.argv.includes('--watch'),
   treeshake: true,
   legalComments: 'inline',
   external: ['react', 'react-dom', '@talon-ui/tokens'],
