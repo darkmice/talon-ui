@@ -1,6 +1,6 @@
 {
   "name": "@talon-ui/tokens",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Talon Pilot design tokens (CSS variables, JSON, Tailwind preset).",
   "license": "MIT",
   "type": "module",
