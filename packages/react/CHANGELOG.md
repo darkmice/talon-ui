@@ -1,5 +1,15 @@
 # @talon-ui/react
 
+## 0.5.0
+
+### Minor Changes
+
+- Block 4 — data display & misc feedback: Skeleton, Spin, Empty, Result, Statistic, Progress (linear + circular), Descriptions, Collapse, KanbanCard, BusinessRows (FileRefRow / RoleRow / RuntimeRow / RiskRow). 550+ tests, anatomy locks per design.md, docs pages with live demos.
+
+  This release closes Phase 1: 45 components shipped, Ant-Design-parity target met.
+
+  New runtime deps: `@radix-ui/react-accordion` (Collapse). All other Block 4 components are DIY.
+
 ## 0.4.0
 
 ### Minor Changes
