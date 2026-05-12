@@ -162,7 +162,6 @@ module.exports = {
         },
         '.tp-nums': {
           fontVariantNumeric: 'tabular-nums',
-          fontFamily: 'var(--tp-font-mono)',
         },
         '.tp-tag': {
           display: 'inline-flex',

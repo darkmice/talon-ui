@@ -30,7 +30,7 @@ export const KanbanCard = forwardRef<HTMLDivElement, KanbanCardProps>(function K
       className={cn(kanbanCardVariants({ size, selected }), className)}
       {...rest}
     >
-      {id && <p className="text-mono-sm font-mono text-text-tertiary">{id}</p>}
+      {id && <p className="text-caption text-text-tertiary">{id}</p>}
       <p className="text-body-strong text-text-primary mt-tp-1">{title}</p>
       {description && <p className="text-caption text-text-secondary mt-tp-1 line-clamp-2">{description}</p>}
       {tags && tags.length > 0 && (

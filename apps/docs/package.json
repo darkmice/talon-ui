@@ -17,6 +17,7 @@
   },
   "devDependencies": {
     "dumi": "^2.4.0",
+    "dumi-theme-antd": "^0.4.4",
     "typescript": "^5.5.0"
   }
 }
