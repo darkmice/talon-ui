@@ -1,0 +1,56 @@
+---
+title: Radio
+description: Single-choice selector group built on Radix RadioGroup.
+sidebar:
+  order: 13
+---
+
+import ComponentPreview from '@/components/ComponentPreview.astro';
+import Basic from '@/examples/radio/basic.tsx';
+import Horizontal from '@/examples/radio/horizontal.tsx';
+import FormDemo from '@/examples/radio/form.tsx';
+
+`RadioGroup` and `RadioGroupItem` wrap `@radix-ui/react-radio-group`. Composition with a `<label>` is recommended.
+
+## Vertical (default)
+
+<ComponentPreview src="examples/radio/basic.tsx" title="Controlled vertical group" height="160px">
+  <Basic client:load />
+</ComponentPreview>
+
+## Horizontal
+
+<ComponentPreview src="examples/radio/horizontal.tsx" title="Inline choices" height="100px">
+  <Horizontal client:load />
+</ComponentPreview>
+
+## Inside a Form
+
+<ComponentPreview src="examples/radio/form.tsx" title="With validation" height="280px">
+  <FormDemo client:load />
+</ComponentPreview>
+
+## Props
+
+### RadioGroup
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `orientation` | `'horizontal' \| 'vertical'` | `'vertical'` | Axis. |
+| `value` | `string` | — | Controlled selected value. |
+| `defaultValue` | `string` | — | Uncontrolled initial value. |
+| `onValueChange` | `(value: string) => void` | — | Change handler. |
+| `disabled` | `boolean` | `false` | Disables every item. |
+
+### RadioGroupItem
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `value` | `string` | required | Item identifier. |
+| `size` | `'sm' \| 'md'` | `'md'` | 14 / 16 px. |
+| `tone` | `'primary' \| 'danger'` | `'primary'` | Indicator and selected border colour. |
+| `disabled` | `boolean` | `false` | Disables this item. |
+
+## Don't
+
+- Don't combine `RadioGroup` with `Checkbox` semantics — radio is single-choice. Use `CheckboxGroup`-style pattern with multiple `Checkbox`es instead.

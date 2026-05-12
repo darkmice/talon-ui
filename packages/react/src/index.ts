@@ -17,3 +17,4 @@ export * from './components/space/index.js';
 export * from './components/typography/index.js';
 export * from './components/form/index.js';
 export * from './components/checkbox/index.js';
+export * from './components/radio/index.js';
