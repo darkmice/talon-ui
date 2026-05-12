@@ -1,6 +1,6 @@
 {
   // Static docs site on Cloudflare Workers static assets.
-  "name": "talon-ui-docs",
+  "name": "talon-ui",
   "compatibility_date": "2026-05-13",
   "assets": {
     "directory": "./apps/docs/dist",
