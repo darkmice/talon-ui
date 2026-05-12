@@ -39,9 +39,9 @@ describe('TimePicker anatomy (design.md §6.39)', () => {
     const listboxes = await screen.findAllByRole('listbox');
     expect(listboxes).toHaveLength(2);
     // Traverse up to the popover content
-    const popoverContent = listboxes[0].closest('[data-radix-popper-content-wrapper]')
+    const popoverContent = listboxes[0]!.closest('[data-radix-popper-content-wrapper]')
       ?.firstElementChild as HTMLElement | null ??
-      listboxes[0].closest('.rounded-md') as HTMLElement;
+      listboxes[0]!.closest('.rounded-md') as HTMLElement;
     expect(popoverContent).toBeTruthy();
     expect(popoverContent.className).toMatch(/rounded-md/);
     expect(popoverContent.className).toMatch(/bg-bg-surface/);

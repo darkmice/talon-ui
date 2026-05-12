@@ -4,6 +4,7 @@
  * Licensed under the MIT License.
  */
 
+/* eslint-disable no-restricted-syntax -- ColorPicker legitimately stores its own preset hex palette */
 import { forwardRef, useState } from 'react';
 import * as Popover from '@radix-ui/react-popover';
 import { Check } from 'lucide-react';

@@ -4,7 +4,7 @@
  * Licensed under the MIT License.
  */
 
-import { render, screen, waitFor } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { describe, test, expect, vi } from 'vitest';
 import { DatePicker } from './date-picker.js';
@@ -76,7 +76,7 @@ describe('DatePicker behaviour', () => {
       if (day20) {
         await user.click(day20);
         // Should have been called with a DateRange shape
-        const lastCall = onChange.mock.calls[onChange.mock.calls.length - 1][0];
+        const lastCall = onChange.mock.calls[onChange.mock.calls.length - 1]?.[0];
         if (lastCall && typeof lastCall === 'object') {
           expect(lastCall).toHaveProperty('from');
         }

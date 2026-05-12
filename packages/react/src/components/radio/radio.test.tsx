@@ -20,7 +20,7 @@ describe('RadioGroup', () => {
     );
     const radios = screen.getAllByRole('radio');
     expect(radios).toHaveLength(3);
-    fireEvent.click(radios[1]);
+    fireEvent.click(radios[1]!);
     expect(handler).toHaveBeenCalledWith('b');
   });
 

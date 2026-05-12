@@ -22,10 +22,9 @@ beforeAll(() => {
   // @ts-expect-error partial mock
   globalThis.Date = class extends RealDate {
     constructor(...args: ConstructorParameters<typeof Date>) {
-      if (args.length === 0) {
+      if ((args as unknown[]).length === 0) {
         super(fixedDate.getTime());
       } else {
-        // @ts-expect-error spread
         super(...args);
       }
     }

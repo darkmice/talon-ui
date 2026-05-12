@@ -104,7 +104,6 @@ export const TimePicker = forwardRef<HTMLButtonElement, TimePickerProps>(functio
     disabled,
     className,
     // format12h is documented as a future toggle; Phase 1 is 24h only
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     format12h: _format12h,
     ...rest
   },
@@ -112,6 +111,7 @@ export const TimePicker = forwardRef<HTMLButtonElement, TimePickerProps>(functio
 ) {
   const placeholder = rest.placeholder ?? (withSeconds ? 'HH:MM:SS' : 'HH:MM');
   // Remove placeholder from rest to avoid passing it twice to the button
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { placeholder: _placeholder, ...buttonRest } = rest;
 
   const ctrl = value !== undefined;

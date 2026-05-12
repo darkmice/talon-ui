@@ -7,7 +7,6 @@
 import { forwardRef, useState } from 'react';
 import { Star } from 'lucide-react';
 import { cn } from '../../primitives/cn.js';
-import { rateVariants } from './rate.variants.js';
 import type { RateProps } from './rate.types.js';
 
 const sizeMap = { sm: 'size-[14px]', md: 'size-4', lg: 'size-5' } as const;
