@@ -21,3 +21,4 @@ export * from './components/radio/index.js';
 export * from './components/switch/index.js';
 export * from './components/slider/index.js';
 export * from './components/number-input/index.js';
+export * from './components/rate/index.js';
