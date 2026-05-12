@@ -7,11 +7,30 @@ on:
       - 'apps/docs/**'
       - 'packages/react/**'
       - 'packages/tokens/**'
+      - 'package.json'
+      - 'pnpm-lock.yaml'
+      - 'pnpm-workspace.yaml'
+      - 'turbo.json'
       - '.github/workflows/deploy-docs.yml'
+  pull_request:
+    paths:
+      - 'apps/docs/**'
+      - 'packages/react/**'
+      - 'packages/tokens/**'
+      - 'package.json'
+      - 'pnpm-lock.yaml'
+      - 'pnpm-workspace.yaml'
+      - 'turbo.json'
+      - '.github/workflows/deploy-docs.yml'
+  workflow_dispatch:
 
 concurrency:
-  group: deploy-docs
+  group: deploy-docs-${{ github.event.pull_request.number || github.ref }}
   cancel-in-progress: true
+
+env:
+  CLOUDFLARE_PAGES_PROJECT_NAME: talon-ui-docs
+  DOCS_OUTPUT_DIR: apps/docs/dist
 
 jobs:
   deploy:
@@ -34,13 +53,42 @@ jobs:
       - run: pnpm --filter @talon-ui/tokens build
       - run: pnpm --filter @talon-ui/react build
       - run: pnpm --filter @talon-ui/docs build
+      - name: Resolve Cloudflare Pages branch
+        run: |
+          if [ "${{ github.event_name }}" = "pull_request" ]; then
+            echo "CLOUDFLARE_PAGES_BRANCH=${{ github.head_ref }}" >> "$GITHUB_ENV"
+          else
+            echo "CLOUDFLARE_PAGES_BRANCH=${{ github.ref_name }}" >> "$GITHUB_ENV"
+          fi
       - name: Publish to Cloudflare Pages
-        if: ${{ secrets.CLOUDFLARE_API_TOKEN != '' }}
+        id: deploy
+        if: ${{ secrets.CLOUDFLARE_API_TOKEN != '' && secrets.CLOUDFLARE_ACCOUNT_ID != '' }}
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: pages deploy apps/docs/dist --project-name=talon-ui-docs --branch=main
+          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
+          packageManager: pnpm
+          command: >-
+            pages deploy ${{ env.DOCS_OUTPUT_DIR }}
+            --project-name=${{ env.CLOUDFLARE_PAGES_PROJECT_NAME }}
+            --branch=${{ env.CLOUDFLARE_PAGES_BRANCH }}
+      - name: Deployment summary
+        if: ${{ steps.deploy.outcome == 'success' }}
+        run: |
+          {
+            echo "## Cloudflare Pages deploy"
+            echo "- Project: \`${{ env.CLOUDFLARE_PAGES_PROJECT_NAME }}\`"
+            echo "- Branch: \`${{ env.CLOUDFLARE_PAGES_BRANCH }}\`"
+            echo "- Deployment URL: ${{ steps.deploy.outputs.deployment-url }}"
+            if [ -n "${{ steps.deploy.outputs.pages-deployment-alias-url }}" ]; then
+              echo "- Alias URL: ${{ steps.deploy.outputs.pages-deployment-alias-url }}"
+            fi
+          } >> "$GITHUB_STEP_SUMMARY"
       - name: Skipped notice
-        if: ${{ secrets.CLOUDFLARE_API_TOKEN == '' }}
-        run: echo "Skipping deploy — CLOUDFLARE_API_TOKEN and CLOUDFLARE_ACCOUNT_ID secrets are not set."
+        if: ${{ secrets.CLOUDFLARE_API_TOKEN == '' || secrets.CLOUDFLARE_ACCOUNT_ID == '' }}
+        run: |
+          {
+            echo "## Cloudflare Pages deploy"
+            echo "- Skipped because \`CLOUDFLARE_API_TOKEN\` or \`CLOUDFLARE_ACCOUNT_ID\` is not configured."
+          } >> "$GITHUB_STEP_SUMMARY"

@@ -6,18 +6,18 @@ React component library and design tokens for the Talon Pilot design system.
 ![tag](https://img.shields.io/badge/tag-0.5.0--alpha-orange)
 ![license](https://img.shields.io/badge/license-MIT-green)
 
-| Mirror | URL |
-|---|---|
-| GitHub | https://github.com/darkmice/talon-ui |
-| x.xgit.pro | https://x.xgit.pro/dark/talon-ui |
+| Mirror     | URL                                  |
+| ---------- | ------------------------------------ |
+| GitHub     | https://github.com/darkmice/talon-ui |
+| x.xgit.pro | https://x.xgit.pro/dark/talon-ui     |
 
 ## Packages
 
-| Package | Version | Purpose |
-|---|---|---|
-| `@talon-ui/tokens` | 0.1.1 | Design tokens — CSS vars, JSON, Tailwind preset |
-| `@talon-ui/react`  | 0.5.0 | React components — 45 / 45 Phase 1 shipped |
-| `@talon-ui/vue`    | —     | Vue components — Phase 2 placeholder |
+| Package            | Version | Purpose                                         |
+| ------------------ | ------- | ----------------------------------------------- |
+| `@talon-ui/tokens` | 0.1.1   | Design tokens — CSS vars, JSON, Tailwind preset |
+| `@talon-ui/react`  | 0.5.0   | React components — 45 / 45 Phase 1 shipped      |
+| `@talon-ui/vue`    | —       | Vue components — Phase 2 placeholder            |
 
 ## Components — 45 / 45 Phase 1
 
@@ -93,6 +93,15 @@ pnpm docs:dev     # start dumi docs dev server (apps/docs)
 pnpm docs:build   # build dumi docs site to apps/docs/dist/
 pnpm test:visual  # visual regression against built docs site (Playwright, 0.1% threshold)
 ```
+
+## Docs deployment
+
+`apps/docs` 支持 Cloudflare 自动发布。接入说明见 `docs/DEPLOYMENT.md`。
+
+配置完成后：
+
+- 推送到 `main` 会发布生产站点
+- Pull Request 会生成预览站点
 
 ## Source of truth
 
