@@ -1,0 +1,55 @@
+---
+title: Descriptions
+description: Key-value panel for entity details — horizontal or vertical, with optional monospace IDs.
+sidebar:
+  order: 42
+---
+
+import ComponentPreview from '@/components/ComponentPreview.astro';
+import Basic from '@/examples/descriptions/basic.tsx';
+import Columns from '@/examples/descriptions/columns.tsx';
+import Inline from '@/examples/descriptions/inline.tsx';
+
+`Descriptions` renders a key-value list. Use it for detail panels (resource metadata, run summaries).
+
+## Basic
+
+<ComponentPreview src="examples/descriptions/basic.tsx" title="Single column" height="200px">
+  <Basic client:load />
+</ComponentPreview>
+
+## Two columns
+
+<ComponentPreview src="examples/descriptions/columns.tsx" title="2x3 grid" height="240px">
+  <Columns client:load />
+</ComponentPreview>
+
+## Vertical layout
+
+<ComponentPreview src="examples/descriptions/inline.tsx" title="Stacked label/value" height="160px">
+  <Inline client:load />
+</ComponentPreview>
+
+## Props
+
+### Descriptions
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `columns` | `number` | `1` | Grid column count. |
+| `size` | `'sm' \| 'md'` | `'md'` | Row min-height (28 / 32). |
+| `layout` | `'horizontal' \| 'vertical'` | `'horizontal'` | Label-value layout per row. |
+
+### DescriptionsItem
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `label` | `ReactNode` | required | Caption-coloured label. |
+| `children` | `ReactNode` | required | Value contents (text, Tag, link, etc.). |
+| `mono` | `boolean` | `false` | Render value in monospace (use for IDs, paths, timestamps). |
+| `span` | `number` | `1` | Number of columns this item spans. |
+
+## Don't
+
+- Don't pair Descriptions with `<table>` for tabular data — use a real Table component.
+- Don't nest Descriptions inside Descriptions; flatten the data instead.

@@ -46,3 +46,4 @@ export * from './components/empty/index.js';
 export * from './components/result/index.js';
 export * from './components/statistic/index.js';
 export * from './components/progress/index.js';
+export * from './components/descriptions/index.js';
