@@ -1,5 +1,13 @@
 # @talon-ui/react
 
+## 0.4.0
+
+### Minor Changes
+
+- Block 3 — navigation & feedback: Tabs, Tooltip, Popover, Popconfirm, Menu (Dropdown), Modal, Drawer, Banner (Alert), Toast (with ToastProvider + useToast imperative API), Pagination, Stepper, Breadcrumb. 400+ tests, anatomy locks per design.md, docs pages with live demos.
+
+  New runtime deps: `@radix-ui/react-tabs`, `@radix-ui/react-tooltip`, `@radix-ui/react-dropdown-menu`, `@radix-ui/react-dialog`, `@radix-ui/react-toast`. (`@radix-ui/react-popover` already in deps from Block 2.)
+
 ## 0.3.0
 
 ### Minor Changes
