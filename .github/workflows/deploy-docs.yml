@@ -1,0 +1,46 @@
+name: Deploy docs
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'apps/docs/**'
+      - 'packages/react/**'
+      - 'packages/tokens/**'
+      - '.github/workflows/deploy-docs.yml'
+
+concurrency:
+  group: deploy-docs
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      deployments: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm --filter @talon-ui/tokens build
+      - run: pnpm --filter @talon-ui/react build
+      - run: pnpm --filter @talon-ui/docs build
+      - name: Publish to Cloudflare Pages
+        if: ${{ secrets.CLOUDFLARE_API_TOKEN != '' }}
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages deploy apps/docs/dist --project-name=talon-ui-docs --branch=main
+      - name: Skipped notice
+        if: ${{ secrets.CLOUDFLARE_API_TOKEN == '' }}
+        run: echo "Skipping deploy — CLOUDFLARE_API_TOKEN and CLOUDFLARE_ACCOUNT_ID secrets are not set."
