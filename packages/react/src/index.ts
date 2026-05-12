@@ -23,3 +23,4 @@ export * from './components/slider/index.js';
 export * from './components/number-input/index.js';
 export * from './components/rate/index.js';
 export * from './components/select/index.js';
+export * from './components/combobox/index.js';
