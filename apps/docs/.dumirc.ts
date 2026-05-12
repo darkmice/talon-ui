@@ -45,10 +45,6 @@ export default defineConfig({
       { type: 'component', dir: '../../packages/react/src/components' },
     ],
   },
-  // Inject our token CSS globally so demos look like the product
-  styles: [
-    `@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');`,
-  ],
   // Map @talon-ui/* workspace deps so demos in markdown can import them directly.
   // Point to dist so webpack doesn't need to handle TypeScript ESM .js → .ts extension mapping.
   alias: {

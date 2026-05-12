@@ -92,8 +92,8 @@ module.exports = {
         },
       },
       fontFamily: {
-        sans: ['Inter', 'PingFang SC', 'Microsoft YaHei', 'system-ui', 'sans-serif'],
-        mono: ['JetBrains Mono', 'SF Mono', 'Menlo', 'monospace'],
+        sans: ['-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Helvetica Neue', 'Arial', 'sans-serif'],
+        mono: ['ui-monospace', 'SFMono-Regular', 'SF Mono', 'Menlo', 'Consolas', 'Liberation Mono', 'monospace'],
       },
       fontSize: {
         display: ['32px', { lineHeight: '40px', fontWeight: '600', letterSpacing: '-0.02em' }],
