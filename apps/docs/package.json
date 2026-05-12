@@ -1,0 +1,22 @@
+{
+  "name": "@talon-ui/docs",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "dumi dev",
+    "build": "dumi build",
+    "preview": "dumi preview"
+  },
+  "dependencies": {
+    "@talon-ui/react": "workspace:*",
+    "@talon-ui/tokens": "workspace:*",
+    "react": "^18.3.0",
+    "react-dom": "^18.3.0",
+    "react-hook-form": "^7.50.0"
+  },
+  "devDependencies": {
+    "dumi": "^2.4.0",
+    "typescript": "^5.5.0"
+  }
+}

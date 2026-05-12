@@ -28,16 +28,15 @@
     "format:check": "prettier --check .",
     "test:visual": "node scripts/run-visual.mjs",
     "test:visual:update": "node scripts/run-visual.mjs --update",
-    "docs:dev": "dumi dev",
-    "docs:build": "dumi build",
-    "docs:preview": "dumi preview"
+    "docs:dev": "pnpm --filter @talon-ui/docs dev",
+    "docs:build": "pnpm --filter @talon-ui/docs build",
+    "docs:preview": "pnpm --filter @talon-ui/docs preview"
   },
   "devDependencies": {
     "@changesets/changelog-github": "^0.7.0",
     "@changesets/cli": "^2.27.0",
     "@eslint/js": "^10.0.1",
     "@playwright/test": "^1.60.0",
-    "dumi": "^2.4",
     "eslint": "^10.3.0",
     "eslint-plugin-react": "^7.37.5",
     "eslint-plugin-react-hooks": "^7.1.1",

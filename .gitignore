@@ -6,8 +6,8 @@ dist/
 .DS_Store
 coverage/
 .changeset/.cache
-dist-docs/
-.dumi/
+apps/docs/dist/
+apps/docs/.dumi/
 .idea/
 .vscode/*
 !.vscode/extensions.json

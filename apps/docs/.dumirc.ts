@@ -5,15 +5,20 @@
  */
 
 import { defineConfig } from 'dumi';
-import path from 'path';
+import { resolve } from 'node:path';
+
+// dumi loads this config via CJS require(), so __dirname is available even in TS files.
+// eslint-disable-next-line @typescript-eslint/no-require-imports
+const here: string = __dirname;
+const monorepoRoot = resolve(here, '../..');
 
 export default defineConfig({
-  outputPath: 'dist-docs',
+  outputPath: 'dist',
+  // Bilingual: Chinese default, English alternate
   locales: [
     { id: 'zh-CN', name: '中文' },
     { id: 'en-US', name: 'English' },
   ],
-  // Use Talon Pilot brand
   themeConfig: {
     name: 'Talon UI',
     logo: false,
@@ -29,21 +34,16 @@ export default defineConfig({
         { title: 'GitHub', link: 'https://github.com/darkmice/talon-ui' },
       ],
     },
-    socialLinks: {
-      github: 'https://github.com/darkmice/talon-ui',
-    },
+    socialLinks: { github: 'https://github.com/darkmice/talon-ui' },
     footer: 'MIT Licensed · Talon Contributors',
     prefersColor: { default: 'auto', switch: true },
   },
-  // Read site pages from docs/ and components from packages/react/src/components.
-  // codeBlockMode: 'passive' prevents plan/spec markdown files in docs/superpowers/
-  // from being parsed as live React demos.
   resolve: {
     docDirs: ['docs'],
     atomDirs: [
-      { type: 'component', dir: 'packages/react/src/components' },
+      { type: 'component', dir: resolve(monorepoRoot, 'packages/react/src/components') },
     ],
-    codeBlockMode: 'passive',
+    codeBlockMode: 'active',
   },
   // Inject our token CSS globally so demos look like the product
   styles: [
@@ -52,9 +52,7 @@ export default defineConfig({
   // Map @talon-ui/* workspace deps so demos in markdown can import them directly.
   // Point to dist so webpack doesn't need to handle TypeScript ESM .js → .ts extension mapping.
   alias: {
-    '@talon-ui/react': path.resolve(__dirname, 'packages/react/dist/index.js'),
-    '@talon-ui/tokens': path.resolve(__dirname, 'packages/tokens/src'),
+    '@talon-ui/react': resolve(monorepoRoot, 'packages/react/dist/index.js'),
+    '@talon-ui/tokens': resolve(monorepoRoot, 'packages/tokens/src'),
   },
-  // dumi compiles MD demos via babel/SWC — make sure JSX transforms work for our TSX
-  extraBabelPresets: [],
 });
