@@ -27,3 +27,4 @@ export * from './components/combobox/index.js';
 export * from './components/date-picker/index.js';
 export * from './components/time-picker/index.js';
 export * from './components/upload/index.js';
+export * from './components/color-picker/index.js';

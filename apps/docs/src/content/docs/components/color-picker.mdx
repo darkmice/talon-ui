@@ -1,0 +1,51 @@
+---
+title: ColorPicker
+description: Compact preset-driven color picker with hex input and system fallback.
+sidebar:
+  order: 23
+---
+
+import ComponentPreview from '@/components/ComponentPreview.astro';
+import Basic from '@/examples/color-picker/basic.tsx';
+import Presets from '@/examples/color-picker/presets.tsx';
+import FormDemo from '@/examples/color-picker/form.tsx';
+
+`ColorPicker` is the **compact** Phase-1 picker: preset grid + hex input + system native fallback. A full HSL/HSV canvas lands in v0.4.
+
+## Basic
+
+<ComponentPreview src="examples/color-picker/basic.tsx" title="Default presets" height="280px">
+  <Basic client:load />
+</ComponentPreview>
+
+## Custom presets
+
+<ComponentPreview src="examples/color-picker/presets.tsx" title="Brand + status palette" height="280px">
+  <Presets client:load />
+</ComponentPreview>
+
+## Inside a Form
+
+<ComponentPreview src="examples/color-picker/form.tsx" title="With validation" height="320px">
+  <FormDemo client:load />
+</ComponentPreview>
+
+## Props
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `value` | `string` | — | Controlled hex (`'#RRGGBB'`). |
+| `defaultValue` | `string` | `'#4F60FF'` | Uncontrolled initial value. |
+| `onValueChange` | `(value: string) => void` | — | Commit handler. |
+| `presets` | `string[]` | Talon brand + utility palette | Preset grid colours. |
+| `showHexInput` | `boolean` | `true` | Render the hex input row. |
+| `showSystemPicker` | `boolean` | `true` | Render the native `<input type="color">` swatch. |
+| `size` | `'sm' \| 'md' \| 'lg'` | `'md'` | Trigger height. |
+| `tone` | `'default' \| 'invalid'` | `'default'` | Border treatment. |
+| `disabled` | `boolean` | `false` | Disables the trigger. |
+| `label` | `string` | `'Pick a color'` | `aria-label`. |
+
+## Don't
+
+- Don't ship a giant preset list — keep it under ~18 for a compact picker.
+- Don't expect alpha support in Phase 1. Hex is `#RRGGBB` only.
