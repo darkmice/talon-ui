@@ -1,7 +1,7 @@
 ---
 title: Button 按钮
 nav: 组件
-group: 基础
+group: 基础组件
 order: 1
 ---
 
