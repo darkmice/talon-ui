@@ -44,7 +44,6 @@ export default defineConfig({
       // dumi does path.join(api.cwd, dir) internally, so dir must be relative to apps/docs
       { type: 'component', dir: '../../packages/react/src/components' },
     ],
-    codeBlockMode: 'active',
   },
   // Inject our token CSS globally so demos look like the product
   styles: [

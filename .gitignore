@@ -7,7 +7,9 @@ dist/
 coverage/
 .changeset/.cache
 apps/docs/dist/
-apps/docs/.dumi/
+apps/docs/.dumi/tmp/
+apps/docs/.dumi/tmp-production/
+apps/docs/.dumi/tsconfig.json
 .idea/
 .vscode/*
 !.vscode/extensions.json
