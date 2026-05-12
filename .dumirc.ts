@@ -9,15 +9,26 @@ import path from 'path';
 
 export default defineConfig({
   outputPath: 'dist-docs',
+  locales: [
+    { id: 'zh-CN', name: '中文' },
+    { id: 'en-US', name: 'English' },
+  ],
   // Use Talon Pilot brand
   themeConfig: {
     name: 'Talon UI',
     logo: false,
-    nav: [
-      { title: 'Components', link: '/components/button' },
-      { title: 'Tokens', link: '/tokens/overview' },
-      { title: 'GitHub', link: 'https://github.com/darkmice/talon-ui' },
-    ],
+    nav: {
+      'zh-CN': [
+        { title: '组件', link: '/components/button' },
+        { title: 'Tokens', link: '/tokens/overview' },
+        { title: 'GitHub', link: 'https://github.com/darkmice/talon-ui' },
+      ],
+      'en-US': [
+        { title: 'Components', link: '/en-US/components/button' },
+        { title: 'Tokens', link: '/en-US/tokens/overview' },
+        { title: 'GitHub', link: 'https://github.com/darkmice/talon-ui' },
+      ],
+    },
     socialLinks: {
       github: 'https://github.com/darkmice/talon-ui',
     },

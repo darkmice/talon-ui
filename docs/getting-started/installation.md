@@ -1,22 +1,22 @@
 ---
-title: Installation
+title: 安装
 nav:
-  title: Getting Started
+  title: 快速上手
   order: 1
 group:
-  title: Getting Started
+  title: 快速上手
   order: 0
 ---
 
-# Installation
+# 安装
 
 ```bash
 pnpm add @talon-ui/react @talon-ui/tokens
 ```
 
-`@talon-ui/react` declares `react` and `react-dom` as peer dependencies (`^18 || ^19`).
+`@talon-ui/react` 把 `react` 与 `react-dom` 声明为 peer 依赖（`^18 || ^19`），单独装一次即可。
 
-## Tailwind project (recommended)
+## Tailwind 项目（推荐）
 
 ```ts
 // tailwind.config.ts
@@ -24,21 +24,24 @@ import preset from '@talon-ui/tokens/preset';
 
 export default {
   presets: [preset],
-  content: ['./src/**/*.{ts,tsx}', './node_modules/@talon-ui/react/dist/**/*.js'],
+  content: [
+    './src/**/*.{ts,tsx}',
+    './node_modules/@talon-ui/react/dist/**/*.js',
+  ],
   darkMode: ['class', '[data-theme="dark"]'],
 };
 ```
 
-Then in your app entry:
+在 app 入口引入一次 token：
 
 ```ts
 import '@talon-ui/tokens/css';
 ```
 
-## Non-Tailwind project
+## 非 Tailwind 项目
 
 ```ts
 import '@talon-ui/react/styles.css';
 ```
 
-A single import gives you tokens (light + dark) plus every Tailwind utility the components use.
+一行 import 拿到 token（明暗自动）和组件用到的全部 utility。

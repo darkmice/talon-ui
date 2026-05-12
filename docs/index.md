@@ -1,41 +1,31 @@
 ---
 hero:
   title: Talon UI
-  description: Clean · disciplined · engineering-grade React UI for AI-native control planes.
+  description: 清晰 · 克制 · 工程感 — 面向 AI 自治控制平面的 React 组件库
   actions:
-    - text: Get started
+    - text: 快速上手
       link: /getting-started/installation
-    - text: Components
+    - text: 浏览组件
       link: /components/button
 features:
-  - title: Block 1 · Foundational primitives
-    description: 10 components — Button, Input, Textarea, Tag, Avatar (+ Group), Card, Badge, Divider, Space, Typography. Every anatomy locked to spec.
-  - title: Block 2 · Forms & data entry
-    description: 13 components — Form (react-hook-form), Checkbox, Radio, Switch, Slider, NumberInput, Rate, Select, Combobox, DatePicker, TimePicker, Upload, ColorPicker.
-  - title: Block 3 · Navigation & feedback
-    description: 12 components — Tabs, Tooltip, Popover, Popconfirm, Menu, Modal, Drawer, Banner, Toast, Pagination, Stepper, Breadcrumb.
-  - title: Block 4 · Data display
-    description: 10 components — Skeleton, Spin, Empty, Result, Statistic, Progress (linear + circular), Descriptions, Collapse, KanbanCard, BusinessRows.
+  - title: Block 1 · 基础原语
+    description: Button · Input · Textarea · Tag · Avatar · Card · Badge · Divider · Space · Typography（10 件）
+  - title: Block 2 · 表单与数据录入
+    description: Form · Checkbox · Radio · Switch · Slider · NumberInput · Rate · Select · Combobox · DatePicker · TimePicker · Upload · ColorPicker（13 件）
+  - title: Block 3 · 导航与反馈
+    description: Tabs · Tooltip · Popover · Popconfirm · Menu · Modal · Drawer · Banner · Toast · Pagination · Stepper · Breadcrumb（12 件）
+  - title: Block 4 · 数据展示
+    description: Skeleton · Spin · Empty · Result · Statistic · Progress · Descriptions · Collapse · KanbanCard · BusinessRows（10 件）
 ---
 
-## Phase 1 complete · 45 / 45 components
+## Phase 1 已完成 · 45 / 45 组件
 
-Talon UI is a React component library that operationalises the Talon Pilot design system: clean, disciplined, engineering-grade UI for AI-native control planes.
+Talon UI 把 Talon Pilot 设计系统落地成 React 组件库——清晰、克制、工程感的 UI，专为 AI 自治控制平面而生。
 
-Install with:
+- **45** 个组件全部 ship，覆盖基础原语、表单、导航、数据展示四大类
+- **556+** 测试（单元 + anatomy + a11y 烟测），全绿
+- **明暗双主题**，CSS 变量自动翻转，组件源码不写 `dark:` 变体
+- **双轨样式**：Tailwind preset OR 预编译 styles.css，按需二选一
+- MIT 协议
 
-```bash
-pnpm add @talon-ui/react @talon-ui/tokens
-```
-
-Browse the [component catalogue](/components/button) or read the [tokens overview](/tokens/overview) to understand the three-layer token model.
-
-## Design language
-
-Tokens follow a three-layer model: primitive → semantic → component. Components consume only the semantic layer, so light / dark / future white-label themes flip via CSS variables — no `dark:` Tailwind variants anywhere in component source.
-
-## Status
-
-- **45 / 45** Phase 1 components shipped
-- **550+** unit, anatomy, and a11y tests
-- **MIT** licensed — tag `block-4-v0.5.0-alpha`
+去看 [Button 组件](/components/button) 或 [Tokens 概览](/tokens/overview) 起步。

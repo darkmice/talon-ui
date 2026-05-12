@@ -1,30 +1,30 @@
 ---
-title: Theming
+title: 主题
 group:
-  title: Getting Started
+  title: 快速上手
   order: 0
 ---
 
-# Theming
+# 主题
 
-Tokens live in CSS variables under three layers:
+Talon UI 的视觉契约是一份 3 层 CSS 变量集：
 
-| Layer | Example | Purpose |
+| 层 | 示例 | 用途 |
 |---|---|---|
-| Primitive | `--tp-gray-500`, `--tp-primary-500` | Raw scales. Theme-stable. |
-| Semantic | `--tp-bg-app`, `--tp-text-primary` | Usage-named. Flips on dark mode. |
-| Component | `--tp-btn-h-md`, `--tp-input-radius` | Per-component locked-down values. |
+| Primitive | `--tp-gray-500`、`--tp-primary-500` | 原始色阶。主题稳定。 |
+| Semantic | `--tp-bg-app`、`--tp-text-primary` | 语义命名，主题切换时自动翻转。 |
+| Component | `--tp-btn-h-md`、`--tp-input-radius` | 每个组件的具体值，锁死尺寸/圆角。 |
 
-Always consume from the highest applicable layer. Components in `@talon-ui/react` never write raw hex (with three exceptions documented in `design.md`).
+组件源码只消费 Semantic 与 Component 层，所以暗黑模式无需任何 `dark:` 变体——CSS 变量自己换值。
 
-## Customising a token
+## 自定义 token
 
-Override a CSS variable at the host level:
+直接覆盖 CSS 变量即可：
 
 ```css
 :root {
-  --tp-primary-500: oklch(0.55 0.2 280); /* your brand */
+  --tp-primary-500: oklch(0.55 0.2 280); /* 你的品牌色 */
 }
 ```
 
-Because `bg-primary-500` resolves to `var(--tp-primary-500)`, every component picks up the override automatically.
+`bg-primary-500` 解析成 `var(--tp-primary-500)`，所有组件立刻跟随。

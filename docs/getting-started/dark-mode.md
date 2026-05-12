@@ -1,19 +1,19 @@
 ---
-title: Dark Mode
+title: 暗黑模式
 group:
-  title: Getting Started
+  title: 快速上手
   order: 0
 ---
 
-# Dark Mode
+# 暗黑模式
 
-Set ONE of the following on `<html>` (or any ancestor element):
+在 `<html>` 上设置以下之一即可切换：
 
-| Trigger | Behaviour |
+| 触发器 | 效果 |
 |---|---|
-| `<html data-theme="dark">` | Force dark, override system. |
-| `<html data-theme="light">` | Force light, override system. |
-| `<html class="dark">` | Tailwind-style dark toggle. Equivalent to `data-theme="dark"`. |
-| `(no attribute)` | Follow `prefers-color-scheme`. |
+| `<html data-theme="dark">` | 强制暗色，覆盖系统设定 |
+| `<html data-theme="light">` | 强制亮色，覆盖系统设定 |
+| `<html class="dark">` | Tailwind 风格暗色开关。等价于 `data-theme="dark"`。 |
+| 无任何属性 | 跟随 `prefers-color-scheme` |
 
-All Talon UI components use only semantic tokens, so they flip automatically.
+Talon UI 组件只用语义 token，主题切换时全部自动翻转。
