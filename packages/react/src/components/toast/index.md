@@ -13,7 +13,7 @@ order: 32
 
 在应用根部包裹一次 `<ToastProvider>`：
 
-```tsx
+```tsx | pure
 <ToastProvider>
   <App />
 </ToastProvider>
@@ -21,7 +21,7 @@ order: 32
 
 然后在任意位置调用 `useToast()`：
 
-```tsx
+```tsx | pure
 const { toast } = useToast();
 toast({ title: '已保存', tone: 'success' });
 ```
@@ -42,7 +42,7 @@ toast({ title: '已保存', tone: 'success' });
 
 ## API
 
-```ts
+```ts | pure
 const { toast, dismiss } = useToast();
 
 const id = toast({

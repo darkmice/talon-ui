@@ -13,7 +13,7 @@ Transient floating notifications with auto-dismiss and an imperative API. `Toast
 
 Wrap your app once in `<ToastProvider>` (typically at the root):
 
-```tsx
+```tsx | pure
 <ToastProvider>
   <App />
 </ToastProvider>
@@ -21,7 +21,7 @@ Wrap your app once in `<ToastProvider>` (typically at the root):
 
 Then call `useToast()` anywhere:
 
-```tsx
+```tsx | pure
 const { toast } = useToast();
 toast({ title: 'Saved', tone: 'success' });
 ```
@@ -42,7 +42,7 @@ Default durations: 4s for `info`/`success`, 6s for `warning`, 8s for `error`.
 
 ## API
 
-```ts
+```ts | pure
 const { toast, dismiss } = useToast();
 
 const id = toast({

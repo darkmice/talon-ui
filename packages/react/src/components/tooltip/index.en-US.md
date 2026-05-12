@@ -25,7 +25,7 @@ Dark-background hint label that appears on hover or focus. `Tooltip` is the dark
 
 `Tooltip` requires a parent `<TooltipProvider>`. Place it once at your app root — usually wrapping the entire component tree:
 
-```tsx
+```tsx | pure
 <TooltipProvider delayDuration={200} skipDelayDuration={300}>
   <App />
 </TooltipProvider>

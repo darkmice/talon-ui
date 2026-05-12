@@ -25,7 +25,7 @@ order: 35
 
 `Tooltip` 需要父级 `<TooltipProvider>`。通常在应用根部放置一次，包裹整个组件树：
 
-```tsx
+```tsx | pure
 <TooltipProvider delayDuration={200} skipDelayDuration={300}>
   <App />
 </TooltipProvider>
