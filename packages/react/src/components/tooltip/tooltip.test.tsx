@@ -56,7 +56,7 @@ describe('Tooltip', () => {
   });
 
   test('custom sideOffset is forwarded to content', async () => {
-    const { container } = renderTooltip({ sideOffset: 12 });
+    renderTooltip({ sideOffset: 12 });
     const trigger = screen.getByRole('button', { name: 'Hover me' });
     await userEvent.hover(trigger);
     await screen.findByRole('tooltip');

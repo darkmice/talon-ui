@@ -4,7 +4,7 @@
  * Licensed under the MIT License.
  */
 
-import { render, screen, act } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { describe, test, expect } from 'vitest';
 import { ToastProvider } from './toast.js';
@@ -97,15 +97,14 @@ describe('Toast', () => {
   });
 
   test('dismiss(id) removes the specific toast', async () => {
-    let api: ReturnType<typeof useToast> | null = null;
     let capturedId: string | null = null;
 
     function DismissHarness() {
       return (
         <ToastProvider>
           <DismissInner
-            onReady={(a) => {
-              api = a;
+            onReady={(_a) => {
+              // api exposed for potential future assertions
             }}
             onId={(id) => {
               capturedId = id;

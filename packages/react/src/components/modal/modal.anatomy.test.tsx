@@ -40,7 +40,6 @@ describe('Modal anatomy (design.md §6.36)', () => {
   test('overlay div has fixed inset-0 and backdrop color class', async () => {
     await renderOpenModal();
     // The overlay is rendered inside the portal; query the document for it
-    const overlay = document.querySelector('[data-radix-dialog-overlay]') as HTMLElement | null;
     // Radix renders overlay as a div; look for elements with fixed inset-0 class pattern
     const allDivs = Array.from(document.querySelectorAll('div'));
     const overlayEl = allDivs.find(

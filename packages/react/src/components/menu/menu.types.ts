@@ -6,7 +6,7 @@
 
 import type { ComponentPropsWithoutRef, ReactNode } from 'react';
 import type {
-  Root, Trigger, Content, Item, SubTrigger, SubContent, CheckboxItem, RadioItem,
+  Root, Trigger, Content, Item, SubTrigger, CheckboxItem, RadioItem,
 } from '@radix-ui/react-dropdown-menu';
 import type { VariantProps } from 'class-variance-authority';
 import type { menuItemVariants } from './menu.variants.js';

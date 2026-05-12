@@ -10,7 +10,7 @@ import { X } from 'lucide-react';
 import { cn } from '../../primitives/cn.js';
 import { modalContentVariants, modalOverlayClass } from './modal.variants.js';
 import type {
-  ModalContentProps, ModalCloseProps,
+  ModalContentProps,
 } from './modal.types.js';
 
 export const Modal = RadixDialog.Root;
