@@ -5,6 +5,7 @@ dist/
 *.log
 .DS_Store
 coverage/
+*.tsbuildinfo
 .changeset/.cache
 apps/docs/dist/
 apps/docs/.dumi/tmp/
