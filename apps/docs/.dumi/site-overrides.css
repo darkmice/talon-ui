@@ -1,0 +1,11 @@
+.dumi-theme-antd-root header h1 a > span {
+  background-image: linear-gradient(135deg, #3657ff 0%, #4f60ff 38%, #0ea5e9 72%, #22d3ee 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
+.dumi-theme-antd-root[data-prefers-color='dark'] header h1 a > span {
+  background-image: linear-gradient(135deg, #f8fafc 0%, #dbeafe 16%, #a5b4fc 52%, #67e8f9 100%);
+}

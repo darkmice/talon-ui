@@ -10,3 +10,25 @@
 //   1) :root token CSS variables (light + dark via [data-theme="dark"])
 //   2) the full Tailwind utility output used by every component
 import '../../../packages/react/dist/styles.css';
+import './site-overrides.css';
+
+if (typeof document !== 'undefined') {
+  const root = document.documentElement;
+
+  const syncTheme = () => {
+    const prefers = root.getAttribute('data-prefers-color');
+
+    if (prefers === 'light' || prefers === 'dark') {
+      root.setAttribute('data-theme', prefers);
+    } else {
+      root.removeAttribute('data-theme');
+    }
+  };
+
+  syncTheme();
+
+  new MutationObserver(syncTheme).observe(root, {
+    attributes: true,
+    attributeFilter: ['data-prefers-color'],
+  });
+}

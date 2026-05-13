@@ -239,11 +239,81 @@ export default function DocsHome({ locale }: { locale: Locale }) {
           position: relative;
           overflow: hidden;
           padding: 40px 24px 88px;
+          --home-grid-line: rgba(148, 163, 184, 0.08);
+          --home-title-gradient: linear-gradient(132deg, #0f172a 0%, #1d36a6 18%, #4f60ff 52%, #1d9bf0 78%, #22d3ee 100%);
+          --home-proof-bg: rgba(255, 255, 255, 0.84);
+          --home-proof-border: var(--tp-border-default);
+          --home-proof-shadow: 0 20px 40px -34px rgba(15, 23, 42, 0.24);
+          --home-preview-halo: linear-gradient(135deg, rgba(79, 96, 255, 0.12), rgba(6, 182, 212, 0.12));
+          --home-preview-card-border: rgba(224, 231, 255, 0.92);
+          --home-preview-card-bg: linear-gradient(180deg, rgba(255, 255, 255, 0.96) 0%, rgba(244, 248, 255, 0.94) 100%);
+          --home-preview-card-shadow: 0 30px 60px -42px rgba(15, 23, 42, 0.28);
+          --home-preview-shell-bg: linear-gradient(180deg, rgba(250, 252, 255, 0.96) 0%, rgba(240, 245, 255, 0.98) 100%);
+          --home-preview-shell-border: rgba(214, 223, 245, 0.95);
+          --home-preview-shell-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.86);
+          --home-avatar-shadow: 0 12px 22px -18px rgba(15, 23, 42, 0.34);
+          --home-avatar-indigo-fg: #3145c4;
+          --home-avatar-indigo-bg: linear-gradient(180deg, rgba(111, 124, 255, 0.28) 0%, rgba(111, 124, 255, 0.16) 100%);
+          --home-avatar-slate-fg: #35506f;
+          --home-avatar-slate-bg: linear-gradient(180deg, rgba(148, 163, 184, 0.28) 0%, rgba(148, 163, 184, 0.16) 100%);
+          --home-avatar-cyan-fg: #0f7490;
+          --home-avatar-cyan-bg: linear-gradient(180deg, rgba(34, 211, 238, 0.28) 0%, rgba(34, 211, 238, 0.16) 100%);
+          --home-avatar-amber-fg: #a16207;
+          --home-avatar-amber-bg: linear-gradient(180deg, rgba(251, 191, 36, 0.3) 0%, rgba(251, 191, 36, 0.16) 100%);
+          --home-metric-bg: rgba(255, 255, 255, 0.94);
+          --home-metric-border: rgba(214, 223, 245, 0.94);
+          --home-metric-shadow: 0 18px 32px -26px rgba(15, 23, 42, 0.22);
+          --home-row-bg: rgba(255, 255, 255, 0.92);
+          --home-row-border: rgba(214, 223, 245, 0.9);
+          --home-row-shadow: 0 14px 28px -28px rgba(15, 23, 42, 0.2);
+          --home-block-bg: rgba(255, 255, 255, 0.9);
+          --home-block-border: rgba(224, 231, 255, 0.92);
+          --home-block-shadow: 0 22px 44px -34px rgba(15, 23, 42, 0.24);
+          --home-block-hover-border: rgba(99, 102, 241, 0.34);
+          --home-block-hover-shadow: 0 28px 52px -34px rgba(15, 23, 42, 0.26);
+          --home-note-bg: rgba(79, 96, 255, 0.07);
+          --home-note-border: rgba(199, 210, 254, 0.56);
           background:
             radial-gradient(circle at 12% 14%, rgba(79, 96, 255, 0.14) 0%, rgba(79, 96, 255, 0) 24%),
             radial-gradient(circle at 88% 18%, rgba(6, 182, 212, 0.11) 0%, rgba(6, 182, 212, 0) 22%),
             linear-gradient(180deg, rgba(79, 96, 255, 0.05) 0%, rgba(79, 96, 255, 0) 28%),
             var(--tp-bg-app);
+        }
+        [data-prefers-color='dark'] .talon-home {
+          --home-grid-line: rgba(71, 85, 105, 0.16);
+          --home-title-gradient: linear-gradient(132deg, #f8fafc 0%, #dbeafe 14%, #a5b4fc 42%, #7dd3fc 72%, #22d3ee 100%);
+          --home-proof-bg: rgba(15, 23, 42, 0.72);
+          --home-proof-border: rgba(71, 85, 105, 0.42);
+          --home-proof-shadow: 0 20px 40px -30px rgba(2, 6, 23, 0.52);
+          --home-preview-halo: linear-gradient(135deg, rgba(79, 96, 255, 0.28), rgba(6, 182, 212, 0.18));
+          --home-preview-card-border: rgba(96, 165, 250, 0.18);
+          --home-preview-card-bg: linear-gradient(180deg, rgba(14, 22, 38, 0.94) 0%, rgba(10, 18, 32, 0.98) 100%);
+          --home-preview-card-shadow: 0 32px 64px -36px rgba(2, 6, 23, 0.7);
+          --home-preview-shell-bg: linear-gradient(180deg, rgba(18, 28, 46, 0.94) 0%, rgba(13, 22, 38, 0.96) 100%);
+          --home-preview-shell-border: rgba(71, 85, 105, 0.44);
+          --home-preview-shell-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
+          --home-avatar-shadow: 0 14px 24px -18px rgba(2, 6, 23, 0.6);
+          --home-avatar-indigo-fg: #c7d2fe;
+          --home-avatar-indigo-bg: linear-gradient(180deg, rgba(99, 102, 241, 0.42) 0%, rgba(79, 70, 229, 0.26) 100%);
+          --home-avatar-slate-fg: #dbeafe;
+          --home-avatar-slate-bg: linear-gradient(180deg, rgba(100, 116, 139, 0.42) 0%, rgba(71, 85, 105, 0.26) 100%);
+          --home-avatar-cyan-fg: #cffafe;
+          --home-avatar-cyan-bg: linear-gradient(180deg, rgba(6, 182, 212, 0.42) 0%, rgba(8, 145, 178, 0.26) 100%);
+          --home-avatar-amber-fg: #fde68a;
+          --home-avatar-amber-bg: linear-gradient(180deg, rgba(245, 158, 11, 0.42) 0%, rgba(217, 119, 6, 0.24) 100%);
+          --home-metric-bg: rgba(17, 27, 45, 0.84);
+          --home-metric-border: rgba(71, 85, 105, 0.42);
+          --home-metric-shadow: 0 18px 32px -24px rgba(2, 6, 23, 0.6);
+          --home-row-bg: rgba(17, 27, 45, 0.8);
+          --home-row-border: rgba(71, 85, 105, 0.4);
+          --home-row-shadow: 0 14px 28px -24px rgba(2, 6, 23, 0.55);
+          --home-block-bg: rgba(15, 23, 42, 0.78);
+          --home-block-border: rgba(71, 85, 105, 0.42);
+          --home-block-shadow: 0 22px 44px -28px rgba(2, 6, 23, 0.62);
+          --home-block-hover-border: rgba(129, 140, 248, 0.52);
+          --home-block-hover-shadow: 0 26px 48px -28px rgba(2, 6, 23, 0.72);
+          --home-note-bg: rgba(37, 99, 235, 0.12);
+          --home-note-border: rgba(96, 165, 250, 0.26);
         }
         .talon-home::before {
           content: '';
@@ -251,8 +321,8 @@ export default function DocsHome({ locale }: { locale: Locale }) {
           inset: 0;
           pointer-events: none;
           background-image:
-            linear-gradient(rgba(148, 163, 184, 0.08) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(148, 163, 184, 0.08) 1px, transparent 1px);
+            linear-gradient(var(--home-grid-line) 1px, transparent 1px),
+            linear-gradient(90deg, var(--home-grid-line) 1px, transparent 1px);
           background-size: 120px 120px;
           mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.5), transparent 74%);
         }
@@ -284,7 +354,11 @@ export default function DocsHome({ locale }: { locale: Locale }) {
           line-height: 0.98;
           letter-spacing: -0.055em;
           font-weight: 760;
-          color: var(--tp-text-primary);
+          background-image: var(--home-title-gradient);
+          background-clip: text;
+          -webkit-background-clip: text;
+          color: transparent;
+          -webkit-text-fill-color: transparent;
         }
         .talon-home__lead {
           margin: 24px 0 0;
@@ -313,11 +387,11 @@ export default function DocsHome({ locale }: { locale: Locale }) {
           margin-top: 30px;
         }
         .talon-home__proof-item {
-          border: 1px solid var(--tp-border-default);
+          border: 1px solid var(--home-proof-border);
           border-radius: 20px;
           padding: 18px 18px 16px;
-          background: rgba(255, 255, 255, 0.84);
-          box-shadow: 0 20px 40px -34px rgba(15, 23, 42, 0.24);
+          background: var(--home-proof-bg);
+          box-shadow: var(--home-proof-shadow);
           backdrop-filter: blur(10px);
         }
         .talon-home__proof-label {
@@ -350,7 +424,7 @@ export default function DocsHome({ locale }: { locale: Locale }) {
           position: absolute;
           inset: 18px -8px -20px 28px;
           border-radius: 32px;
-          background: linear-gradient(135deg, rgba(79, 96, 255, 0.12), rgba(6, 182, 212, 0.12));
+          background: var(--home-preview-halo);
           filter: blur(30px);
           z-index: 0;
         }
@@ -359,9 +433,9 @@ export default function DocsHome({ locale }: { locale: Locale }) {
           z-index: 1;
           height: 100%;
           border-radius: 28px;
-          border: 1px solid rgba(224, 231, 255, 0.92);
-          background: linear-gradient(180deg, rgba(255, 255, 255, 0.96) 0%, rgba(244, 248, 255, 0.94) 100%);
-          box-shadow: 0 30px 60px -42px rgba(15, 23, 42, 0.28);
+          border: 1px solid var(--home-preview-card-border);
+          background: var(--home-preview-card-bg);
+          box-shadow: var(--home-preview-card-shadow);
         }
         .talon-home__preview-head {
           display: flex;
@@ -387,10 +461,9 @@ export default function DocsHome({ locale }: { locale: Locale }) {
         .talon-home__preview-shell {
           border-radius: 24px;
           padding: 18px;
-          background:
-            linear-gradient(180deg, rgba(250, 252, 255, 0.96) 0%, rgba(240, 245, 255, 0.98) 100%);
-          border: 1px solid rgba(214, 223, 245, 0.95);
-          box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.86);
+          background: var(--home-preview-shell-bg);
+          border: 1px solid var(--home-preview-shell-border);
+          box-shadow: var(--home-preview-shell-shadow);
         }
         .talon-home__preview-shell-top {
           display: flex;
@@ -410,23 +483,23 @@ export default function DocsHome({ locale }: { locale: Locale }) {
           color: var(--tp-text-secondary);
         }
         .talon-home__preview-avatar {
-          box-shadow: 0 12px 22px -18px rgba(15, 23, 42, 0.34);
+          box-shadow: var(--home-avatar-shadow);
         }
         .talon-home__preview-avatar--indigo {
-          color: #3145c4;
-          background: linear-gradient(180deg, rgba(111, 124, 255, 0.28) 0%, rgba(111, 124, 255, 0.16) 100%);
+          color: var(--home-avatar-indigo-fg);
+          background: var(--home-avatar-indigo-bg);
         }
         .talon-home__preview-avatar--slate {
-          color: #35506f;
-          background: linear-gradient(180deg, rgba(148, 163, 184, 0.28) 0%, rgba(148, 163, 184, 0.16) 100%);
+          color: var(--home-avatar-slate-fg);
+          background: var(--home-avatar-slate-bg);
         }
         .talon-home__preview-avatar--cyan {
-          color: #0f7490;
-          background: linear-gradient(180deg, rgba(34, 211, 238, 0.28) 0%, rgba(34, 211, 238, 0.16) 100%);
+          color: var(--home-avatar-cyan-fg);
+          background: var(--home-avatar-cyan-bg);
         }
         .talon-home__preview-avatar--amber {
-          color: #a16207;
-          background: linear-gradient(180deg, rgba(251, 191, 36, 0.3) 0%, rgba(251, 191, 36, 0.16) 100%);
+          color: var(--home-avatar-amber-fg);
+          background: var(--home-avatar-amber-bg);
         }
         .talon-home__preview-grid {
           display: grid;
@@ -439,9 +512,9 @@ export default function DocsHome({ locale }: { locale: Locale }) {
           min-height: 120px;
           border-radius: 18px;
           padding: 16px 14px;
-          background: rgba(255, 255, 255, 0.94);
-          border: 1px solid rgba(214, 223, 245, 0.94);
-          box-shadow: 0 18px 32px -26px rgba(15, 23, 42, 0.22);
+          background: var(--home-metric-bg);
+          border: 1px solid var(--home-metric-border);
+          box-shadow: var(--home-metric-shadow);
           overflow: hidden;
         }
         .talon-home__metric::before {
@@ -508,9 +581,9 @@ export default function DocsHome({ locale }: { locale: Locale }) {
         .talon-home__preview-row {
           border-radius: 16px;
           padding: 14px 14px 12px;
-          background: rgba(255, 255, 255, 0.92);
-          border: 1px solid rgba(214, 223, 245, 0.9);
-          box-shadow: 0 14px 28px -28px rgba(15, 23, 42, 0.2);
+          background: var(--home-row-bg);
+          border: 1px solid var(--home-row-border);
+          box-shadow: var(--home-row-shadow);
         }
         .talon-home__preview-row-head {
           display: flex;
@@ -550,10 +623,14 @@ export default function DocsHome({ locale }: { locale: Locale }) {
         .talon-home__block-card {
           height: 100%;
           border-radius: 24px;
-          background: rgba(255, 255, 255, 0.9);
-          border: 1px solid rgba(224, 231, 255, 0.92);
-          box-shadow: 0 22px 44px -34px rgba(15, 23, 42, 0.24);
+          background: var(--home-block-bg);
+          border: 1px solid var(--home-block-border);
+          box-shadow: var(--home-block-shadow);
           backdrop-filter: blur(8px);
+        }
+        .talon-home__block-card:hover {
+          border-color: var(--home-block-hover-border);
+          box-shadow: var(--home-block-hover-shadow);
         }
         .talon-home__block-top {
           display: flex;
@@ -602,8 +679,8 @@ export default function DocsHome({ locale }: { locale: Locale }) {
           margin-top: 18px;
           padding: 14px 16px;
           border-radius: 18px;
-          background: rgba(79, 96, 255, 0.07);
-          border: 1px solid rgba(199, 210, 254, 0.56);
+          background: var(--home-note-bg);
+          border: 1px solid var(--home-note-border);
           color: var(--tp-text-secondary);
           font-size: 13px;
           line-height: 1.65;
