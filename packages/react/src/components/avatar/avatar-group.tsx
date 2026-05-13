@@ -11,7 +11,7 @@ import { avatarVariants } from './avatar.variants.js';
 import type { AvatarGroupProps, AvatarProps } from './avatar.types.js';
 
 export const AvatarGroup = forwardRef<HTMLSpanElement, AvatarGroupProps>(function AvatarGroup(
-  { max = 3, size = 'md', className, children },
+  { max = 3, size = 'md', ring = 'surface', className, children },
   ref,
 ) {
   const all = Children.toArray(children).filter(isValidElement) as ReactElement<AvatarProps>[];
@@ -24,7 +24,7 @@ export const AvatarGroup = forwardRef<HTMLSpanElement, AvatarGroupProps>(functio
         cloneElement(child, {
           key: i,
           size,
-          ring: 'surface',
+          ring: child.props.ring ?? ring,
           className: cn(i > 0 && '-ml-tp-2', child.props.className),
         }),
       )}
@@ -34,7 +34,7 @@ export const AvatarGroup = forwardRef<HTMLSpanElement, AvatarGroupProps>(functio
           aria-label={`+${overflow} more`}
           data-size={size}
           className={cn(
-            avatarVariants({ size, ring: 'surface' }),
+            avatarVariants({ size, ring }),
             '-ml-tp-2 bg-bg-subtle text-text-secondary tp-nums',
           )}
         >

@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "dumi dev",
-    "build": "dumi build",
+    "build": "dumi build && node ./scripts/postbuild.mjs",
     "preview": "dumi preview"
   },
   "dependencies": {

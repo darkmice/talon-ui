@@ -40,6 +40,7 @@ The dot is 8px and rings the avatar with the surrounding `bg-bg-surface` so it r
 <code src="./demos/group.tsx"></code>
 
 When more avatars are passed than `max` allows, the remainder collapse into a `+N` chip that matches the group's size.
+If you want overlapped avatars without the separator ring, pass `ring="none"`.
 
 ## API
 
@@ -53,5 +54,5 @@ When more avatars are passed than `max` allows, the remainder collapse into a `+
 
 ## Don't
 
-- Don't combine `status` with `AvatarGroup` overlapping siblings — the dot collides with the next avatar's ring.
+- If the `status` dot clashes with the neighboring overlap ring, use `ring="none"`.
 - Don't use `lg` size inside a dense list row; use `sm` or `md`.

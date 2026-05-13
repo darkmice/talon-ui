@@ -115,4 +115,23 @@ describe('AvatarGroup', () => {
     // Overflow chip should have size-lg class
     expect(overflow.className).toMatch(/h-\[var\(--tp-avatar-lg\)\]/);
   });
+
+  test('AvatarGroup supports ring="none" for visible avatars and overflow chip', () => {
+    const { container } = renderAndFlush(
+      <AvatarGroup max={2} ring="none">
+        <Avatar fallback="AL" />
+        <Avatar fallback="BR" />
+        <Avatar fallback="CD" />
+      </AvatarGroup>,
+    );
+
+    const group = container.firstElementChild as HTMLElement;
+    const firstAvatar = group.children[0] as HTMLElement;
+    const secondAvatar = group.children[1] as HTMLElement;
+    const overflow = group.children[2] as HTMLElement;
+
+    expect(firstAvatar.className).not.toMatch(/ring-bg-surface/);
+    expect(secondAvatar.className).not.toMatch(/ring-bg-surface/);
+    expect(overflow.className).not.toMatch(/ring-bg-surface/);
+  });
 });

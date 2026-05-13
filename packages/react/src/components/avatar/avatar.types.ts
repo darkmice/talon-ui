@@ -23,6 +23,7 @@ export interface AvatarProps
 export interface AvatarGroupProps {
   max?: number;
   size?: AvatarProps['size'];
+  ring?: AvatarProps['ring'];
   className?: string;
   children: ReactNode;
 }

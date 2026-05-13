@@ -40,6 +40,7 @@ order: 5
 <code src="./demos/group.tsx"></code>
 
 当传入的头像数量超过 `max` 时，多余的头像折叠为 `+N` 标识，与群组尺寸保持一致。
+如需取消重叠头像之间的描边分隔，可传 `ring="none"`。
 
 ## API
 
@@ -53,5 +54,5 @@ order: 5
 
 ## 禁忌
 
-- 不要在 `AvatarGroup` 重叠的相邻头像上使用 `status` — 状态点会与相邻头像的圆环冲突。
+- 如果 `AvatarGroup` 中的状态点与相邻头像描边冲突，请改用 `ring="none"`。
 - 不要在密集列表行中使用 `lg` 尺寸；请用 `sm` 或 `md`。
