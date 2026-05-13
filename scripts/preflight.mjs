@@ -5,14 +5,17 @@
  */
 
 import { existsSync, readFileSync, statSync } from 'node:fs';
-import { join, resolve } from 'node:path';
+import { dirname, join, resolve } from 'node:path';
 import { execSync } from 'node:child_process';
+import { fileURLToPath } from 'node:url';
 
 const REQUIRED_FILES = {
   '@talon-ui/react': ['index.js', 'index.cjs', 'index.d.ts', 'styles.css'],
   '@talon-ui/tokens': ['index.js', 'index.d.ts', 'tokens.css', 'tokens.json'],
 };
 const STYLES_CSS_MIN_BYTES = 1024;
+const scriptDir = dirname(fileURLToPath(import.meta.url));
+const repoRoot = resolve(scriptDir, '..');
 
 export function auditPackage(pkgDir) {
   const pkgPath = join(pkgDir, 'package.json');
@@ -40,17 +43,18 @@ export function auditPackage(pkgDir) {
 }
 
 export function auditGitClean() {
-  const out = execSync('git status --porcelain').toString().trim();
+  const gitOptions = { cwd: repoRoot };
+  const out = execSync('git status --porcelain', gitOptions).toString().trim();
   if (out) throw new Error(`working tree not clean:\n${out}`);
-  const branch = execSync('git rev-parse --abbrev-ref HEAD').toString().trim();
+  const branch = execSync('git rev-parse --abbrev-ref HEAD', gitOptions).toString().trim();
   if (branch !== 'main') throw new Error(`expected to be on main, got ${branch}`);
   return true;
 }
 
 if (import.meta.url === `file://${process.argv[1]}`) {
   try {
-    auditPackage(resolve('packages/tokens'));
-    auditPackage(resolve('packages/react'));
+    auditPackage(join(repoRoot, 'packages/tokens'));
+    auditPackage(join(repoRoot, 'packages/react'));
     auditGitClean();
     console.log('preflight OK');
   } catch (e) {
