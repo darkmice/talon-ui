@@ -5,7 +5,7 @@
  */
 
 import { useState } from 'react';
-import { Popover, PopoverTrigger, PopoverContent, PopoverAnchor, Button, Text } from '@talon-ui/react';
+import { Popover, PopoverContent, PopoverAnchor, Button, Text } from '@talon-ui/react';
 
 export default function Demo() {
   const [open, setOpen] = useState(false);

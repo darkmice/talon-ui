@@ -15,9 +15,12 @@ import {
   FormMessage,
   ColorPicker,
 } from '@talon-ui/react';
+import { TalonTokens } from '@talon-ui/tokens';
+
+const DEFAULT_BRAND = TalonTokens.color.primary['500'].value;
 
 export default function Demo() {
-  const methods = useForm({ defaultValues: { brand: '#4F60FF' } });
+  const methods = useForm({ defaultValues: { brand: DEFAULT_BRAND } });
   return (
     <Form {...methods}>
       <form

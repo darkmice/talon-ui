@@ -37,7 +37,6 @@ if (typeof Element !== 'undefined' && !Element.prototype.releasePointerCapture) 
 import axe from 'axe-core';
 
 declare global {
-  // eslint-disable-next-line no-var
   var __runAxe: typeof axe;
 }
 

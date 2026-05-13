@@ -4,7 +4,7 @@
  * Licensed under the MIT License.
  */
 
-import tokens from './tokens.json' with { type: 'json' };
+import tokens from './tokens.json';
 
 export const TalonTokens = tokens;
 export type TalonTokens = typeof tokens;

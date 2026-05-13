@@ -17,7 +17,7 @@ export const badgePillVariants = cva(
   {
     variants: {
       kind: {
-        number: 'h-4 min-w-4 px-1',
+        number: 'h-3 min-w-3 px-1',
         dot:    'h-2 w-2 px-0',
       },
       tone: {

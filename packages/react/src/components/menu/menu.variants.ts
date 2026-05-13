@@ -38,4 +38,4 @@ export const menuItemVariants = cva(
 
 export const menuLabelClass = 'px-tp-2 py-tp-1 text-caption uppercase tracking-[0.06em] text-text-tertiary';
 export const menuSeparatorClass = '-mx-1 my-1 h-px bg-border';
-export const menuShortcutClass = 'text-caption text-text-tertiary tabular-nums ml-auto';
+export const menuShortcutClass = 'text-caption text-text-tertiary font-mono tabular-nums ml-auto';
