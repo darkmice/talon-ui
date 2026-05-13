@@ -14,6 +14,7 @@ const monorepoRoot = resolve(here, '../..');
 
 export default defineConfig({
   outputPath: 'dist',
+  title: 'Talon UI',
   // Bilingual: Chinese default, English alternate
   locales: [
     { id: 'zh-CN', name: '中文' },

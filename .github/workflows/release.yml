@@ -3,6 +3,16 @@ name: Release
 on:
   push:
     branches: [main]
+    paths:
+      - '.changeset/**'
+      - '.github/workflows/release.yml'
+      - 'package.json'
+      - 'pnpm-lock.yaml'
+      - 'pnpm-workspace.yaml'
+      - 'turbo.json'
+      - 'scripts/**'
+      - 'packages/**'
+  workflow_dispatch:
 
 concurrency:
   group: release
@@ -15,6 +25,8 @@ jobs:
       contents: write
       pull-requests: write
       id-token: write
+    env:
+      NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
     steps:
       - uses: actions/checkout@v4
         with:
@@ -27,14 +39,50 @@ jobs:
           node-version: 20
           cache: pnpm
           registry-url: https://registry.npmjs.org
+      - name: Validate release secrets
+        run: |
+          if [ -z "${{ secrets.NPM_TOKEN }}" ]; then
+            echo "::error::Missing NPM_TOKEN secret. Add it in GitHub repository settings before enabling npm publish."
+            exit 1
+          fi
       - run: pnpm install --frozen-lockfile
-      - run: pnpm turbo run build
-      - uses: changesets/action@v1
+      - run: pnpm skills:verify
+      - run: pnpm tokens:verify
+      - run: pnpm turbo run lint test build
+      - run: pnpm preflight
+      - name: Create release PR or publish to npm
+        id: changesets
+        uses: changesets/action@v1
         with:
-          publish: pnpm release
+          publish: pnpm exec changeset publish
           version: pnpm version-packages
-          commit: "chore: release"
-          title: "chore: release"
+          commit: 'chore: release'
+          title: 'chore: release'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - name: Publish summary
+        if: steps.changesets.outputs.published == 'true'
+        run: |
+          node <<'EOF'
+          const raw = process.env.PUBLISHED_PACKAGES;
+          const pkgs = raw ? JSON.parse(raw) : [];
+          const lines = [
+            '## npm publish',
+            '',
+            'Published packages:',
+            ...pkgs.map((pkg) => `- \`${pkg.name}@${pkg.version}\``),
+          ];
+          require('node:fs').appendFileSync(process.env.GITHUB_STEP_SUMMARY, `${lines.join('\n')}\n`);
+          EOF
+        env:
+          PUBLISHED_PACKAGES: ${{ steps.changesets.outputs.publishedPackages }}
+      - name: Release PR summary
+        if: steps.changesets.outputs.published != 'true'
+        run: |
+          {
+            echo "## npm release"
+            echo
+            echo "No package was published in this run."
+            echo "If there were pending changesets, Changesets has created or updated the release PR."
+          } >> "$GITHUB_STEP_SUMMARY"
