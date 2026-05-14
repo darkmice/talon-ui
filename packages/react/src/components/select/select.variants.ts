@@ -38,7 +38,7 @@ export const selectContentVariants = cva(
     'z-overlay overflow-hidden rounded-md',
     'bg-bg-surface border border-border shadow-pop',
     'p-1',
-    'min-w-[var(--radix-select-trigger-width)]',
+    'w-fit min-w-[var(--radix-select-trigger-width)]',
     'max-h-[var(--radix-select-content-available-height)]',
     'data-[state=open]:animate-in data-[state=closed]:animate-out',
     'data-[side=bottom]:slide-in-from-top-1 data-[side=top]:slide-in-from-bottom-1',
@@ -47,7 +47,7 @@ export const selectContentVariants = cva(
 
 export const selectItemVariants = cva(
   [
-    'relative flex w-full items-center rounded-sm',
+    'relative flex w-full items-center whitespace-nowrap rounded-sm',
     'h-8 px-tp-2 pr-tp-7 text-body',
     'cursor-pointer select-none',
     'outline-none',
