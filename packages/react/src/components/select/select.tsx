@@ -86,7 +86,7 @@ export const SelectItem = forwardRef<HTMLDivElement, SelectItemProps>(function S
   return (
     <RadixSelect.Item ref={ref} className={cn(selectItemVariants({ tone }), className)} {...rest}>
       <RadixSelect.ItemText>{children}</RadixSelect.ItemText>
-      <RadixSelect.ItemIndicator className="absolute right-tp-2 inline-flex items-center">
+      <RadixSelect.ItemIndicator className="absolute right-2 top-1/2 -translate-y-1/2 inline-flex items-center text-[var(--tp-interactive-fg-selected)]">
         <Check className="size-4" aria-hidden />
       </RadixSelect.ItemIndicator>
     </RadixSelect.Item>
