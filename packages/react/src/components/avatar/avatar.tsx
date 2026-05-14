@@ -26,12 +26,12 @@ export const Avatar = forwardRef<HTMLSpanElement, AvatarProps>(function Avatar(
         <RadixAvatar.Image
           src={src}
           alt={alt ?? ''}
-          className="size-full rounded-pill object-cover"
+          className="size-full rounded-pill object-cover bg-bg-subtle"
         />
       )}
       <RadixAvatar.Fallback
         delayMs={src ? 600 : 0}
-        className="size-full inline-flex items-center justify-center rounded-pill"
+        className="size-full inline-flex items-center justify-center rounded-pill bg-bg-subtle"
       >
         {fallback}
       </RadixAvatar.Fallback>

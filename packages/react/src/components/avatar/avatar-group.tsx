@@ -26,6 +26,7 @@ export const AvatarGroup = forwardRef<HTMLSpanElement, AvatarGroupProps>(functio
           size,
           ring: child.props.ring ?? ring,
           className: cn(i > 0 && '-ml-tp-2', child.props.className),
+          style: { ...(child.props.style ?? {}), zIndex: visible.length - i },
         }),
       )}
       {overflow > 0 && (
@@ -35,8 +36,9 @@ export const AvatarGroup = forwardRef<HTMLSpanElement, AvatarGroupProps>(functio
           data-size={size}
           className={cn(
             avatarVariants({ size, ring }),
-            '-ml-tp-2 bg-bg-subtle text-text-secondary tp-nums',
+            'relative -ml-tp-2 bg-bg-subtle text-text-secondary tp-nums',
           )}
+          style={{ zIndex: 0 }}
         >
           +{overflow}
         </span>
