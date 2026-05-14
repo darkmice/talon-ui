@@ -20,7 +20,9 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(function Input(
       data-size={size ?? 'md'}
       data-tone={computedTone ?? 'default'}
     >
-      {prefix}
+      {prefix != null && (
+        <span className="inline-flex shrink-0 items-center text-text-tertiary">{prefix}</span>
+      )}
       <input
         ref={ref}
         disabled={disabled}
@@ -31,7 +33,9 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(function Input(
         )}
         {...rest}
       />
-      {suffix}
+      {suffix != null && (
+        <span className="inline-flex shrink-0 items-center text-text-tertiary">{suffix}</span>
+      )}
     </label>
   );
 });
