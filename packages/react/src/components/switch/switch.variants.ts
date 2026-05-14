@@ -8,7 +8,7 @@ import { cva } from 'class-variance-authority';
 
 export const switchVariants = cva(
   [
-    'peer inline-flex shrink-0 cursor-pointer items-center',
+    'peer relative inline-flex shrink-0 cursor-pointer items-center',
     'rounded-pill border border-transparent bg-bg-subtle',
     'transition duration-fast ease-tp',
     'focus-visible:tp-focus-ring focus-visible:outline-none',
@@ -30,16 +30,20 @@ export const switchVariants = cva(
   },
 );
 
+/**
+ * Thumb 用 absolute + inset-y 垂直锁死 + left/right auto 切换水平位置,
+ * 完全不依赖 translate / box-sizing,任何 Tailwind 版本都对齐。
+ */
 export const switchThumbVariants = cva(
   [
-    'pointer-events-none block rounded-pill bg-bg-surface shadow-sm',
-    'transition-transform duration-fast ease-tp',
+    'pointer-events-none absolute block rounded-pill bg-bg-surface shadow-sm aspect-square',
+    'transition-[left,right] duration-fast ease-tp',
   ],
   {
     variants: {
       size: {
-        sm: 'size-3 translate-x-[2px] data-[state=checked]:translate-x-[14px]',
-        md: 'size-[14px] translate-x-[2px] data-[state=checked]:translate-x-[16px]',
+        sm: 'inset-y-[1px] left-[1px] right-auto data-[state=checked]:left-auto data-[state=checked]:right-[1px]',
+        md: 'inset-y-[1px] left-[1px] right-auto data-[state=checked]:left-auto data-[state=checked]:right-[1px]',
       },
     },
     defaultVariants: { size: 'md' },

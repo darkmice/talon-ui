@@ -19,6 +19,7 @@ export * from './components/form/index.js';
 export * from './components/checkbox/index.js';
 export * from './components/radio/index.js';
 export * from './components/switch/index.js';
+export * from './components/segmented-control/index.js';
 export * from './components/slider/index.js';
 export * from './components/number-input/index.js';
 export * from './components/rate/index.js';

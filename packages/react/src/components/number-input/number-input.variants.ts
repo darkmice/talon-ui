@@ -8,7 +8,7 @@ import { cva } from 'class-variance-authority';
 
 export const numberInputWrapVariants = cva(
   [
-    'inline-flex items-stretch w-full',
+    'inline-flex items-stretch w-full overflow-hidden',
     'rounded-md bg-bg-surface border border-border',
     'transition duration-fast ease-tp',
     'focus-within:tp-focus-ring focus-within:border-primary-500',
