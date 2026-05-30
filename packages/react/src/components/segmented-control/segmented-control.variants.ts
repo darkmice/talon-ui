@@ -7,7 +7,7 @@
 import { cva } from 'class-variance-authority';
 
 export const segmentedControlRootVariants = cva(
-  ['inline-flex rounded-lg border border-[#E7ECF4] bg-[#F1F5F9] p-1'],
+  ['inline-flex rounded-lg border border-[#E7ECF4] bg-white p-1'],
   {
     variants: {
       size: {
