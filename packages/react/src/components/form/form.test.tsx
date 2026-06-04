@@ -66,6 +66,10 @@ describe('useFormField', () => {
       useFormField();
       return null;
     }
+    // Suppress React's error boundary console output(同 toast.test.tsx 约定:
+    // 否则 React/jsdom 把预期抛错当未捕获错误上报,vitest 失败)。
+    const originalError = console.error;
+    console.error = () => {};
     // Wrap in Harness (which has FormProvider) but not in FormField
     expect(() =>
       render(
@@ -76,6 +80,7 @@ describe('useFormField', () => {
         </Harness>,
       ),
     ).toThrow('useFormField must be used within <FormField>');
+    console.error = originalError;
   });
 
   // Test 2: useFormField outside FormItem throws
@@ -84,6 +89,8 @@ describe('useFormField', () => {
       useFormField();
       return null;
     }
+    const originalError = console.error;
+    console.error = () => {};
     expect(() =>
       render(
         <Harness>
@@ -94,6 +101,7 @@ describe('useFormField', () => {
         </Harness>,
       ),
     ).toThrow('useFormField must be used within <FormItem>');
+    console.error = originalError;
   });
 });
 
