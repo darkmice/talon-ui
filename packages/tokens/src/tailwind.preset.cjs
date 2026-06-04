@@ -25,8 +25,11 @@ module.exports = {
         bg: {
           app: 'var(--tp-bg-app)',
           surface: 'var(--tp-bg-surface)',
+          'surface-2': 'var(--tp-bg-surface-2)',
           subtle: 'var(--tp-bg-subtle)',
           inverse: 'var(--tp-bg-inverse)',
+          overlay: 'var(--tp-bg-overlay)',
+          tooltip: 'var(--tp-bg-tooltip)',
         },
         border: {
           DEFAULT: 'var(--tp-border-default)',

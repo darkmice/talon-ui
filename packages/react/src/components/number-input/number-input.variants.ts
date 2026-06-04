@@ -23,7 +23,7 @@ export const numberInputWrapVariants = cva(
       },
       tone: {
         default: '',
-        invalid: 'border-[#C8322B] focus-within:border-[#C8322B]',
+        invalid: 'border-danger focus-within:border-danger',
       },
     },
     defaultVariants: { size: 'md', tone: 'default' },

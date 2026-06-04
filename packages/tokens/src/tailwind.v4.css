@@ -79,6 +79,7 @@
   --color-bg-surface-2: var(--tp-bg-surface-2);
   --color-bg-subtle: var(--tp-bg-subtle);
   --color-bg-inverse: var(--tp-bg-inverse);
+  --color-bg-tooltip: var(--tp-bg-tooltip);
   --color-bg-overlay: var(--tp-bg-overlay);
 
   --color-border-subtle: var(--tp-border-subtle);

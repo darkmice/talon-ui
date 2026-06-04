@@ -40,10 +40,10 @@ describe('Textarea anatomy (design.md §6.2)', () => {
     expect(textarea).toHaveAttribute('rows', '1');
   });
 
-  test('invalid tone: wrapper has border-[#DC2626]', () => {
+  test('invalid tone: wrapper has border-danger', () => {
     const { container } = render(<Textarea tone="invalid" />);
     const wrapper = container.firstElementChild as HTMLElement;
-    expect(wrapper.className).toMatch(/border-\[#DC2626\]/);
+    expect(wrapper.className).toMatch(/border-danger/);
     expect(wrapper.dataset['tone']).toBe('invalid');
   });
 });

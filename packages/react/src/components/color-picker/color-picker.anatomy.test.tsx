@@ -57,7 +57,7 @@ describe('ColorPicker anatomy (design.md §6.39)', () => {
   test('Trigger with tone=invalid has red border class', () => {
     render(<ColorPicker tone="invalid" />);
     const trigger = screen.getByRole('button', { name: /pick a color/i });
-    expect(trigger.className).toMatch(/C8322B/);
+    expect(trigger.className).toMatch(/border-danger/);
   });
 
   test('Trigger with size=sm has h-control-sm class', () => {

@@ -24,7 +24,7 @@ export const timePickerTriggerVariants = cva(
       },
       tone: {
         default: '',
-        invalid: 'border-[#C8322B] focus:border-[#C8322B]',
+        invalid: 'border-danger focus:border-danger',
       },
     },
     defaultVariants: { size: 'md', tone: 'default' },

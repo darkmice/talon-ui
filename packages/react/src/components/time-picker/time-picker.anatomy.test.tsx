@@ -78,7 +78,7 @@ describe('TimePicker anatomy (design.md §6.39)', () => {
   test('tone invalid applies red border class to trigger', () => {
     render(<TimePicker tone="invalid" />);
     const trigger = screen.getByRole('button');
-    expect(trigger.className).toMatch(/C8322B/);
+    expect(trigger.className).toMatch(/border-danger/);
   });
 
   test('Footer contains Now and Clear buttons', async () => {

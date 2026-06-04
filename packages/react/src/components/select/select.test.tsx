@@ -86,7 +86,7 @@ describe('Select', () => {
     render(<BasicSelect />);
     await user.click(screen.getByRole('combobox'));
     const dangerItem = screen.getByRole('option', { name: 'Delete account' });
-    expect(dangerItem.className).toMatch(/text-\[#C8322B\]/);
+    expect(dangerItem.className).toMatch(/text-danger/);
   });
 
   test('forwardRef on SelectTrigger reaches the underlying button', () => {

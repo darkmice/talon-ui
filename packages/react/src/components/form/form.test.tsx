@@ -179,7 +179,7 @@ describe('Form wiring', () => {
 
     expect(message.textContent).toBe('Email is required');
     expect(input.getAttribute('aria-invalid')).toBe('true');
-    expect(label.className).toMatch(/text-\[#C8322B\]/);
+    expect(label.className).toMatch(/text-danger/);
   });
 
   // Test 5: FormMessage explicit children render when no error

@@ -65,7 +65,7 @@ export const Rate = forwardRef<HTMLDivElement, RateProps>(function Rate(
               style={{ width: filled ? '100%' : halfFilled ? '50%' : '0%' }}
               aria-hidden
             >
-              <Star className={cn(starClass, 'text-[#F59E0B]')} strokeWidth={1.5} fill="#F59E0B" aria-hidden />
+              <Star className={cn(starClass, 'text-accent-amber fill-accent-amber')} strokeWidth={1.5} aria-hidden />
             </span>
             {/* Click targets — full + (optionally) half */}
             {allowHalf && (

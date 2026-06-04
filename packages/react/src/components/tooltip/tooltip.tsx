@@ -27,7 +27,7 @@ export const TooltipContent = forwardRef<HTMLDivElement, TooltipContentProps>(fu
         {...rest}
       >
         {children}
-        <RadixTooltip.Arrow className="fill-bg-inverse" width={10} height={6} />
+        <RadixTooltip.Arrow className="fill-bg-tooltip" width={10} height={6} />
       </RadixTooltip.Content>
     </RadixTooltip.Portal>
   );

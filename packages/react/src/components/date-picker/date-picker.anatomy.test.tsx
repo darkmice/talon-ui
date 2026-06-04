@@ -84,6 +84,6 @@ describe('DatePicker anatomy (design.md §6.38)', () => {
   test('tone invalid applies red border class to trigger', () => {
     render(<DatePicker tone="invalid" placeholder="Pick a date" />);
     const trigger = screen.getByRole('button', { name: /pick a date/i });
-    expect(trigger.className).toMatch(/C8322B/);
+    expect(trigger.className).toMatch(/border-danger/);
   });
 });

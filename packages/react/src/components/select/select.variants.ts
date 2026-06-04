@@ -26,7 +26,7 @@ export const selectTriggerVariants = cva(
       },
       tone: {
         default: '',
-        invalid: 'border-[#C8322B] focus:border-[#C8322B]',
+        invalid: 'border-danger focus:border-danger',
       },
     },
     defaultVariants: { size: 'md', tone: 'default' },
@@ -59,7 +59,7 @@ export const selectItemVariants = cva(
     variants: {
       tone: {
         default: 'text-text-primary',
-        danger: 'text-[#C8322B] data-[highlighted]:bg-[#FCE3E1]',
+        danger: 'text-danger-500 data-[highlighted]:bg-status-blocked-bg',
       },
     },
     defaultVariants: { tone: 'default' },

@@ -29,7 +29,7 @@ export const menuItemVariants = cva(
     variants: {
       tone: {
         default: 'text-text-primary',
-        danger: 'text-danger-500 data-[highlighted]:bg-[#FCE3E1]',
+        danger: 'text-danger-500 data-[highlighted]:bg-status-blocked-bg',
       },
     },
     defaultVariants: { tone: 'default' },

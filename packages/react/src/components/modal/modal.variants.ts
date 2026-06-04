@@ -7,7 +7,7 @@
 import { cva } from 'class-variance-authority';
 
 export const modalOverlayClass =
-  'fixed inset-0 z-overlay bg-[rgba(15,23,42,0.4)] data-[state=open]:animate-in data-[state=closed]:animate-out';
+  'fixed inset-0 z-overlay bg-bg-overlay data-[state=open]:animate-in data-[state=closed]:animate-out';
 
 export const modalContentVariants = cva(
   [

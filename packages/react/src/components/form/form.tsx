@@ -53,7 +53,7 @@ export const FormLabel = forwardRef<HTMLLabelElement, LabelHTMLAttributes<HTMLLa
     <label
       ref={ref}
       htmlFor={formItemId}
-      className={cn('text-body-strong text-text-primary', error && 'text-[#C8322B]', className)}
+      className={cn('text-body-strong text-text-primary', error && 'text-danger', className)}
       {...rest}
     />
   );
@@ -99,7 +99,7 @@ export const FormMessage = forwardRef<HTMLParagraphElement, HTMLAttributes<HTMLP
     <p
       ref={ref}
       id={formMessageId}
-      className={cn('text-caption text-[#C8322B]', className)}
+      className={cn('text-caption text-danger', className)}
       {...rest}
     >
       {body}

@@ -24,7 +24,7 @@ export const textareaVariants = cva(
       },
       tone: {
         default: '',
-        invalid: 'border-[#DC2626] focus-within:border-[#DC2626]',
+        invalid: 'border-danger focus-within:border-danger',
       },
     },
     defaultVariants: { size: 'md', tone: 'default' },

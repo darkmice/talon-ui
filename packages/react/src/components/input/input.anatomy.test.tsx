@@ -28,10 +28,10 @@ describe('Input anatomy (design.md §6.2)', () => {
     expect(input.className).toMatch(/outline-none/);
   });
 
-  test('invalid tone: wrapper has border-[#DC2626]', () => {
+  test('invalid tone: wrapper has border-danger', () => {
     const { container } = render(<Input tone="invalid" />);
     const wrapper = container.firstElementChild as HTMLElement;
-    expect(wrapper.className).toMatch(/border-\[#DC2626\]/);
+    expect(wrapper.className).toMatch(/border-danger/);
     expect(wrapper.dataset['tone']).toBe('invalid');
   });
 

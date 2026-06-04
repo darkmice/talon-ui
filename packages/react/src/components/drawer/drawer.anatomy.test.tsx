@@ -84,7 +84,7 @@ describe('Drawer anatomy (design.md §6.37)', () => {
     expect(overlayEl).not.toBeNull();
     expect(overlayEl!.className).toMatch(/fixed/);
     expect(overlayEl!.className).toMatch(/inset-0/);
-    expect(overlayEl!.className).toMatch(/bg-\[rgba\(15,23,42,0\.4\)\]/);
+    expect(overlayEl!.className).toMatch(/bg-bg-overlay/);
   });
 
   test('DrawerBody has flex-1 overflow-y-auto class', async () => {

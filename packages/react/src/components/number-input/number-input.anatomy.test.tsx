@@ -62,10 +62,10 @@ describe('NumberInput anatomy (design.md §6.41)', () => {
     expect(wrapper.dataset['size']).toBe('sm');
   });
 
-  test('tone invalid: wrapper has border-[#C8322B]', () => {
+  test('tone invalid: wrapper has border-danger', () => {
     const { container } = render(<NumberInput tone="invalid" defaultValue={0} />);
     const wrapper = container.firstElementChild as HTMLElement;
-    expect(wrapper.className).toMatch(/border-\[#C8322B\]/);
+    expect(wrapper.className).toMatch(/border-danger/);
     expect(wrapper.dataset['tone']).toBe('invalid');
   });
 

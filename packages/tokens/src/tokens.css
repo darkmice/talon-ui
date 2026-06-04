@@ -172,6 +172,7 @@
   --tp-bg-surface-2: var(--tp-gray-25);
   --tp-bg-subtle: var(--tp-gray-100);
   --tp-bg-inverse: var(--tp-gray-1000);
+  --tp-bg-tooltip: var(--tp-gray-1000);
   --tp-bg-overlay: rgba(15, 23, 42, 0.4);
 
   /* border */
@@ -237,6 +238,7 @@
     --tp-bg-surface-2: #18213a;
     --tp-bg-subtle: #1b2438;
     --tp-bg-inverse: #f1f3f7;
+    --tp-bg-tooltip: #2b3654;
     --tp-bg-overlay: rgba(0, 0, 0, 0.55);
 
     --tp-border-subtle: #1f2a40;
@@ -300,6 +302,7 @@
   --tp-bg-surface-2: #18213a;
   --tp-bg-subtle: #1b2438;
   --tp-bg-inverse: #f1f3f7;
+  --tp-bg-tooltip: #2b3654;
   --tp-bg-overlay: rgba(0, 0, 0, 0.55);
   --tp-border-subtle: #1f2a40;
   --tp-border-default: #25324b;

@@ -158,7 +158,7 @@ export const Upload = forwardRef<HTMLDivElement, UploadProps>(function Upload(
                   <span className="text-caption text-text-tertiary tp-nums">{formatBytes(f.size)}</span>
                 </div>
                 {f.status === 'error' && (
-                  <p className="text-caption text-[#C8322B] mt-tp-1">{f.error}</p>
+                  <p className="text-caption text-danger mt-tp-1">{f.error}</p>
                 )}
                 {f.status === 'uploading' && (
                   <div className="mt-tp-1 h-1 rounded-pill bg-bg-subtle overflow-hidden">
@@ -208,7 +208,7 @@ export const Upload = forwardRef<HTMLDivElement, UploadProps>(function Upload(
                     setList(list.filter((r) => r.id !== f.id));
                     onRemove?.(f.id);
                   }}
-                  className="text-text-secondary hover:text-[#C8322B]"
+                  className="text-text-secondary hover:text-danger"
                 >
                   <Trash2 className="size-4" />
                 </button>

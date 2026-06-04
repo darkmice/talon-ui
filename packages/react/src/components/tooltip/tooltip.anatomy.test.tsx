@@ -28,15 +28,15 @@ async function renderOpenTooltip() {
 }
 
 describe('Tooltip anatomy (design.md §6.35)', () => {
-  test('TooltipContent root div has design token classes: bg-bg-inverse, text-text-on-primary, rounded-sm', async () => {
+  test('TooltipContent root div has design token classes: bg-bg-tooltip, text-text-on-primary, rounded-sm', async () => {
     const contentEl = await renderOpenTooltip();
     expect(contentEl.tagName).toBe('DIV');
-    expect(contentEl.className).toMatch(/bg-bg-inverse/);
+    expect(contentEl.className).toMatch(/bg-bg-tooltip/);
     expect(contentEl.className).toMatch(/text-text-on-primary/);
     expect(contentEl.className).toMatch(/rounded-sm/);
   });
 
-  test('Arrow SVG is rendered inside the tooltip content area with fill-bg-inverse', async () => {
+  test('Arrow SVG is rendered inside the tooltip content area with fill-bg-tooltip', async () => {
     const contentEl = await renderOpenTooltip();
     // The SVG arrow is rendered inside the content div (as a child span contains svg)
     const svg = contentEl.querySelector('svg');
@@ -45,6 +45,6 @@ describe('Tooltip anatomy (design.md §6.35)', () => {
     const svgClass = typeof svg!.getAttribute('class') === 'string'
       ? svg!.getAttribute('class')!
       : String((svg!.className as unknown as SVGAnimatedString).baseVal);
-    expect(svgClass).toMatch(/fill-bg-inverse/);
+    expect(svgClass).toMatch(/fill-bg-tooltip/);
   });
 });
