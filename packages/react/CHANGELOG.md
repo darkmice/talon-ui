@@ -1,5 +1,15 @@
 # @talon-ui/react
 
+## 0.5.1
+
+### Patch Changes
+
+- [`fdc9174`](https://github.com/darkmice/talon-ui/commit/fdc91747dbf4a253fdff0d48c0c1579f26dbea6b) Thanks [@darkmice](https://github.com/darkmice)! - 深色模式适配:SegmentedControl 等组件由硬编码 `bg-white`/hex 改为语义 token + `dark:`
+  变体;Tooltip 白块根治;表单 hex→token;遮罩与 accent 深色处理;tokens 深色值 /
+  preset 补齐。修复手动 `data-theme=dark` 下组件不变深色的问题。
+- Updated dependencies [[`fdc9174`](https://github.com/darkmice/talon-ui/commit/fdc91747dbf4a253fdff0d48c0c1579f26dbea6b)]:
+  - @talon-ui/tokens@0.1.2
+
 ## 0.5.0
 
 ### Minor Changes
