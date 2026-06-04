@@ -7,7 +7,7 @@
 import { cva } from 'class-variance-authority';
 
 export const segmentedControlRootVariants = cva(
-  ['inline-flex rounded-lg border border-[#E7ECF4] bg-white p-1'],
+  ['inline-flex rounded-lg border border-border bg-bg-subtle p-1'],
   {
     variants: {
       size: {
@@ -33,8 +33,8 @@ export const segmentedControlItemVariants = cva(
         md: 'px-4 py-1.5 text-[13px]',
       },
       selected: {
-        true: 'bg-white font-medium text-[#0F172A] shadow-[0_1px_3px_rgba(15,23,42,0.12),0_1px_2px_rgba(15,23,42,0.08),0_0_0_1px_rgba(15,23,42,0.08)]',
-        false: 'text-[#64748B] hover:text-[#0F172A] hover:bg-white/40',
+        true: 'bg-bg-surface font-medium text-text-primary shadow-[0_1px_3px_rgba(15,23,42,0.12),0_1px_2px_rgba(15,23,42,0.08),0_0_0_1px_rgba(15,23,42,0.08)] dark:shadow-[0_1px_3px_rgba(0,0,0,0.4),0_0_0_1px_rgba(255,255,255,0.06)]',
+        false: 'text-text-secondary hover:text-text-primary hover:bg-bg-surface/40',
       },
     },
     defaultVariants: { size: 'md', selected: false },
