@@ -285,6 +285,21 @@
     --tp-diff-add-fg: #5bc892;
     --tp-diff-del-bg: #2b1311;
     --tp-diff-del-fg: #e88a85;
+
+    /* accent soft/ink 深色翻转:soft=同色相低透明叠加(仿 status-*-bg),ink=浅色字。
+       浅色 soft 是 #ede9fe 这类浅底,深色不翻转会在暗背景上成刺眼浅块。 */
+    --tp-accent-violet-soft: rgba(124, 92, 255, 0.18);
+    --tp-accent-violet-ink: #c4b5fd;
+    --tp-accent-orange-soft: rgba(249, 115, 22, 0.16);
+    --tp-accent-orange-ink: #fdba74;
+    --tp-accent-green-soft: rgba(16, 185, 129, 0.16);
+    --tp-accent-green-ink: #6ee7b7;
+    --tp-accent-amber-soft: rgba(245, 158, 11, 0.16);
+    --tp-accent-amber-ink: #fcd34d;
+    --tp-accent-cyan-soft: rgba(6, 182, 212, 0.16);
+    --tp-accent-cyan-ink: #67e8f9;
+    --tp-accent-pink-soft: rgba(236, 72, 153, 0.16);
+    --tp-accent-pink-ink: #f9a8d4;
   }
 }
 
@@ -343,6 +358,20 @@
   --tp-diff-add-fg: #5bc892;
   --tp-diff-del-bg: #2b1311;
   --tp-diff-del-fg: #e88a85;
+
+  /* accent soft/ink 深色翻转(同 @media dark 段,强制暗主题用)。 */
+  --tp-accent-violet-soft: rgba(124, 92, 255, 0.18);
+  --tp-accent-violet-ink: #c4b5fd;
+  --tp-accent-orange-soft: rgba(249, 115, 22, 0.16);
+  --tp-accent-orange-ink: #fdba74;
+  --tp-accent-green-soft: rgba(16, 185, 129, 0.16);
+  --tp-accent-green-ink: #6ee7b7;
+  --tp-accent-amber-soft: rgba(245, 158, 11, 0.16);
+  --tp-accent-amber-ink: #fcd34d;
+  --tp-accent-cyan-soft: rgba(6, 182, 212, 0.16);
+  --tp-accent-cyan-ink: #67e8f9;
+  --tp-accent-pink-soft: rgba(236, 72, 153, 0.16);
+  --tp-accent-pink-ink: #f9a8d4;
 }
 
 /* ---------------------------------------------------------

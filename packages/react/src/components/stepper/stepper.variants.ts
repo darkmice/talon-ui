@@ -51,8 +51,8 @@ export const stepperConnectorVariants = cva('block', {
       vertical: 'w-px h-tp-6 ml-tp-3',
     },
     status: {
-      complete: 'bg-primary-200',
-      current:  'bg-primary-200',
+      complete: 'bg-primary-200 dark:bg-primary-800',
+      current:  'bg-primary-200 dark:bg-primary-800',
       idle:     'bg-border',
       error:    'bg-border',
     },
