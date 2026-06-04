@@ -25,13 +25,14 @@ describe('Switch anatomy', () => {
     expect(thumb).toBeInTheDocument();
   });
 
-  test('checked: data-state="checked", track has bg-primary-500, thumb has translate-x-[16px]', () => {
+  test('checked: data-state="checked", track has bg-primary-500, thumb slides right', () => {
     const { container } = render(<Switch defaultChecked />);
     const btn = container.querySelector('button') as HTMLButtonElement;
     expect(btn).toHaveAttribute('data-state', 'checked');
     expect(btn.className).toMatch(/data-\[state=checked\]:bg-primary-500/);
     const thumb = btn.querySelector('span') as HTMLSpanElement;
-    expect(thumb.className).toMatch(/data-\[state=checked\]:translate-x-\[16px\]/);
+    // thumb 选中态从左贴边切到右贴边(left-auto + right-[1px]),不再用 translate-x
+    expect(thumb.className).toMatch(/data-\[state=checked\]:right-\[1px\]/);
   });
 
   test('thumb classes include rounded-pill bg-bg-surface shadow-sm', () => {
